@@ -1,0 +1,15 @@
+{
+    "default":
+    {
+        "controller": "error",
+        "action"    : "http404"
+    },
+
+    "home":
+    {
+        "pattern"   : "|^$|",
+        "controller": "home",
+        "action"    : "index",
+        "reverse"   : ""
+    }
+}

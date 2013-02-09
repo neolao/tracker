@@ -1,0 +1,25 @@
+FileETag none
+EnableSendfile Off
+AddDefaultCharset utf-8
+
+# Do not browse directories
+Options -Indexes
+
+# PHP variables
+<IfModule mod_php5.c>
+    php_value magic_quotes_gpc off
+</IfModule>
+
+# Rewrite URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    Options +FollowSymLinks
+    RewriteRule ^$                        index.php  [L]
+    RewriteCond %{REQUEST_FILENAME}       !-f
+    RewriteCond %{REQUEST_FILENAME}       !-d
+    RewriteRule (.*)                      index.php/$1  [QSA,L]
+    RewriteRule ^index.php$               index.php
+</IfModule>
+
+

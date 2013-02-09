@@ -34,3 +34,36 @@ spl_autoload_register('defaultAutoload');
 set_include_path(get_include_path().PATH_SEPARATOR.LIB_PATH.PATH_SEPARATOR.APPLICATION_PATH);
 
 
+// Set the default error handler
+function defaultErrorHandler($level, $message, $file, $line)
+{
+    $output = "$message ($file:$line)";
+    throw new \Exception($output);
+}
+function defaultExceptionHandler($exception)
+{
+    if (ob_get_length()) {
+        ob_end_clean();
+    }
+    
+    // Report the error
+    //Neo_Util_Log::error($exception->getMessage());
+    //Neo_Util_Log::error($exception->getTraceAsString());
+    
+    // If the header is already sent, do not display a message
+    if (headers_sent()) {
+        exit;
+    }
+    
+    // Display a message
+    header('HTTP/1.0 500 Internal Error');
+    echo 'An error occured !';
+    if (ob_get_length()) {
+        ob_end_flush();
+    }
+    exit;
+}
+set_error_handler('defaultErrorHandler');
+set_exception_handler('defaultExceptionHandler');
+
+

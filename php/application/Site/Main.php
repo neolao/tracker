@@ -7,20 +7,6 @@ namespace Site;
 /**
  * Main site
  */
-class Main
+class Main extends \Neolao\Site
 {
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-    }
-
-    /**
-     * Run the site
-     */
-    public function run()
-    {
-        echo 'Hello world!';
-    }
 }

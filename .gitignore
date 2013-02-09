@@ -1,2 +1,5 @@
 config/general.json
+config/siteMain.json
 data
+www/.htaccess
+
