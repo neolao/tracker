@@ -68,6 +68,7 @@ class Site
         
         // Create a default view renderer
         $this->_view = new \Neolao\Site\View();
+        $this->_view->site = $this;
 
         // Register default helpers for the view
         $this->_addViewHelpers($this->_view);
@@ -94,6 +95,16 @@ class Site
     }
 
     /**
+     * Get the controllers path
+     *
+     * @return  string                      Controllers path
+     */
+    public function getControllersPath()
+    {
+        return $this->_controllersPath;
+    }
+
+    /**
      * Set the views path
      *
      * @param   string      $path           Views path
@@ -101,6 +112,17 @@ class Site
     public function setViewsPath($path)
     {
         $this->_viewsPath = $path;
+        $this->_view->setDirectory($path);
+    }
+
+    /**
+     * Get the views path
+     *
+     * @return  string                      Views path
+     */
+    public function getViewsPath()
+    {
+        return $this->_viewsPath;
     }
 
     /**
@@ -111,6 +133,14 @@ class Site
     public function setViewRenderer($renderer)
     {
         $this->_view = $renderer;
+        $this->_view->site = $this;
+
+        // Set the views path
+        $directory = $this->_viewsPath;
+        $this->_view->setDirectory($directory);
+
+        // Register default helpers for the view
+        $this->_addViewHelpers($this->_view);
     }
 
     /**
@@ -184,8 +214,7 @@ class Site
 
             // Display the default action of the error controller
             try {
-                $this->_view->parameters['error'] = $error;
-                $this->_view->parameters['errorMessage'] = $error->getMessage();
+                $this->_view->message = $error->getMessage();
                 $this->display('error', 'index');
             } catch (\Exception $errorForError) {
                 if (ob_get_length()) {
@@ -238,8 +267,8 @@ class Site
      */
     public function render($viewName)
     {
-        $viewPath = $this->_viewsPath.'/'.$viewName;
-        $this->_view->render($viewPath);
+        $renderedView = $this->_view->render($viewName);
+        echo $renderedView;
         @ob_end_flush();
         exit;
     }
@@ -268,7 +297,7 @@ class Site
      */
     protected function _addControllerHelpers(\Neolao\Site\Controller $controller)
     {
-        
+
     }
 
     /**

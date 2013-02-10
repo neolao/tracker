@@ -10,11 +10,18 @@ namespace Neolao\Site;
 class View
 {
     /**
-     * Parameters
+     * Site instance
      *
-     * @var array
+     * @var \Neolao\Site
      */
-    public $parameters;
+    public $site;
+
+    /**
+     * Directory path of the templates
+     *
+     * @var string
+     */
+    protected $_directoryPath;
 
     /**
      * Helper list
@@ -30,22 +37,35 @@ class View
      */
     public function __construct()
     {
-        $this->parameters = array();
         $this->_helpers = array();
+    }
+
+    /**
+     * Set the directory path of the templates
+     *
+     * @param   string  $directoryPath  Directory path
+     */
+    public function setDirectory($directoryPath)
+    {
+        $this->_directoryPath = $directoryPath;
     }
     
     /**
-     * Render a template file
+     * Render a view name
      * 
-     * @param   string  $templatePath   Template path to render
+     * @param   string  $viewName       View name to render
+     * @return  string                  The rendered view
      */
-    public function render($templatePath)
+    public function render($viewName)
     {
+        $templatePath = $this->_directoryPath.'/'.$viewName;
         if (!is_file($templatePath)) {
             throw new \Exception('Template file not found: '.$templatePath);
         }
-        
-        include $templatePath;
+
+        // Render
+        $result = file_get_contents($templatePath);
+        return $result;
     }
 
     /**
@@ -72,6 +92,7 @@ class View
             'className'     => $helperClass,
             'parameters'    => $parameters
         );
+        $view = $this;
     }
     
     /**
@@ -93,9 +114,15 @@ class View
                 $helperParameters   = $helper['parameters'];
                 $helper             = new $helperClassName();
                 if ($helper instanceof \Neolao\Site\Helper\ViewInterface) {
+                    // Set parameters
                     foreach ($helperParameters as $helperParameterName => $helperParameterValue) {
                         $helper->$helperParameterName = $helperParameterValue;
                     }
+
+                    // Set the view
+                    $helper->setView($this);
+
+                    // Save the instance
                     $this->_helpers[$name] = $helper;
                 }
             }

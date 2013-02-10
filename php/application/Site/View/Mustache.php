@@ -24,25 +24,30 @@ class Mustache extends \Neolao\Site\View
     }
 
     /**
-     * Render a template file
+     * Render a view name
      * 
-     * @param   string  $templatePath   Template path to render
+     * @param   string  $viewName       View name to render
+     * @return  string                  The rendered view
      */
-    public function render($templatePath)
+    public function render($viewName)
     {
+        $templatePath = $this->_directoryPath.'/'.$viewName;
         if (!is_file($templatePath)) {
-            throw new \Exception('Template file not found: '.$templatePath);
+            //throw new \Exception('Template file not found: '.$templatePath);
         }
 
         // Initialize the engine
         if (!$this->_engine) {
-            $this->_engine = new \Mustache_Engine();
+            $options = array(
+                'loader' => new \Mustache_Loader_FilesystemLoader($this->_directoryPath),
+                'partials_loader' => new \Mustache_Loader_FilesystemLoader($this->_directoryPath)
+            );
+            $this->_engine = new \Mustache_Engine($options);
         }
 
         // Render
-        $templateContent = file_get_contents($templatePath);
-        echo $this->_engine->render($templateContent, $this->parameters);
-        exit;
+        $result = $this->_engine->render($viewName, $this);
+        return $result;
     }
 
 }
