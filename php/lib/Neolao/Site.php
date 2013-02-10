@@ -307,5 +307,6 @@ class Site
      */
     protected function _addViewHelpers(\Neolao\Site\View $view)
     {
+        //$view->registerHelperClass('example', '\\Neolao\\Site\\Helper\\View\\Example');
     }
 }

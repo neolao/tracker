@@ -2,5 +2,7 @@
     "server"    :
     {
         "name"      : "localhost"
-    }
+    },
+
+    "theme"     : "default"
 }

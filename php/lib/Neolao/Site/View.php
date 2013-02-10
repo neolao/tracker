@@ -77,6 +77,14 @@ class View
     public function registerHelper($key, \Neolao\Site\Helper\ViewInterface $helper)
     {
         $this->_helpers[$key] = $helper;
+
+        // Create the function on the view
+        $view = $this;
+        $this->$key = function($argument) use ($view, $helper)
+        {
+            return $helper->main($argument);
+        };
+
     }
 
     /**
@@ -92,9 +100,16 @@ class View
             'className'     => $helperClass,
             'parameters'    => $parameters
         );
+
+        // Create the function on the view
+        // Instanciate the helper only if necessary
         $view = $this;
+        $this->$key = function($argument) use ($view, $key)
+        {
+            return $view->$key($argument);
+        };
     }
-    
+
     /**
      * Magic method for functions
      *
@@ -126,6 +141,7 @@ class View
                     $this->_helpers[$name] = $helper;
                 }
             }
+
 
             // Call the main method
             return call_user_func_array(

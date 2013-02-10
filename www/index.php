@@ -17,13 +17,18 @@ if (!is_readable($routesPath)) {
 $routesContent = file_get_contents($routesPath);
 $routes = json_decode($routesContent);
 
+// Get the theme
+$theme = 'default';
+if (isset($config->theme)) {
+    $theme = $config->theme;
+}
 
 // Initialize and run the site
 $viewRenderer = new \Site\View\Mustache();
 $site = new \Site\Main();
 $site->setServerName($config->server->name);
 $site->setControllersPath(PHP_PATH.'/sites/main/controllers');
-$site->setViewsPath(ROOT_PATH.'/www/themes/default/views');
+$site->setViewsPath(ROOT_PATH.'/www/themes/'.$theme.'/views');
 $site->setViewRenderer($viewRenderer);
 $site->setRoutes($routes);
 $site->run();
