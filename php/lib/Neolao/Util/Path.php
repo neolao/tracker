@@ -67,11 +67,11 @@ class Path
     public static function getPathInfo()
     {
         if (!isset($_SERVER['PATH_INFO'])) {
-            return '';
+            return '/';
         }
         $pathInfo = $_SERVER['PATH_INFO'];
-        if (!empty($pathInfo) && substr($pathInfo, 0, 1) === '/') {
-            $pathInfo = substr($pathInfo, 1);
+        if (empty($pathInfo)) {
+            $pathInfo = '/';
         }
         return $pathInfo;
     }

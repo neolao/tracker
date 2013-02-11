@@ -1,7 +1,5 @@
 var express     = require('express'),
     mustache    = require('hogan-express'),
-    //routes  = require('./routes')
-    //user    = require('./routes/user'),
     http        = require('http'),
     path        = require('path');
 
@@ -22,12 +20,14 @@ application.set('partials', {
     _footer: '_footer'
 });
 
+// Initialize the public directory
+application.use(express.static(publicDirectory));
+
 //application.use(express.favicon());
 //application.use(express.logger('dev'));
-application.use(express.bodyParser());
-application.use(express.methodOverride());
-application.use(application.router);
-application.use(express.static(publicDirectory));
+//application.use(express.bodyParser());
+//application.use(express.methodOverride());
+//application.use(application.router);
 
 
 application.configure('development', function(){
@@ -35,13 +35,36 @@ application.configure('development', function(){
 });
 
 
+// Initialize the routes
+var routes = require(path.join(__dirname, '../../../config/siteMainRoutes.json')),
+    route, routeName, routeHandler;
 
-//application.get('/', routes.index);
-//application.get('/users', user.list);
-application.get('/', function(request, response)
+routeHandler = function(route)
 {
-    response.render('home');
-});
+    var routePattern    = route.pattern,
+        routeController = route.controller,
+        routeAction     = route.action,
+        routeReverse    = route.reverse,
+        routePath;
+
+    if (routePattern === undefined) {
+        routePath = '*';
+        routeController = 'errors/404';
+    } else {
+        routePath = new RegExp(routePattern);;
+    }
+
+    application.get(routePath, function(request, response)
+    {
+        console.log('Render: '+routeController);
+        console.log('Path: '+routePath);
+        response.render(routeController);
+    });
+};
+for (routeName in routes) {
+    route = routes[routeName];
+    routeHandler(route);
+}
 
 // Run the server
 http.createServer(application).listen(application.get('port'), function()
