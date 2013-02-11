@@ -51,7 +51,7 @@ routeHandler = function(route)
         routePath = '*';
         routeController = 'errors/404';
     } else {
-        routePath = new RegExp(routePattern);;
+        routePath = eval(routePattern);
     }
 
     application.get(routePath, function(request, response)

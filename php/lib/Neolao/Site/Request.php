@@ -126,7 +126,7 @@ class Request
                 continue;
             }
 
-            $routePattern = '#'.$route['pattern'].'#';
+            $routePattern = $route['pattern'];
             $count = preg_match($routePattern, $this->_pathInfo, $matches);
             if ($count > 0) {
                 $this->routeName = $routeName;
