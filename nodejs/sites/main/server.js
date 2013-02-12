@@ -49,16 +49,15 @@ routeHandler = function(route)
 
     if (routePattern === undefined) {
         routePath = '*';
-        routeController = 'errors/404';
     } else {
         routePath = eval(routePattern);
     }
 
     application.get(routePath, function(request, response)
     {
-        console.log('Render: '+routeController);
-        console.log('Path: '+routePath);
-        response.render(routeController);
+        var controller = require('./controllers/'+routeController);
+        var instance = controller();
+        instance.dispatch(request, response);
     });
 };
 for (routeName in routes) {
