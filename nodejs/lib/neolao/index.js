@@ -19,11 +19,8 @@ Function.prototype.delegate = function(scope)
  * 
  * @param   Function    base            The class object
  */
-Function.prototype.extend = function(base)
+Function.prototype.extends = function(base)
 {
-    if (this && this.prototype && base && base.prototype) {
-        for (var key in base.prototype) {
-            this.prototype[key] = base.prototype[key];
-        }
-    }
+    var util = require('util');
+    util.inherits(this, base);
 };

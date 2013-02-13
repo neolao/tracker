@@ -7,9 +7,9 @@ var neolao      = require('../../../lib/neolao'),
  */
 module.exports = function()
 {
-    Controller.call(this);
+    this.constructor.super_();
 };
-module.exports.extend(Controller);
+module.exports.extends(Controller);
 proto = module.exports.prototype;
 
 

@@ -24,12 +24,11 @@ if (isset($config->theme)) {
 }
 
 // Initialize and run the site
-$viewRenderer = new \Site\View\Mustache();
-$site = new \Site\Main();
-$site->setServerName($config->server->name);
-$site->setControllersPath(PHP_PATH.'/sites/main/controllers');
-$site->setViewsPath(ROOT_PATH.'/www/themes/'.$theme.'/views');
-$site->setViewRenderer($viewRenderer);
-$site->setRoutes($routes);
+$site                       = new \Site\Main();
+$site->serverName           = $config->server->name;
+$site->controllersPath      = PHP_PATH.'/sites/main/controllers';
+$site->viewsPath            = ROOT_PATH.'/www/themes/'.$theme.'/views';
+$site->viewRenderer         = new \Site\View\Mustache();
+$site->configureRoutes($routes);
 $site->run();
 

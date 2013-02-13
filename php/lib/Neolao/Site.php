@@ -74,63 +74,70 @@ class Site
         $this->_addViewHelpers($this->_view);
     }
 
+
     /**
-     * Set the server name
+     * Configure the routes
      *
-     * @param   string      $serverName     Server name
+     * @param   stdClass    $routes         Routes object
      */
-    public function setServerName($serverName)
+    public function configureRoutes($routes)
     {
-        $this->_serverName = $serverName;
+        $this->_request->configureRoutes($routes);
     }
 
     /**
-     * Set the controllers path
-     *
-     * @param   string      $path           Controllers path
+     * Server name
+     * 
+     * @var string
      */
-    public function setControllersPath($path)
+    public function get_serverName()
+    {
+        return $this->_serverName;
+    }
+    public function set_serverName($name)
+    {
+        $this->_serverName = $name;
+    }
+    
+    /**
+     * The controllers path
+     *
+     * @var string
+     */
+    public function get_controllersPath()
+    {
+        return $this->_controllersPath;
+    }
+    public function set_controllersPath($path)
     {
         $this->_controllersPath = $path;
     }
 
     /**
-     * Get the controllers path
+     * The views path
      *
-     * @return  string                      Controllers path
+     * @var string
      */
-    public function getControllersPath()
+    public function get_viewsPath()
     {
-        return $this->_controllersPath;
+        return $this->_viewsPath;
     }
-
-    /**
-     * Set the views path
-     *
-     * @param   string      $path           Views path
-     */
-    public function setViewsPath($path)
+    public function set_viewsPath($path)
     {
         $this->_viewsPath = $path;
         $this->_view->setDirectory($path);
     }
 
     /**
-     * Get the views path
+     * The view renderer
      *
-     * @return  string                      Views path
+     * @pvar \Neolao\Site\View
      */
-    public function getViewsPath()
+    public function get_viewRenderer()
     {
-        return $this->_viewsPath;
+        return $this->_view;
     }
-
-    /**
-     * Set the view renderer
-     *
-     * @param   \Neolao\Site\View   $renderer   View renderer
-     */
-    public function setViewRenderer($renderer)
+    public function set_viewRenderer($renderer)
     {
         $this->_view = $renderer;
         $this->_view->site = $this;
@@ -143,26 +150,6 @@ class Site
         $this->_addViewHelpers($this->_view);
     }
 
-    /**
-     * Set the routes
-     *
-     * @param   stdClass    $routes         Routes object
-     */
-    public function setRoutes($routes)
-    {
-        $this->_request->setRoutes($routes);
-    }
-
-    /**
-     * Server name
-     * 
-     * @var string
-     */
-    public function get_serverName()
-    {
-        return $this->_serverName;
-    }
-    
     /**
      * Site base URL
      * 

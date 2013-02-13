@@ -83,11 +83,11 @@ class Request
     }
     
     /**
-     * Set routes rules
+     * Configure the routes rules
      * 
      * @param   stdClass   $config     Configuration
      */
-    public function setRoutes($config)
+    public function configureRoutes($config)
     {
         $this->_routes = array();
 
