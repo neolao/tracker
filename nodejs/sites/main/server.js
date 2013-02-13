@@ -1,4 +1,6 @@
 var express     = require('express'),
+    neolao      = require('../../lib/neolao'),
+    Site        = require('../../lib/neolao/Site.js'),
     mustache    = require('hogan-express'),
     http        = require('http'),
     path        = require('path');
@@ -53,11 +55,17 @@ routeHandler = function(route)
         routePath = eval(routePattern);
     }
 
-    application.get(routePath, function(request, response)
+    application.get(routePath, function(serverRequest, serverResponse)
     {
-        var controller = require('./controllers/'+routeController);
-        var instance = controller();
-        instance.dispatch(request, response);
+        var ControllerClass = require('./controllers/'+routeController),
+            controller      = new ControllerClass(),
+            RequestClass    = require('../../lib/neolao/site/Request.js'),
+            request         = new RequestClass();
+
+        request.serverRequest   = serverRequest;
+        request.action          = routeAction;
+        controller.response     = serverResponse;
+        controller.dispatch(request);
     });
 };
 for (routeName in routes) {
@@ -70,5 +78,4 @@ http.createServer(application).listen(application.get('port'), function()
 {
     console.log("Server listening on port " + application.get('port'));
 });
-
 
