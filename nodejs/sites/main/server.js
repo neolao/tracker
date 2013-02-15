@@ -1,15 +1,24 @@
 var neolao      = require('../../lib/neolao'),
+    i18n        = require('../../lib/neolao/I18n.js'),
+    Locale      = require('../../lib/neolao/i18n/Locale.js'),
     Site        = require('../../lib/neolao/Site.js'),
     http        = require('http'),
     path        = require('path'),
     configuration,
     routes,
+    locale, localeMessages,
     site;
 
 
 // Load configuration
 configuration   = require('../../../config/siteMain.json');
 routes          = require('../../../config/siteMainRoutes.json');
+
+// Load locales
+localeMessages  = require('../../../locales/en_US/messages.json');
+locale          = new Locale('en_US');
+locale.configureMessages(localeMessages);
+i18n.addLocale(locale);
 
 // Create the site
 site                    = new Site();

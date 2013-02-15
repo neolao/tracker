@@ -1,5 +1,7 @@
 /**
- * Controller
+ * Site controller
+ *
+ * @class       neolao.site.Controller
  */
 module.exports = function()
 {

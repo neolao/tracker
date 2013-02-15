@@ -3,11 +3,13 @@ var neolao          = require('./index.js'),
     http            = require('http'),
     mustache        = require('hogan-express'),
     Request         = require('./site/Request.js');
-    
+
 
 
 /**
- * @class       Site
+ * Site
+ *
+ * @class       neolao.Site
  */
 module.exports = function()
 {
@@ -67,83 +69,6 @@ proto._publicPath = null;
 proto.toString = function()
 {
     return '[neolao.Site]';
-};
-
-/**
- * Configure the routes
- *
- * @param   Object      routes      Routes configuration
- */
-proto.configureRoutes = function(routes)
-{
-    var self = this,
-        route, routeName, routeHandler;
-
-    routeHandler = function(route)
-    {
-        var routePattern    = route.pattern,
-            routeController = route.controller,
-            routeAction     = route.action,
-            routeReverse    = route.reverse,
-            routePath;
-
-        if (routePattern === undefined) {
-            routePath = '*';
-        } else {
-            routePath = eval(routePattern);
-        }
-
-        self._express.get(routePath, function(serverRequest, serverResponse)
-        {
-            var ControllerClass = require(self._controllersPath+'/'+routeController),
-                controller      = new ControllerClass(),
-                request         = new Request();
-
-            request.serverRequest   = serverRequest;
-            request.action          = routeAction;
-            controller.response     = serverResponse;
-            controller.dispatch(request);
-        });
-    };
-    for (routeName in routes) {
-        route = routes[routeName];
-        routeHandler(route);
-    }
-};
-
-/**
- * Run the site
- */
-proto.run = function()
-{
-    var self = this;
-
-    // Initialize the views
-    this._express.engine('mustache', mustache);
-    this._express.set('view engine', 'mustache');
-    this._express.set('partials', {
-        _header: '_header',
-        _footer: '_footer'
-    });
-
-    //application.use(express.favicon());
-    //application.use(express.logger('dev'));
-    //application.use(express.bodyParser());
-    //application.use(express.methodOverride());
-    //application.use(application.router);
-
-
-    this._express.configure('development', function(){
-        self._express.use(express.errorHandler());
-    });
-
-
-    // Run the server
-    http.createServer(this._express).listen(this._express.get('port'), function()
-    {
-        console.log("Server listening on port " + self._express.get('port'));
-    });
-
 };
 
 /**
@@ -233,4 +158,84 @@ Object.defineProperty(proto, 'publicPath',
         this._express.use(express.static(this._publicPath));
     }
 });
+
+
+/**
+ * Configure the routes
+ *
+ * @param   Object      routes      Routes configuration
+ */
+proto.configureRoutes = function(routes)
+{
+    var self = this,
+        route, routeName, routeHandler;
+
+    routeHandler = function(route)
+    {
+        var routePattern    = route.pattern,
+            routeController = route.controller,
+            routeAction     = route.action,
+            routeReverse    = route.reverse,
+            routePath;
+
+        if (routePattern === undefined) {
+            routePath = '*';
+        } else {
+            routePath = eval(routePattern);
+        }
+
+        self._express.get(routePath, function(serverRequest, serverResponse)
+        {
+            var ControllerClass = require(self._controllersPath+'/'+routeController),
+                controller      = new ControllerClass(),
+                request         = new Request();
+
+            request.serverRequest   = serverRequest;
+            request.action          = routeAction;
+            controller.response     = serverResponse;
+            controller.dispatch(request);
+        });
+    };
+    for (routeName in routes) {
+        route = routes[routeName];
+        routeHandler(route);
+    }
+};
+
+/**
+ * Run the site
+ */
+proto.run = function()
+{
+    var self = this;
+
+    // Initialize the views
+    this._express.engine('mustache', mustache);
+    this._express.set('view engine', 'mustache');
+    this._express.set('partials', {
+        _header: '_header',
+        _footer: '_footer'
+    });
+
+    //application.use(express.favicon());
+    //application.use(express.logger('dev'));
+    //application.use(express.bodyParser());
+    //application.use(express.methodOverride());
+    //application.use(application.router);
+
+    // Error handler
+    this._express.configure('development', function()
+    {
+        self._express.use(express.errorHandler());
+    });
+
+
+    // Run the server
+    http.createServer(this._express).listen(this._express.get('port'), function()
+    {
+        console.log("Server listening on port " + self._express.get('port'));
+    });
+
+};
+
 

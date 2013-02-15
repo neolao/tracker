@@ -1,5 +1,7 @@
 /**
- * Request
+ * Site request
+ *
+ * @class       neolao.site.Request
  */
 module.exports = function()
 {
