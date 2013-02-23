@@ -5,7 +5,7 @@
 namespace Neolao;
 
 /**
- * Site instance
+ * Site
  */
 class Site
 {
@@ -52,7 +52,13 @@ class Site
      * @var \Neolao\Site\View
      */
     protected $_view;
-    
+
+    /**
+     * Controller helpers
+     *
+     * @var array
+     */
+    protected $_controllerHelpers;
     
     
     /**
@@ -60,6 +66,9 @@ class Site
      */
     public function __construct()
     {
+        // Initialize properties
+        $this->_controllerHelpers = [];
+
         // Get the base url
         $this->_baseUrl = \Neolao\Util\Path::getBaseUrl();
 
@@ -179,6 +188,17 @@ class Site
     {
         return $this->_view;
     }
+
+    /**
+     * Add a controller helper
+     *
+     * @param   string                                      $key        Helper key
+     * @param   \Neolao\Site\Helper\ControllerInterface     $helper     Helper instance
+     */
+    public function addControllerHelper($key, \Neolao\Site\Helper\ControllerInterface $helper)
+    {
+        $this->_controllerHelpers[$key] = $helper;
+    }
     
     /**
      * Run the site
@@ -284,7 +304,10 @@ class Site
      */
     protected function _addControllerHelpers(\Neolao\Site\Controller $controller)
     {
-
+        // Add custom helpers
+        foreach ($this->_controllerHelpers as $key => $helper) {
+            $controller->registerHelper($key, $helper);
+        }
     }
 
     /**

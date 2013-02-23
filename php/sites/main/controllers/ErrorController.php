@@ -13,6 +13,14 @@ class ErrorController extends \Neolao\Site\Controller
     }
 
     /**
+     * HTTP 401
+     */
+    public function http401Action()
+    {
+        $this->render('errors/401');
+    }
+
+    /**
      * HTTP 404
      */
     public function http404Action()

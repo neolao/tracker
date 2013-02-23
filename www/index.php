@@ -10,12 +10,42 @@ $configContent = file_get_contents($configPath);
 $config = json_decode($configContent);
 
 // Routes
-$routesPath = CONFIG_PATH.'/siteMainRoutes.json';
-if (!is_readable($routesPath)) {
-    die('Please create the file: '.CONFIG_PATH.'/siteMainRoutes.json');
+$routesPath     = CONFIG_PATH.'/siteMainRoutes.json';
+$routesContent  = file_get_contents($routesPath);
+$routes         = json_decode($routesContent);
+
+// ACL: Create the controller helper
+$aclHelper      = new \Neolao\Site\Helper\Controller\AclHelper();
+$acl            = $aclHelper->acl;
+
+// ACL: Add default resources, roles and rules
+$aclResourcesPath       = CONFIG_PATH.'/aclResources.json';
+$aclResourcesContent    = file_get_contents($aclResourcesPath);
+$aclResources           = json_decode($aclResourcesContent);
+$aclRolesPath           = CONFIG_PATH.'/aclRoles.json';
+$aclRolesContent        = file_get_contents($aclRolesPath);
+$aclRoles               = json_decode($aclRolesContent);
+$aclRulesPath           = CONFIG_PATH.'/aclRules.json';
+$aclRulesContent        = file_get_contents($aclRulesPath);
+$aclRules               = json_decode($aclRulesContent);
+foreach ($aclResources as $resourceName) {
+    $acl->addResource($resourceName);
 }
-$routesContent = file_get_contents($routesPath);
-$routes = json_decode($routesContent);
+foreach ($aclRoles as $roleName => $parentName) {
+    $acl->addRole($roleName, $parentName);
+}
+foreach ($aclRules as $rule) {
+    $ruleType       = $rule->type;
+    $ruleRole       = $rule->role;
+    $ruleResource   = $rule->resource;
+    $rulePrivilege  = $rule->privilege;
+    if ($ruleType === 'deny') {
+        $acl->deny($ruleRole, $ruleResource, $rulePrivilege);
+    } else {
+        $acl->allow($ruleRole, $ruleResource, $rulePrivilege);
+    }
+}
+
 
 // Get the theme
 $theme = 'default';
@@ -30,5 +60,6 @@ $site->controllersPath      = PHP_PATH.'/sites/main/controllers';
 $site->viewsPath            = ROOT_PATH.'/www/themes/'.$theme.'/views';
 $site->viewRenderer         = new \Site\View\Mustache();
 $site->configureRoutes($routes);
+$site->addControllerHelper('getAcl', $aclHelper);
 $site->run();
 

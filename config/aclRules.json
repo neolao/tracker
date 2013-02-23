@@ -1,0 +1,5 @@
+[
+    {"type": "deny",    "role": "*",        "resource": "*",            "privilege": "*"},
+
+    {"type": "allow",   "role": "guest",    "resource": "main.home",    "privilege": "*"}
+]

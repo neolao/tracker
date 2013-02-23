@@ -58,6 +58,7 @@ function defaultExceptionHandler($exception)
     // Display a message
     header('HTTP/1.0 500 Internal Error');
     echo 'An error occured !';
+    echo "\n", $exception->getMessage();
     if (ob_get_length()) {
         ob_end_flush();
     }
