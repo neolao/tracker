@@ -4,6 +4,9 @@
  */
 namespace Neolao\Site\Helper\Controller;
 
+
+use \Neolao\Acl;
+
 /**
  * ACL helper
  */
@@ -20,7 +23,7 @@ class AclHelper extends AbstractHelper
     public function __construct()
     {
         // Initialize the ACL
-        $this->acl = new \Neolao\Acl();
+        $this->acl = new Acl();
     }
 
     /**

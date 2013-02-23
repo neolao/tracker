@@ -1,8 +1,12 @@
 <?php
+
+use \Neolao\Site\Controller;
+use \Neolao\Logger;
+
 /**
  * Home actions
  */
-class HomeController extends \Neolao\Site\Controller
+class HomeController extends Controller
 {
     /**
      * Default action
@@ -14,6 +18,9 @@ class HomeController extends \Neolao\Site\Controller
         if (!$acl->isAllowed('guest', 'main.home')) {
             $this->forward('error', 'http401');
         }
+
+        $logger = Logger::getInstance();
+        $logger->debug('test');
 
         // Render
         $this->render('home');

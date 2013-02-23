@@ -15,24 +15,14 @@ define('CONFIG_PATH',       ROOT_PATH.'/config');
 define('LIB_PATH',          PHP_PATH.'/lib');
 
 
-// Autoload classes
-function defaultAutoload($className)
-{
-    $className = ltrim($className, '\\');
-    $filePath  = '';
-    $lastNamespacePosition = strripos($className, '\\');
-    if ($lastNamespacePosition) {
-        $namespace = substr($className, 0, $lastNamespacePosition);
-        $className = substr($className, $lastNamespacePosition + 1);
-        $filePath  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace).DIRECTORY_SEPARATOR;
-    }
-    $filePath .= str_replace('_', DIRECTORY_SEPARATOR, $className).'.php';
+// Composer autoload
+require PHP_PATH.'/vendor/autoload.php';
 
-    require_once $filePath;
-}
-spl_autoload_register('defaultAutoload');
-set_include_path(get_include_path().PATH_SEPARATOR.LIB_PATH.PATH_SEPARATOR.APPLICATION_PATH);
 
+// Initialize the logger
+$logger = \Neolao\Logger::getInstance();
+$fileListener = new \Neolao\Logger\FileListener(ROOT_PATH.'/logs/debug.log');
+$logger->addListener($fileListener);
 
 // Set the default error handler
 function defaultErrorHandler($level, $message, $file, $line)

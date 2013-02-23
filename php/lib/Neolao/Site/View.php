@@ -4,6 +4,9 @@
  */
 namespace Neolao\Site;
 
+
+use \Neolao\Site\Helper\ViewInterface;
+
 /**
  * A view
  */
@@ -74,7 +77,7 @@ class View
      * @param   string                          $key        Helper key in this view
      * @param   \Neolao\Helper\ViewInterface    $helper     Helper instance
      */
-    public function registerHelper($key, \Neolao\Site\Helper\ViewInterface $helper)
+    public function registerHelper($key, ViewInterface $helper)
     {
         $this->_helpers[$key] = $helper;
 
@@ -124,11 +127,11 @@ class View
             $helper = $this->_helpers[$name];
 
             // Check if the helper needs to create an instance
-            if ($helper instanceof \Neolao\Site\Helper\ViewInterface === false) {
+            if ($helper instanceof ViewInterface === false) {
                 $helperClassName    = $helper['className'];
                 $helperParameters   = $helper['parameters'];
                 $helper             = new $helperClassName();
-                if ($helper instanceof \Neolao\Site\Helper\ViewInterface) {
+                if ($helper instanceof ViewInterface) {
                     // Set parameters
                     foreach ($helperParameters as $helperParameterName => $helperParameterValue) {
                         $helper->$helperParameterName = $helperParameterValue;

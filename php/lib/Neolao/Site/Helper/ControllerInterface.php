@@ -4,6 +4,9 @@
  */
 namespace Neolao\Site\Helper;
 
+
+use \Neolao\Site\Controller;
+
 /**
  * Interface for a helper controller
  *
@@ -21,7 +24,7 @@ interface ControllerInterface
      *
      * @param   \Neolao\Site\Controller     $controller     Controller instance
      */
-    function setController(\Neolao\Site\Controller $controller);
+    function setController(Controller $controller);
 
     /**
      * Get the controller

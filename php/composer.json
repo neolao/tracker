@@ -1,0 +1,18 @@
+{
+    "authors": [
+        {
+            "name"  : "neolao",
+            "email" : "contact@neolao.com"
+        }
+    ],
+
+    "require": {
+        "psr/log": "*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "" : ["lib/", "application/"]
+        }
+    }
+}

@@ -4,6 +4,11 @@
  */
 namespace Neolao\Site;
 
+
+use \Neolao\Site;
+use \Neolao\Site\Request;
+use \Neolao\Site\Helper\ControllerInterface;
+
 /**
  * Abstract controller
  * All controllers are based on this class.
@@ -34,7 +39,7 @@ abstract class Controller
      * 
      * @param   \Neolao\Site        $site       Site instance
      */
-    public function __construct(\Neolao\Site $site)
+    public function __construct(Site $site)
     {
         $this->_helpers = array();
         $this->_site = $site;
@@ -46,7 +51,7 @@ abstract class Controller
      * @param   string                                      $key        Helper key in this controller
      * @param   \Neolao\Site\Helper\ControllerInterface     $helper     Helper instance
      */
-    public function registerHelper($key, \Neolao\Site\Helper\ControllerInterface $helper)
+    public function registerHelper($key, ControllerInterface $helper)
     {
         $helper->setController($this);
         $this->_helpers[$key] = $helper;
@@ -81,11 +86,11 @@ abstract class Controller
             $helper = $this->_helpers[$name];
 
             // Check if the helper needs to create an instance
-            if ($helper instanceof \Neolao\Site\Helper\ControllerInterface === false) {
+            if ($helper instanceof ControllerInterface === false) {
                 $helperClassName    = $helper['className'];
                 $helperParameters   = $helper['parameters'];
                 $helper             = new $helperClassName();
-                if ($helper instanceof \Neolao\Site\Helper\ControllerInterface) {
+                if ($helper instanceof ControllerInterface) {
                     $helper->setController($this);
                     foreach ($helperParameters as $helperParameterName => $helperParameterValue) {
                         $helper->$helperParameterName = $helperParameterValue;
@@ -137,7 +142,7 @@ abstract class Controller
      * 
      * @param   \Neolao\Site\Request    $request    HTTP Request
      */
-    public function dispatch(\Neolao\Site\Request $request)
+    public function dispatch(Request $request)
     {
         $actionName = $request->actionName;
         

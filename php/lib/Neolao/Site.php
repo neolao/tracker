@@ -4,6 +4,13 @@
  */
 namespace Neolao;
 
+
+use \Neolao\Site\Controller;
+use \Neolao\Site\View;
+use \Neolao\Site\Request;
+use \Neolao\Site\Helper\ControllerInterface;
+use \Neolao\Util\Path;
+
 /**
  * Site
  */
@@ -70,13 +77,13 @@ class Site
         $this->_controllerHelpers = [];
 
         // Get the base url
-        $this->_baseUrl = \Neolao\Util\Path::getBaseUrl();
+        $this->_baseUrl = Path::getBaseUrl();
 
         // Create a request
-        $this->_request = new \Neolao\Site\Request();
+        $this->_request = new Request();
         
         // Create a default view renderer
-        $this->_view = new \Neolao\Site\View();
+        $this->_view = new View();
         $this->_view->site = $this;
 
         // Register default helpers for the view
@@ -140,13 +147,13 @@ class Site
     /**
      * The view renderer
      *
-     * @pvar \Neolao\Site\View
+     * @var \Neolao\Site\View
      */
     public function get_viewRenderer()
     {
         return $this->_view;
     }
-    public function set_viewRenderer($renderer)
+    public function set_viewRenderer(View $renderer)
     {
         $this->_view = $renderer;
         $this->_view->site = $this;
@@ -195,7 +202,7 @@ class Site
      * @param   string                                      $key        Helper key
      * @param   \Neolao\Site\Helper\ControllerInterface     $helper     Helper instance
      */
-    public function addControllerHelper($key, \Neolao\Site\Helper\ControllerInterface $helper)
+    public function addControllerHelper($key, ControllerInterface $helper)
     {
         $this->_controllerHelpers[$key] = $helper;
     }
@@ -252,7 +259,7 @@ class Site
         }
         require_once($controllerPath);
         $controller = new $controllerClassName($this);
-        if ($controller instanceof \Neolao\Site\Controller === false) {
+        if ($controller instanceof Controller === false) {
             throw new \Exception($controllerClassName.' does not inherit \Neolao\Site\Controller');
         }
 
@@ -302,7 +309,7 @@ class Site
      *
      * @param   \Neolao\Site\Controller     $controller     Controller instance
      */
-    protected function _addControllerHelpers(\Neolao\Site\Controller $controller)
+    protected function _addControllerHelpers(Controller $controller)
     {
         // Add custom helpers
         foreach ($this->_controllerHelpers as $key => $helper) {
@@ -315,8 +322,8 @@ class Site
      * 
      * @param   \Neolao\Site\View           $view           View instance
      */
-    protected function _addViewHelpers(\Neolao\Site\View $view)
+    protected function _addViewHelpers(View $view)
     {
-        //$view->registerHelperClass('example', '\\Neolao\\Site\\Helper\\View\\Example');
+        //$view->registerHelperClass('example', '\\Neolao\\Site\\Helper\\View\\ExampleHelper');
     }
 }

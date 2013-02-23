@@ -4,10 +4,14 @@
  */
 namespace Neolao\Site\Helper\View;
 
+
+use \Neolao\Site\View;
+use \Neolao\Site\Helper\ViewInterface;
+
 /**
  * Abstract class for a view helper
  */
-abstract class AbstractHelper implements \Neolao\Site\Helper\ViewInterface
+abstract class AbstractHelper implements ViewInterface
 {
     /**
      * View instance
@@ -30,7 +34,7 @@ abstract class AbstractHelper implements \Neolao\Site\Helper\ViewInterface
      *
      * @param   \Neolao\Site\View       $view       View instance
      */
-    public function setView(\Neolao\Site\View $view)
+    public function setView(View $view)
     {
         $this->_view = $view;
     }

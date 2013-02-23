@@ -4,6 +4,9 @@
  */
 namespace Neolao\Site;
 
+
+use \Neolao\Util\Path;
+
 /**
  * HTTP Request
  */
@@ -61,7 +64,7 @@ class Request
     public function __construct()
     {
         // Get the path info
-        $this->_pathInfo = \Neolao\Util\Path::getPathInfo();
+        $this->_pathInfo = Path::getPathInfo();
         
         // Get parameters and sanitize them
         $this->_getParameters();

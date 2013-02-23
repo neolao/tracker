@@ -4,10 +4,14 @@
  */
 namespace Neolao\Site\Helper\Controller;
 
+
+use \Neolao\Site\Controller;
+use \Neolao\Site\Helper\ControllerInterface;
+
 /**
  * Abstract class for a helper controller
  */
-abstract class AbstractHelper implements \Neolao\Site\Helper\ControllerInterface
+abstract class AbstractHelper implements ControllerInterface
 {
     /**
      * Controller instance
@@ -23,7 +27,7 @@ abstract class AbstractHelper implements \Neolao\Site\Helper\ControllerInterface
      *
      * @param   \Neolao\Site\Controller     $controller     Controller instance
      */
-    public function setController(\Neolao\Site\Controller $controller)
+    public function setController(Controller $controller)
     {
         $this->_controller = $controller;
     }

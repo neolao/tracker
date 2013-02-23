@@ -4,6 +4,9 @@
  */
 namespace Neolao\Site\Helper;
 
+
+use \Neolao\Site\View;
+
 /**
  * Interface for a view helper
  *
@@ -23,7 +26,7 @@ interface ViewInterface
      *
      * @param   \Neolao\Site\View       $view       View instance
      */
-    function setView(\Neolao\Site\View $view);
+    function setView(View $view);
 
     /**
      * Get the view

@@ -1,6 +1,33 @@
 <?php
+/**
+ * @package Neolao\Mixin
+ */
 namespace Neolao\Mixin;
 
+/**
+ * Create a getter method with the pattern "get_*".
+ * Create a setter method with the pattern "set_*".
+ *
+ * Example:
+ * class Foo
+ * {
+ *      use \Neolao\Mixin\GetterSetter;
+ *
+ *      private $_bar;
+ *
+ *      public function get_bar()
+ *      {
+ *          return $this->_bar;
+ *      }
+ *      public function set_bar($value)
+ *      {
+ *          $this->_bar = $value;
+ *      }
+ * }
+ * $foo = new Foo();
+ * $foo->bar = 42;
+ * echo $foo->bar; // 42
+ */
 trait GetterSetter
 {
     /**

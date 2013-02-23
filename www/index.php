@@ -53,6 +53,7 @@ if (isset($config->theme)) {
     $theme = $config->theme;
 }
 
+
 // Initialize and run the site
 $site                       = new \Site\Main();
 $site->serverName           = $config->server->name;

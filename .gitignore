@@ -1,5 +1,6 @@
 config/general.json
 config/siteMain.json
 data
+logs
 www/.htaccess
 
