@@ -38,5 +38,92 @@
             "psr",
             "psr-3"
         ]
+    },
+    {
+        "name": "mustache/mustache",
+        "version": "v2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bobthecow/mustache.php",
+            "reference": "v2.1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/bobthecow/mustache.php/archive/v2.1.0.zip",
+            "reference": "v2.1.0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2013-01-12 07:18:03",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Mustache": "src/"
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Justin Hileman",
+                "email": "justin@justinhileman.info",
+                "homepage": "http://justinhileman.com"
+            }
+        ],
+        "description": "A Mustache implementation in PHP.",
+        "homepage": "https://github.com/bobthecow/mustache.php",
+        "keywords": [
+            "mustache",
+            "templating"
+        ]
+    },
+    {
+        "name": "neolao/neolao",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/neolao/php.git",
+            "reference": "28656161e0dc9545a4d73a9022cc2f5ef5b6d00c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/neolao/php/zipball/28656161e0dc9545a4d73a9022cc2f5ef5b6d00c",
+            "reference": "28656161e0dc9545a4d73a9022cc2f5ef5b6d00c",
+            "shasum": ""
+        },
+        "require": {
+            "mustache/mustache": "2.1.*",
+            "php": ">=5.4",
+            "psr/log": "*"
+        },
+        "time": "2013-02-27 22:55:08",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "": [
+                    "classes/"
+                ]
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "neolao",
+                "email": "contact@neolao.com",
+                "homepage": "http://neolao.com"
+            }
+        ],
+        "description": "Neolao library for PHP 5.4+"
     }
 ]

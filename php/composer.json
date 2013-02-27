@@ -7,7 +7,7 @@
     ],
 
     "require": {
-        "psr/log": "*"
+        "neolao/neolao": "dev-master"
     },
 
     "autoload": {

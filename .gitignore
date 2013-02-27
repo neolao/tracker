@@ -2,5 +2,6 @@ config/general.json
 config/siteMain.json
 data
 logs
+php/composer.phar
 www/.htaccess
 

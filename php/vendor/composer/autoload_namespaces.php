@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Psr\\Log\\' => $vendorDir . '/psr/log/',
-    '' => array($baseDir . '/lib/', $baseDir . '/application/'),
+    'Mustache' => $vendorDir . '/mustache/mustache/src/',
+    '' => array($baseDir . '/lib/', $baseDir . '/application/', $vendorDir . '/neolao/neolao/classes/'),
 );
