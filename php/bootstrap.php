@@ -20,9 +20,14 @@ require PHP_PATH.'/vendor/autoload.php';
 
 
 // Initialize the logger
-$logger = \Neolao\Logger::getInstance();
-$fileListener = new \Neolao\Logger\FileListener(ROOT_PATH.'/logs/debug.log');
+use \Neolao\Logger;
+use \Neolao\Logger\FileListener;
+$logger = Logger::getInstance();
+$fileListener = new FileListener(ROOT_PATH.'/logs/debug.log', Logger::DEBUG);
 $logger->addListener($fileListener);
+$fileListener = new FileListener(ROOT_PATH.'/logs/error.log', Logger::ERROR);
+$logger->addListener($fileListener);
+
 
 // Set the default error handler
 function defaultErrorHandler($level, $message, $file, $line)
@@ -37,8 +42,9 @@ function defaultExceptionHandler($exception)
     }
     
     // Report the error
-    //Neo_Util_Log::error($exception->getMessage());
-    //Neo_Util_Log::error($exception->getTraceAsString());
+    $logger = Logger::getInstance();
+    $logger->error($exception->getMessage());
+    $logger->error($exception->getTraceAsString());
     
     // If the header is already sent, do not display a message
     if (headers_sent()) {
@@ -48,7 +54,6 @@ function defaultExceptionHandler($exception)
     // Display a message
     header('HTTP/1.0 500 Internal Error');
     echo 'An error occured !';
-    echo "\n", $exception->getMessage();
     if (ob_get_length()) {
         ob_end_flush();
     }

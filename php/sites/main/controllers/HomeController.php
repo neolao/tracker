@@ -19,9 +19,6 @@ class HomeController extends Controller
             $this->forward('error', 'http401');
         }
 
-        $logger = Logger::getInstance();
-        $logger->debug('test');
-
         // Render
         $this->render('home');
     }

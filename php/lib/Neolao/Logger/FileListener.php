@@ -51,8 +51,13 @@ class FileListener implements ListenerInterface
      */
     public function log($level, $message)
     {
-        // Add time stamp and new line
-        $message = date('[H:i:s] ').$message."\n";
+        // Skip if the levels do not match
+        if (!is_null($this->_level) && $this->_level === $level) {
+            return;
+        }
+
+        // Add the date and new line
+        $message = date('[Y/m/d H:i:s] ').$message."\n";
         
         // Check if the directory is created
         $directory = dirname($this->_filePath);
