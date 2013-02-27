@@ -52,7 +52,7 @@ class FileListener implements ListenerInterface
     public function log($level, $message)
     {
         // Skip if the levels do not match
-        if (!is_null($this->_level) && $this->_level === $level) {
+        if (!is_null($this->_level) && $this->_level !== $level) {
             return;
         }
 
