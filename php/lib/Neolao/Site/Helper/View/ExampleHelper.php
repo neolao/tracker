@@ -8,7 +8,7 @@ namespace Neolao\Site\Helper\View;
 use \Neolao\Site\Helper\View\AbstractHelper;
 
 /**
- * Abstract class for a view helper
+ * Sample
  */
 class ExampleHelper extends AbstractHelper
 {

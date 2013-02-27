@@ -9,6 +9,7 @@ use \Neolao\Site\Controller;
 use \Neolao\Site\View;
 use \Neolao\Site\Request;
 use \Neolao\Site\Helper\ControllerInterface;
+use \Neolao\Site\Helper\ViewInterface;
 use \Neolao\Util\Path;
 
 /**
@@ -66,6 +67,13 @@ class Site
      * @var array
      */
     protected $_controllerHelpers;
+
+    /**
+     * View helpers
+     *
+     * @var array
+     */
+    protected $_viewHelpers;
     
     
     /**
@@ -75,6 +83,7 @@ class Site
     {
         // Initialize properties
         $this->_controllerHelpers = [];
+        $this->_viewHelpers = [];
 
         // Get the base url
         $this->_baseUrl = Path::getBaseUrl();
@@ -206,7 +215,21 @@ class Site
     {
         $this->_controllerHelpers[$key] = $helper;
     }
-    
+
+    /**
+     * Add a view helper
+     *
+     * @param   string                                      $key        Helper key
+     * @param   \Neolao\Site\Helper\ViewInterface           $helper     Helper instance
+     */
+    public function addViewHelper($key, ViewInterface $helper)
+    {
+        $this->_viewHelpers[$key] = $helper;
+
+        // Register the helper to the current view renderer
+        $this->_view->registerHelper($key, $helper);
+    }
+
     /**
      * Run the site
      */
@@ -324,6 +347,11 @@ class Site
      */
     protected function _addViewHelpers(View $view)
     {
-        //$view->registerHelperClass('example', '\\Neolao\\Site\\Helper\\View\\ExampleHelper');
+        // Add custom helpers
+        foreach ($this->_viewHelpers as $key => $helper) {
+            $view->registerHelper($key, $helper);
+        }
+
+        $view->registerHelperClass('example', '\\Neolao\\Site\\Helper\\View\\ExampleHelper');
     }
 }

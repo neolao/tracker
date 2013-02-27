@@ -74,8 +74,8 @@ class View
     /**
      * Register a helper instance
      *
-     * @param   string                          $key        Helper key in this view
-     * @param   \Neolao\Helper\ViewInterface    $helper     Helper instance
+     * @param   string                              $key        Helper key in this view
+     * @param   \Neolao\Site\Helper\ViewInterface   $helper     Helper instance
      */
     public function registerHelper($key, ViewInterface $helper)
     {
@@ -83,11 +83,9 @@ class View
 
         // Create the function on the view
         $view = $this;
-        $this->$key = function($argument) use ($view, $helper)
-        {
+        $this->$key = function($argument) use ($view, $helper) {
             return $helper->main($argument);
         };
-
     }
 
     /**
@@ -107,8 +105,7 @@ class View
         // Create the function on the view
         // Instanciate the helper only if necessary
         $view = $this;
-        $this->$key = function($argument) use ($view, $key)
-        {
+        $this->$key = function($argument) use ($view, $key) {
             return $view->$key($argument);
         };
     }
