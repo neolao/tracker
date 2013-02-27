@@ -30,6 +30,12 @@ class Acl
      */
     protected $_rules;
 
+    /**
+     * Cache used by the method "isAllowed"
+     *
+     * @var array
+     */
+    protected $_cache;
 
     /**
      * Constructor
@@ -39,6 +45,7 @@ class Acl
         $this->_resources   = [];
         $this->_roles       = [];
         $this->_rules       = [];
+        $this->_cache       = [];
     }
 
     /**
@@ -52,6 +59,9 @@ class Acl
             return;
         }
         $this->_resources[] = $resourceName;
+
+        // Empty the cache
+        $this->_emptyCache();
     }
 
     /**
@@ -70,6 +80,9 @@ class Acl
         if ($parentName && array_key_exists($parentName, $this->_roles)) {
             $this->_roles[$roleName] = $parentName;
         }
+
+        // Empty the cache
+        $this->_emptyCache();
     }
 
     /**
@@ -85,6 +98,9 @@ class Acl
         $this->addRole($roleName);
 
         $this->_rules[] = ['allow', $resourceName, $privilegeName, $roleName];
+
+        // Empty the cache
+        $this->_emptyCache();
     }
 
     /**
@@ -101,6 +117,8 @@ class Acl
 
         $this->_rules[] = ['deny', $resourceName, $privilegeName, $roleName];
 
+        // Empty the cache
+        $this->_emptyCache();
     }
 
     /**
@@ -137,6 +155,13 @@ class Acl
      */
     public function isAllowed($roleName, $resourceName, $privilegeName = '*')
     {
+        // Check the cache
+        $cacheKey = $roleName . '_' . $resourceName . '_' . $privilegeName;
+        if (array_key_exists($cacheKey, $this->_cache)) {
+            return $this->_cache[$cacheKey];
+        }
+
+        // Default value
         $allowed = true;
 
         // Check each rule of the resource
@@ -167,6 +192,18 @@ class Acl
             }
         }
 
+        // Fill the cache
+        $this->_cache[$cacheKey] = $allowed;
+
+        // Return the value
         return $allowed;
+    }
+
+    /**
+     * Empty the cache
+     */
+    protected function _emptyCache()
+    {
+        $this->_cache = [];
     }
 }
