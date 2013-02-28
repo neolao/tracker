@@ -4,4 +4,5 @@ data
 logs
 php/composer.phar
 www/.htaccess
+generated-styles
 

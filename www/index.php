@@ -1,13 +1,21 @@
 <?php
 include_once __DIR__ . '/../php/bootstrap.php';
 
-// Configuration
-$configPath = CONFIG_PATH.'/siteMain.json';
+// General configuration
+$configPath = CONFIG_PATH . '/general.json';
 if (!is_readable($configPath)) {
-    die('Please create the file: ' . CONFIG_PATH . '/siteMain.json');
+    die('Please create the file: ' . $configPath);
 }
 $configContent = file_get_contents($configPath);
-$config = json_decode($configContent);
+$configGeneral = json_decode($configContent);
+
+// Site configuration
+$configPath = CONFIG_PATH . '/siteMain.json';
+if (!is_readable($configPath)) {
+    die('Please create the file: ' . $configPath);
+}
+$configContent = file_get_contents($configPath);
+$configSite = json_decode($configContent);
 
 // Routes
 $routesPath     = CONFIG_PATH . '/siteMainRoutes.json';
@@ -49,20 +57,21 @@ foreach ($aclRules as $rule) {
 
 // Get the theme
 $themeName = 'default';
-if (isset($config->theme)) {
-    $themeName = $config->theme;
+if (isset($configSite->theme)) {
+    $themeName = $configSite->theme;
 }
-$themePath = ROOT_PATH.'/www/themes/' . $themeName;
+$themePath = ROOT_PATH . '/www/themes/' . $themeName;
 
 // Theme helper
-$stylesheetHelper = new \Neolao\Site\Helper\View\StylesheetHelper();
-$stylesheetHelper->basePath = $themePath;
-$stylesheetHelper->baseUrl = '/themes/' . $themeName;
+$stylesheetHelper               = new \Neolao\Site\Helper\View\StylesheetHelper();
+$stylesheetHelper->basePath     = $themePath;
+$stylesheetHelper->baseUrl      = '/themes/' . $themeName;
+$stylesheetHelper->generated    = false; // @todo Use general profile
 
 
 // Initialize and run the site
 $site                       = new \Site\Main();
-$site->serverName           = $config->server->name;
+$site->serverName           = $configSite->server->name;
 $site->controllersPath      = PHP_PATH . '/sites/main/controllers';
 $site->viewsPath            = $themePath . '/views';
 $site->viewRenderer         = new \Site\View\Mustache();
