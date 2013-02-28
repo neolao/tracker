@@ -1,0 +1,14 @@
+{
+    "name"          : "tracker",
+    "description"   : "Bug tracker without database",
+    "version"       : "0.0.1",
+    "private"       : true,
+    "scripts"       : 
+    {
+        "start"         : "node siteMainServer"
+    },
+    "dependencies"  : 
+    {
+        "neolao"        : "*"
+    }
+}

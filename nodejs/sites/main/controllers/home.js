@@ -1,5 +1,5 @@
-var neolao      = require('../../../lib/neolao'),
-    Controller  = require('../../../lib/neolao/site/Controller.js');
+var neolao      = require('neolao'),
+    Controller  = require('neolao/site/Controller.js');
 
 /**
  * @class       Home controller
