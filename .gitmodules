@@ -1,0 +1,3 @@
+[submodule "php-neolao"]
+    path = php/vendor/neolao/neolao
+    url = git://github.com/neolao/php.git
