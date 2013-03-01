@@ -1,27 +1,32 @@
-var neolao      = require('neolao'),
-    i18n        = require('neolao/I18n.js'),
-    Locale      = require('neolao/i18n/Locale.js'),
-    Site        = require('neolao/Site.js'),
-    http        = require('http'),
-    path        = require('path'),
-    configuration,
-    routes,
-    locale, localeMessages,
-    site;
+var neolao          = require('neolao'),
+    logger          = require('neolao/Logger'),
+    ConsoleListener = require('neolao/logger/ConsoleListener'),
+    FileListener    = require('neolao/logger/FileListener'),
+    i18n            = require('neolao/I18n'),
+    Locale          = require('neolao/i18n/Locale'),
+    Site            = require('neolao/Site'),
+    http            = require('http'),
+    path            = require('path');
 
+// Configure the logger
+var listener = new FileListener();
+logger.addListener(listener);
+listener = new ConsoleListener();
+logger.addListener(listener);
+logger.debug('Hello {foo}', {foo: 'bar'});
 
 // Load configuration
-configuration   = require('../config/siteMain.json');
-routes          = require('../config/siteMainRoutes.json');
+var configuration       = require('../config/siteMain.json');
+var routes              = require('../config/siteMainRoutes.json');
 
 // Load locales
-localeMessages  = require('../locales/en_US/messages.json');
-locale          = new Locale('en_US');
+var localeMessages      = require('../locales/en_US/messages.json');
+var locale              = new Locale('en_US');
 locale.configureMessages(localeMessages);
 i18n.addLocale(locale);
 
 // Create the site
-site                    = new Site();
+var site                = new Site();
 site.serverPort         = process.env.PORT || 8080;
 site.serverName         = configuration.server.name;
 site.controllersPath    = path.join(__dirname, 'sites/main/controllers');
