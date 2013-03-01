@@ -6,14 +6,18 @@ var neolao          = require('neolao'),
     Locale          = require('neolao/i18n/Locale'),
     Site            = require('neolao/Site'),
     http            = require('http'),
-    path            = require('path');
+    path            = require('path'),
+    listener;
 
 // Configure the logger
-var listener = new FileListener();
+listener = new FileListener('../logs/debug.log', logger.DEBUG);
+logger.addListener(listener);
+listener = new FileListener('../logs/error.log', logger.ERROR);
+logger.addListener(listener);
+listener = new FileListener('../logs/warning.log', logger.WARNING);
 logger.addListener(listener);
 listener = new ConsoleListener();
 logger.addListener(listener);
-logger.debug('Hello {foo}', {foo: 'bar'});
 
 // Load configuration
 var configuration       = require('../config/siteMain.json');
