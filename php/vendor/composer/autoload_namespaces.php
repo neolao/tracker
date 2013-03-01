@@ -6,7 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    '\\CSSmin' => $vendorDir . '/neolao/neolao/lib/cssmin.php',
     'Psr\\Log\\' => $vendorDir . '/psr/log/',
     'Mustache' => $vendorDir . '/mustache/mustache/src/',
-    '' => array($baseDir . '/lib/', $baseDir . '/application/', $vendorDir . '/neolao/neolao/classes/'),
+    '' => array($baseDir . '/lib/', $baseDir . '/application/', $vendorDir . '/neolao/neolao/classes/', $vendorDir . '/neolao/neolao/lib/'),
 );

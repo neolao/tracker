@@ -143,28 +143,30 @@
         "source": {
             "type": "git",
             "url": "https://github.com/neolao/php.git",
-            "reference": "a4ad1dc8d4891322b53c16334628c8238467a2ff"
+            "reference": "c6273d76d933ecd72fd048a743ee15436690a524"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/neolao/php/zipball/a4ad1dc8d4891322b53c16334628c8238467a2ff",
-            "reference": "a4ad1dc8d4891322b53c16334628c8238467a2ff",
+            "url": "https://api.github.com/repos/neolao/php/zipball/c6273d76d933ecd72fd048a743ee15436690a524",
+            "reference": "c6273d76d933ecd72fd048a743ee15436690a524",
             "shasum": ""
         },
         "require": {
             "mustache/mustache": "2.1.*",
             "php": ">=5.4",
             "psr/log": "*",
-            "richthegeek/phpsass": "*"
+            "richthegeek/phpsass": "dev-master"
         },
-        "time": "2013-03-01 01:55:02",
+        "time": "2013-03-01 18:25:01",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "": [
-                    "classes/"
-                ]
+                    "classes/",
+                    "lib/"
+                ],
+                "\\CSSmin": "lib/cssmin.php"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
