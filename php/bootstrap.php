@@ -5,6 +5,7 @@ if (version_compare(PHP_VERSION, '5.4.0') < 0) {
 }
 
 // PHP configuration
+umask(0002); // Create file and directory with the mode 0775
 ini_set('html_errors', 'Off');
 
 // Constants
