@@ -66,6 +66,7 @@ $themePath = ROOT_PATH . '/www/themes/' . $themeName;
 $stylesheetHelper               = new \Neolao\Site\Helper\View\StylesheetHelper();
 $stylesheetHelper->basePath     = $themePath;
 $stylesheetHelper->baseUrl      = '/themes/' . $themeName;
+$stylesheetHelper->sass         = true;
 $stylesheetHelper->generated    = false; // @todo Use general profile
 
 

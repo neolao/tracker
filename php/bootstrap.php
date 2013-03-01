@@ -23,9 +23,11 @@ require PHP_PATH.'/vendor/autoload.php';
 use \Neolao\Logger;
 use \Neolao\Logger\FileListener;
 $logger = Logger::getInstance();
-$fileListener = new FileListener(ROOT_PATH.'/logs/debug.log', Logger::DEBUG);
-$logger->addListener($fileListener);
 $fileListener = new FileListener(ROOT_PATH.'/logs/error.log', Logger::ERROR);
+$logger->addListener($fileListener);
+$fileListener = new FileListener(ROOT_PATH.'/logs/warning.log', Logger::WARNING);
+$logger->addListener($fileListener);
+$fileListener = new FileListener(ROOT_PATH.'/logs/debug.log', Logger::DEBUG);
 $logger->addListener($fileListener);
 
 

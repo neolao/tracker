@@ -7,7 +7,7 @@
     ],
 
     "require": {
-        "neolao/neolao": "dev-master"
+        "neolao/neolao"         : "dev-master"
     },
 
     "autoload": {

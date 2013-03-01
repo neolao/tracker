@@ -1,5 +1,5 @@
 {
-    "hash": "0cf7b90a99e16a6a57cf5009da5c877c",
+    "hash": "809c3ad6f8f80e959035f8c2437ebbb0",
     "packages": [
         {
             "name": "mustache/mustache",
@@ -49,18 +49,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neolao/php.git",
-                "reference": "4594c51e9339c1eb366f228ba4c481736ea8d7dd"
+                "reference": "a4ad1dc8d4891322b53c16334628c8238467a2ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neolao/php/zipball/4594c51e9339c1eb366f228ba4c481736ea8d7dd",
-                "reference": "4594c51e9339c1eb366f228ba4c481736ea8d7dd",
+                "url": "https://api.github.com/repos/neolao/php/zipball/a4ad1dc8d4891322b53c16334628c8238467a2ff",
+                "reference": "a4ad1dc8d4891322b53c16334628c8238467a2ff",
                 "shasum": ""
             },
             "require": {
                 "mustache/mustache": "2.1.*",
                 "php": ">=5.4",
-                "psr/log": "*"
+                "psr/log": "*",
+                "richthegeek/phpsass": "*"
             },
             "type": "library",
             "autoload": {
@@ -70,7 +71,7 @@
                     ]
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -82,7 +83,7 @@
                 }
             ],
             "description": "Neolao library for PHP 5.4+",
-            "time": "2013-02-28 00:39:53"
+            "time": "2013-03-01 01:55:02"
         },
         {
             "name": "psr/log",
@@ -121,6 +122,57 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "richthegeek/phpsass",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/richthegeek/phpsass.git",
+                "reference": "b8d0f58c2e37152c6580ab04d1d2d2a58caf5e01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/richthegeek/phpsass/zipball/b8d0f58c2e37152c6580ab04d1d2d2a58caf5e01",
+                "reference": "b8d0f58c2e37152c6580ab04d1d2d2a58caf5e01",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "script/",
+                    "renderers/",
+                    "tree/",
+                    "SassException.php",
+                    "SassFile.php",
+                    "SassParser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Richard Lyon",
+                    "homepage": "https://github.com/richthegeek"
+                },
+                {
+                    "name": "Sebastian Siemssen",
+                    "homepage": "https://twitter.com/thefubhy"
+                },
+                {
+                    "name": "Steve Jones",
+                    "homepage": "https://github.com/darthsteven"
+                },
+                {
+                    "name": "Sam Richard",
+                    "homepage": "https://github.com/snugug"
+                }
+            ],
+            "description": "PHPSass is a PHP compiler for SASS, a popular CSS pre-processor language.",
+            "homepage": "http://phpsass.com",
+            "time": "2013-02-11 11:00:04"
         }
     ],
     "packages-dev": null,
