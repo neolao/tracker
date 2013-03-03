@@ -1,5 +1,5 @@
 var neolao      = require('neolao'),
-    Controller  = require('neolao/site/Controller.js');
+    Controller  = require('neolao/site/Controller');
 
 /**
  * @class       Error controller
@@ -7,7 +7,7 @@ var neolao      = require('neolao'),
  */
 module.exports = function()
 {
-    this.constructor.super_();
+    this.constructor.super_.call(this);
 };
 module.exports.extends(Controller);
 proto = module.exports.prototype;
