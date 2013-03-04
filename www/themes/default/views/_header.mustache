@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Document title</title>
+        <meta charset="utf-8" />
+        <title>neoTracker</title>
         <link rel="stylesheet" type="text/css" href="{{#stylesheetsPath}}screen.css{{/stylesheetsPath}}"/>
     </head>
     <body>
+        {{#isLogged}}
+            logged
+        {{/isLogged}}
+        {{^isLogged}}
+            not logged
+        {{/isLogged}}

@@ -1,8 +1,10 @@
 <?php
+require_once __DIR__ . '/AbstractController.php';
+
 /**
  * Error actions
  */
-class ErrorController extends \Neolao\Site\Controller
+class ErrorController extends AbstractController
 {
     /**
      * Default action

@@ -48,7 +48,7 @@ function defaultExceptionHandler($exception)
     $logger = Logger::getInstance();
     $logger->error($exception->getMessage());
     $logger->error($exception->getTraceAsString());
-    
+
     // If the header is already sent, do not display a message
     if (headers_sent()) {
         exit;

@@ -27,6 +27,7 @@ $aclHelper      = new \Neolao\Site\Helper\Controller\AclHelper();
 $acl            = $aclHelper->acl;
 
 // ACL: Add default resources, roles and rules
+// @todo Easier configuration
 $aclResourcesPath       = CONFIG_PATH . '/aclResources.json';
 $aclResourcesContent    = file_get_contents($aclResourcesPath);
 $aclResources           = json_decode($aclResourcesContent);

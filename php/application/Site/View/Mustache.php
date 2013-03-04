@@ -31,9 +31,9 @@ class Mustache extends \Neolao\Site\View
      */
     public function render($viewName)
     {
-        $templatePath = $this->_directoryPath.'/'.$viewName;
+        $templatePath = $this->_directoryPath . '/' . $viewName . '.mustache';
         if (!is_file($templatePath)) {
-            //throw new \Exception('Template file not found: '.$templatePath);
+            throw new \Exception('Template file not found: ' . $templatePath);
         }
 
         // Initialize the engine

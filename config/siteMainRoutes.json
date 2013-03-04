@@ -4,7 +4,23 @@
         "pattern"   : "/^\\\/$/",
         "controller": "home",
         "action"    : "index",
-        "reverse"   : ""
+        "reverse"   : "/"
+    },
+
+    "login":
+    {
+        "pattern"   : "/^\\\/login$/",
+        "controller": "auth",
+        "action"    : "login",
+        "reverse"   : "/login"
+    },
+
+    "logout":
+    {
+        "pattern"   : "/^\\\/logout$/",
+        "controller": "auth",
+        "action"    : "logout",
+        "reverse"   : "/logout"
     },
 
     "default":

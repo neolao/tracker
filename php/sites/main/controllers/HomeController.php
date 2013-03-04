@@ -1,12 +1,10 @@
 <?php
-
-use \Neolao\Site\Controller;
-use \Neolao\Logger;
+require_once __DIR__ . '/AbstractController.php';
 
 /**
  * Home actions
  */
-class HomeController extends Controller
+class HomeController extends AbstractController
 {
     /**
      * Default action
@@ -14,8 +12,7 @@ class HomeController extends Controller
     public function indexAction()
     {
         // Check ACL
-        $acl = $this->getAcl();
-        if (!$acl->isAllowed('guest', 'main.home')) {
+        if (!$this->isAllowed('main.home')) {
             $this->forward('error', 'http401');
         }
 
