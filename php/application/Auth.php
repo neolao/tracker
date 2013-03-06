@@ -80,4 +80,18 @@ class Auth extends BasicCookie
         $user = $dao->getByEmail($identity);
         return $user;
     }
+
+    /**
+     * Get the password hash
+     *
+     * @param   string      $clearPassword      The clear password
+     * @return  string                          The hash
+     */
+    public function getPasswordHash($clearPassword)
+    {
+        // @todo Get the salt from the config
+        $salt = 'aEky6D';
+
+        return sha1($clearPassword.$salt);
+    }
 }
