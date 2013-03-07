@@ -7,7 +7,8 @@ if (!is_readable($configPath)) {
     die('Please create the file: ' . $configPath);
 }
 $configContent = file_get_contents($configPath);
-$configGeneral = json_decode($configContent);
+$configGeneral = \ConfigGeneral::getInstance();
+$configGeneral->parseJson($configContent);
 
 // Site configuration
 $configPath = CONFIG_PATH . '/siteMain.json';
@@ -68,7 +69,7 @@ $stylesheetHelper               = new \Neolao\Site\Helper\View\StylesheetHelper(
 $stylesheetHelper->basePath     = $themePath;
 $stylesheetHelper->baseUrl      = '/themes/' . $themeName;
 $stylesheetHelper->sass         = true;
-$stylesheetHelper->generated    = false; // @todo Use general profile
+$stylesheetHelper->generated    = $configGeneral->styleGenerated;
 
 
 // Initialize and run the site

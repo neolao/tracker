@@ -1,0 +1,16 @@
+{
+    "profile"           : "development",
+
+    "styleGenerated"    : false,
+
+
+    "profiles"          : {
+        "production"        : {
+            "styleGenerated"    : true
+        },
+
+        "development"       : {
+            "styleGenerated"    : false
+        }
+    }
+}
