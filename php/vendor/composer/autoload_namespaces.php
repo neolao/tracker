@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '\\CSSmin' => $vendorDir . '/neolao/neolao/lib/cssmin.php',
-    'Psr\\Log\\' => $vendorDir . '/psr/log/',
     'Mustache' => $vendorDir . '/mustache/mustache/src/',
+    'JShrink' => $vendorDir . '/tedivm/jshrink/src/',
     '' => array($baseDir . '/lib/', $baseDir . '/application/', $vendorDir . '/neolao/neolao/classes/', $vendorDir . '/neolao/neolao/lib/'),
 );

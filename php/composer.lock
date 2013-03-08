@@ -49,19 +49,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neolao/php.git",
-                "reference": "c6273d76d933ecd72fd048a743ee15436690a524"
+                "reference": "10462653254b9d13c87cf8aa49a58d8193923b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neolao/php/zipball/c6273d76d933ecd72fd048a743ee15436690a524",
-                "reference": "c6273d76d933ecd72fd048a743ee15436690a524",
+                "url": "https://api.github.com/repos/neolao/php/zipball/10462653254b9d13c87cf8aa49a58d8193923b29",
+                "reference": "10462653254b9d13c87cf8aa49a58d8193923b29",
                 "shasum": ""
             },
             "require": {
                 "mustache/mustache": "2.1.*",
                 "php": ">=5.4",
-                "psr/log": "*",
-                "richthegeek/phpsass": "dev-master"
+                "richthegeek/phpsass": "dev-master",
+                "tedivm/jshrink": "*"
             },
             "type": "library",
             "autoload": {
@@ -75,7 +75,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "MPL-2.0"
             ],
             "authors": [
                 {
@@ -85,45 +85,7 @@
                 }
             ],
             "description": "Neolao library for PHP 5.4+",
-            "time": "2013-03-01 18:25:01"
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2013-03-08 02:21:38"
         },
         {
             "name": "richthegeek/phpsass",
@@ -175,6 +137,47 @@
             "description": "PHPSass is a PHP compiler for SASS, a popular CSS pre-processor language.",
             "homepage": "http://phpsass.com",
             "time": "2013-02-11 11:00:04"
+        },
+        {
+            "name": "tedivm/jshrink",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tedivm/JShrink",
+                "reference": "v0.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/tedivm/JShrink/archive/v0.5.1.zip",
+                "reference": "v0.5.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JShrink": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Hafner",
+                    "email": "tedivm@tedivm.com"
+                }
+            ],
+            "description": "Javascript Minifier built in PHP",
+            "homepage": "http://github.com/tedivm/JShrink",
+            "keywords": [
+                "javascript",
+                "minifier"
+            ],
+            "time": "2012-11-26 04:48:55"
         }
     ],
     "packages-dev": null,

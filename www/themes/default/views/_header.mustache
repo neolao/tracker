@@ -4,6 +4,8 @@
         <meta charset="utf-8" />
         <title>neoTracker</title>
         <link rel="stylesheet" type="text/css" href="{{#stylesheetsPath}}screen.css{{/stylesheetsPath}}"/>
+        <script type="text/javascript" src="{{#javascriptsPath}}lib/modernizr/modernizr-2.6.2.js{{/javascriptsPath}}"></script>
+        {{#modernizrLoad}}general.js{{/modernizrLoad}}
     </head>
     <body>
         {{#isLogged}}

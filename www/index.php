@@ -70,6 +70,10 @@ $stylesheetHelper->basePath     = $themePath;
 $stylesheetHelper->baseUrl      = '/themes/' . $themeName;
 $stylesheetHelper->sass         = true;
 $stylesheetHelper->generated    = $configGeneral->styleGenerated;
+$javascriptHelper               = new \Neolao\Site\Helper\View\JavascriptHelper();
+$javascriptHelper->basePath     = $themePath;
+$javascriptHelper->baseUrl      = '/themes/' . $themeName;
+$javascriptHelper->generated    = $configGeneral->styleGenerated;
 
 
 // Initialize and run the site
@@ -81,5 +85,6 @@ $site->viewRenderer         = new \Site\View\Mustache();
 $site->configureRoutes($routes);
 $site->addControllerHelper('getAcl', $aclHelper);
 $site->addViewHelper('stylesheetsPath', $stylesheetHelper);
+$site->addViewHelper('javascriptsPath', $javascriptHelper);
 $site->run();
 
