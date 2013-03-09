@@ -8,15 +8,15 @@
 
     background: $site-header-background;
     border-bottom: solid $global-border-width darken($site-header-background, 15%);
-    padding: .5rem 1rem;
+    padding: .7rem 1rem .5rem 1rem;
 
     // Links
     a {
-        color: #333;
+        color: $site-header-text-color;
         text-decoration: none;
 
         &:hover, &:focus {
-            color: #000;
+            color: $site-header-text-color-hover;
         }
     }
 
