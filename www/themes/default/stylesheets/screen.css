@@ -1,4 +1,135 @@
 /*
+ * http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/*
+ * HTML5 display-role reset for older browsers
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
  * *
  * * Grid system
  */
@@ -7,17 +138,17 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.grid-row,
-ul {
+.row,
+.site-header {
   padding: 0; }
-  .grid-row:before,
-  .grid-row:after,
-  ul:before,
-  ul:after {
+  .row:before,
+  .row:after,
+  .site-header:before,
+  .site-header:after {
     content: "";
     display: table; }
-  .grid-row:after,
-  ul:after {
+  .row:after,
+  .site-header:after {
     clear: both; }
 
 img,
@@ -29,47 +160,42 @@ embed {
 img {
   -ms-interpolation-mode: bicubic; }
 
+html,
 body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif; }
+
+article {
   color: #333333; }
 
-ul {
-  list-style: none;
-  border: solid 1px red; }
-
-li {
-  background: false;
-  float: left;
-  width: 32.667%;
-  margin: 0 0 0 1%;
-  border: solid 1px blue; }
-  li:first-child {
-    margin-left: 0; }
-  li:first-child {
-    background: blue;
+/*
+ * *
+ * * Site header
+ * *
+ * * It contains the site title and the main navigation.
+ */
+.site-header {
+  background: #dddddd;
+  padding: 0.5rem 1rem; }
+  .site-header h1 {
     float: left;
-    width: 15.833%;
+    width: 49.5%;
     margin: 0 0 0 1%;
-    margin-left: 16.833%; }
-  li:first-child:first-child {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .site-header h1:first-child {
     margin-left: 0; }
-    li:first-child:first-child {
-      margin-left: 16.833%; }
-  li:last-child {
-    background: red;
+  .site-header nav {
     float: left;
-    width: 7.417%;
+    width: 49.5%;
     margin: 0 0 0 1%;
-    margin-right: 25.25%; }
-  li:last-child:first-child {
+    text-align: right; }
+  .site-header nav:first-child {
     margin-left: 0; }
-    li:last-child:first-child {
-      margin-right: 25.25%; }
-  @media screen and (max-width: 768px) {
-    li {
-  float: left;
-  width: 7.417%;
-  margin: 0 0 0 1%;
-  background: green; }
-  li:first-child {
-    margin-left: 0; } }
+  .site-header ul {
+    display: inline-block; }
+  .site-header li {
+    display: inline-block; }
 

@@ -8,9 +8,12 @@
         {{#modernizrLoad}}general.js{{/modernizrLoad}}
     </head>
     <body>
-        {{#isLogged}}
-            logged
-        {{/isLogged}}
-        {{^isLogged}}
-            not logged
-        {{/isLogged}}
+        <header class="site-header">
+            <h1>Tracker</h1>
+            {{#isLogged}}
+                {{> _navigation.logged}}
+            {{/isLogged}}
+            {{^isLogged}}
+                {{> _navigation.notLogged}}
+            {{/isLogged}}
+        </header>

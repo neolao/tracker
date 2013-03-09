@@ -1,8 +1,15 @@
 // Properties
+$grid-columns: 12;
+$grid-gutter: 1%;
+$site-header-background: #ddd;
 $text-color: #333;
+
+// Reset
+@import "_reset";
 
 // Grid
 @import "_grid";
 
 
 @import "_general";
+@import "_header";
