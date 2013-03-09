@@ -1,3 +1,33 @@
 body {
     color: $text-color;
 }
+
+ul {
+    @extend .grid-row;
+
+    list-style: none;
+    border: solid 1px red;
+}
+li {
+    $columns: 12;
+    $gutter: 1%;
+
+    background: $a;
+    @include column(4, $columns, $gutter);
+
+    &:first-child {
+        background: blue;
+        @include column(2, $columns, $gutter, $offsetLeft: 2);
+    }
+    &:last-child {
+        background: red;
+        @include column(1, $columns, $gutter, $offsetLeft: 0, $offsetRight: 3);
+    }
+
+    border: solid 1px blue;
+
+    @media screen and (max-width: 768px) {
+        @include column(1, 12, 1%);
+        background: green;
+    }
+}

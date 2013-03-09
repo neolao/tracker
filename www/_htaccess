@@ -8,6 +8,8 @@ Options -Indexes
 # PHP variables
 <IfModule mod_php5.c>
     php_value magic_quotes_gpc off
+    php_value display_errors 1
+    php_value display_startup_errors 1
 </IfModule>
 
 # Rewrite URLs
