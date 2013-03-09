@@ -64,17 +64,6 @@ if (isset($configSite->theme)) {
 }
 $themePath = ROOT_PATH . '/www/themes/' . $themeName;
 
-// Theme helper
-$stylesheetHelper               = new \Neolao\Site\Helper\View\StylesheetHelper();
-$stylesheetHelper->basePath     = $themePath;
-$stylesheetHelper->baseUrl      = '/themes/' . $themeName;
-$stylesheetHelper->sass         = true;
-$stylesheetHelper->generated    = $configGeneral->styleGenerated;
-$javascriptHelper               = new \Neolao\Site\Helper\View\JavascriptHelper();
-$javascriptHelper->basePath     = $themePath;
-$javascriptHelper->baseUrl      = '/themes/' . $themeName;
-$javascriptHelper->generated    = $configGeneral->styleGenerated;
-
 
 // Initialize and run the site
 $site                       = new \Site\Main();
@@ -82,9 +71,10 @@ $site->serverName           = $configSite->server->name;
 $site->controllersPath      = PHP_PATH . '/sites/main/controllers';
 $site->viewsPath            = $themePath . '/views';
 $site->viewRenderer         = new \Site\View\Mustache();
+$site->themePath            = $themePath;
+$site->themeUrl             = '/themes/' . $themeName;
+$site->themeGenerated       = $configGeneral->themeGenerated;
 $site->configureRoutes($routes);
 $site->addControllerHelper('getAcl', $aclHelper);
-$site->addViewHelper('stylesheetsPath', $stylesheetHelper);
-$site->addViewHelper('javascriptsPath', $javascriptHelper);
 $site->run();
 

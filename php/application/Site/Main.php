@@ -6,11 +6,13 @@ namespace Site;
 
 
 use \Neolao\Site\View;
+use \Neolao\Site\Controller;
+use \Neolao\SiteAdvanced;
 
 /**
  * Main site
  */
-class Main extends \Neolao\Site
+class Main extends SiteAdvanced
 {
     /**
      * Constructor
@@ -25,7 +27,7 @@ class Main extends \Neolao\Site
      *
      * @param   \Neolao\Site\Controller     $controller     Controller instance
      */
-    protected function _addControllerHelpers(\Neolao\Site\Controller $controller)
+    protected function _addControllerHelpers(Controller $controller)
     {
         parent::_addControllerHelpers($controller);
 

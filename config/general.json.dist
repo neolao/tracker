@@ -1,16 +1,16 @@
 {
     "profile"           : "development",
 
-    "styleGenerated"    : false,
+    "themeGenerated"    : false,
 
 
     "profiles"          : {
         "production"        : {
-            "styleGenerated"    : true
+            "themeGenerated"    : true
         },
 
         "development"       : {
-            "styleGenerated"    : false
+            "themeGenerated"    : false
         }
     }
 }
