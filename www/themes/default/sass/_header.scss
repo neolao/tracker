@@ -1,0 +1,33 @@
+/**
+ * Site header
+ *
+ * It contains the site title and the main navigation.
+ */
+.site-header {
+    @extend .row;
+
+    background: $site-header-background;
+    padding: .5rem 1rem;
+
+    // Site title
+    h1 {
+        @include column(6, $grid-columns, $grid-gutter);
+
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    // Main navigation
+    nav {
+        @include column(6, $grid-columns, $grid-gutter);
+
+        text-align: right;
+    }
+    ul {
+        display: inline-block;
+    }
+    li {
+        display: inline-block;
+    }
+}
