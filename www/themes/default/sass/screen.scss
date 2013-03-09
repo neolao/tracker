@@ -1,15 +1,16 @@
 // Properties
-$grid-columns: 12;
-$grid-gutter: 1%;
-$global-border-width: 2px;
-$global-panel-background: rgb(240, 240, 240);
-$global-text-color: rgb(50, 50, 50);
-$component-border-color: darken($global-panel-background, 15%);
-$component-focus-color: rgb(120, 120, 180);
-$component-border-radius: 5px;
-$component-button-background: rgb(120, 120, 180);
-$component-button-text-color: rgb(250, 250, 250);
-$site-header-background: rgb(230, 230, 230);
+$grid-columns:                  12;
+$grid-gutter:                   1%;
+$global-border-width:           2px;
+$global-panel-background:       rgb(240, 240, 240);
+$global-text-color:             rgb(50, 50, 50);
+$component-border-color:        darken($global-panel-background, 15%);
+$component-focus-color:         rgb(120, 120, 180);
+$component-border-radius:       5px;
+$component-link-color:          rgb(120, 120, 180);
+$component-button-background:   rgb(120, 120, 180);
+$component-button-text-color:   rgb(250, 250, 250);
+$site-header-background:        rgb(230, 230, 230);
 
 // Reset
 @import "_reset";
@@ -22,6 +23,7 @@ $site-header-background: rgb(230, 230, 230);
 
 
 @import "_general";
+@import "_component.link";
 @import "_component.button";
 @import "_component.form";
 @import "_site.header";

@@ -1,0 +1,10 @@
+/**
+ * Link
+ */
+a, .link {
+    color: $component-link-color;
+
+    &:hover, &:focus {
+        color: darken($component-link-color, 10%);
+    }
+}

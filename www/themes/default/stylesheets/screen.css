@@ -180,6 +180,19 @@ p {
 
 /*
  * *
+ * * Link
+ */
+a,
+.link {
+  color: #7878b4; }
+  a:hover,
+  .link:hover,
+  a:focus,
+  .link:focus {
+    color: #5959a0; }
+
+/*
+ * *
  * * Button
  */
 .button,
@@ -257,6 +270,12 @@ input[type=email] {
   background: #e6e6e6;
   border-bottom: solid 2px silver;
   padding: 0.5rem 1rem; }
+  .site-header a {
+    color: #333333;
+    text-decoration: none; }
+    .site-header a:hover,
+    .site-header a:focus {
+      color: black; }
   .site-header h1 {
     float: left;
     width: 49.5%;

@@ -10,6 +10,16 @@
     border-bottom: solid $global-border-width darken($site-header-background, 15%);
     padding: .5rem 1rem;
 
+    // Links
+    a {
+        color: #333;
+        text-decoration: none;
+
+        &:hover, &:focus {
+            color: #000;
+        }
+    }
+
     // Site title
     h1 {
         @include column(6, $grid-columns, $grid-gutter);
