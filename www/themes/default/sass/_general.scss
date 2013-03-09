@@ -5,7 +5,8 @@ html, body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-article {
-    color: $text-color;
+// Paragraph
+p {
+    line-height: 1.2rem;
+    margin: .2rem 0 0 0;
 }
-

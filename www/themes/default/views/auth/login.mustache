@@ -1,10 +1,18 @@
 {{> _header}}
 
-<h1>Login</h1>
-<form method="post" action="{{formAction}}">
-    <p><label>Email</label> <input type="text" name="email"/></p>
-    <p><label>Password</label> <input type="password" name="password"/></p>
-    <p><input type="submit"/></p>
-</form>
+<article class="site-body page-login">
+    <h1>Login</h1>
+    <form method="post" action="{{formAction}}">
+        <p>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required="required" placeholder="my.name@domain.tld" autofocus="autofocus"/>
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" required="required" placeholder=""/>
+        </p>
+        <p><input type="submit"/></p>
+    </form>
+</article>
 
 {{> _footer}}

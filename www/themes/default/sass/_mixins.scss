@@ -1,0 +1,27 @@
+/**
+ * Border radius
+ */
+@mixin border-radius($radius: 0) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/**
+ * Box shadow
+ */
+@mixin box-shadow($x: 0, $y: 0, $blur: 0, $color: #000, $inset: false) {
+    @if $x == none {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } @else if $inset {
+        -moz-box-shadow: $x $y $blur $color inset;
+        -webkit-box-shadow: $x $y $blur $color inset;
+        box-shadow: $x $y $blur $color inset;
+    } @else {
+        -moz-box-shadow: $x $y $blur $color;
+        -webkit-box-shadow: $x $y $blur $color;
+        box-shadow: $x $y $blur $color;
+    }
+}

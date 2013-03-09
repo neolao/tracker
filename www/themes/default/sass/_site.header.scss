@@ -7,6 +7,7 @@
     @extend .row;
 
     background: $site-header-background;
+    border-bottom: solid $global-border-width darken($site-header-background, 15%);
     padding: .5rem 1rem;
 
     // Site title

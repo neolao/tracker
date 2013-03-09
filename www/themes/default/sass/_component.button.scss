@@ -1,0 +1,24 @@
+/**
+ * Button
+ */
+.button {
+    padding: .5rem .8rem;
+
+    font-size: 1rem;
+
+    background: $component-button-background;
+
+    border: none;
+    @include border-radius($component-border-radius);
+
+    color: $component-button-text-color;
+
+    cursor: pointer;
+    outline: none;
+
+    // Hover
+    &:hover,
+    &:focus {
+        background: darken($component-button-background, 10%);
+    }
+}

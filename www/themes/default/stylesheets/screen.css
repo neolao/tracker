@@ -131,6 +131,14 @@ table {
 
 /*
  * *
+ * * Border radius
+ */
+/*
+ * *
+ * * Box shadow
+ */
+/*
+ * *
  * * Grid system
  */
 * {
@@ -166,8 +174,78 @@ body {
   padding: 0;
   font-family: Helvetica, Arial, sans-serif; }
 
-article {
-  color: #333333; }
+p {
+  line-height: 1.2rem;
+  margin: 0.2rem 0 0 0; }
+
+/*
+ * *
+ * * Button
+ */
+.button,
+input[type=submit] {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  background: #7878b4;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fafafa;
+  cursor: pointer;
+  outline: none; }
+  .button:hover,
+  .button:focus,
+  input[type=submit]:hover,
+  input[type=submit]:focus {
+    background: #5959a0; }
+
+/*
+ * *
+ * * Form
+ */
+form {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f0f0f0;
+  border: solid 2px #cacaca;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+  form p {
+    margin: 1rem 0 0.5rem 0; }
+    form p:first-child {
+      margin-top: 0; }
+    form p:last-child {
+      margin-bottom: 0; }
+
+label {
+  display: block;
+  margin: 0 0 0.2rem 0; }
+
+input[type=text],
+input[type=password],
+input[type=email] {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #323232;
+  outline: none;
+  border: solid 2px #cacaca;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 5px #c8c8c8 inset;
+  -webkit-box-shadow: 0 0 5px #c8c8c8 inset;
+  box-shadow: 0 0 5px #c8c8c8 inset;
+  &: invalid;
+  &-background: red; }
+  input[type=text]:focus,
+  input[type=password]:focus,
+  input[type=email]:focus {
+    border-color: #7878b4; }
+
 
 /*
  * *
@@ -176,7 +254,8 @@ article {
  * * It contains the site title and the main navigation.
  */
 .site-header {
-  background: #dddddd;
+  background: #e6e6e6;
+  border-bottom: solid 2px silver;
   padding: 0.5rem 1rem; }
   .site-header h1 {
     float: left;
@@ -198,4 +277,28 @@ article {
     display: inline-block; }
   .site-header li {
     display: inline-block; }
+
+/*
+ * *
+ * * Site body
+ */
+.site-body {
+  padding: 2rem 1rem;
+  color: #323232; }
+  .site-body h1 {
+    font-size: 2rem;
+    font-weight: bold; }
+
+/*
+ * *
+ * * Login page
+ */
+  .page-login h1 {
+    width: 25rem;
+    margin-left: auto;
+    margin-right: auto; }
+  .page-login form {
+    width: 25rem;
+    margin-left: auto;
+    margin-right: auto; }
 

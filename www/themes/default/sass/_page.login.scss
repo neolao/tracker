@@ -1,0 +1,22 @@
+/**
+ * Login page
+ */
+.page-login {
+    $width: 25rem;
+
+    // The title
+    h1 {
+        width: $width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // The form
+    form {
+        width: $width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
