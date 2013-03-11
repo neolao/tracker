@@ -58,5 +58,11 @@ class AuthController extends AbstractController
      */
     public function logoutAction()
     {
+        // Logout
+        $auth               = Auth::getInstance();
+        $auth->currentUser  = null;
+
+        // Redirect to the home
+        $this->redirect('home');
     }
 }
