@@ -12,6 +12,13 @@ use \Neolao\Behavior\SerializableJson;
 class User implements SerializableJson
 {
     /**
+     * User id
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * User email
      *
      * @var string
@@ -26,11 +33,17 @@ class User implements SerializableJson
     public $password;
 
     /**
+     * User nickname
+     *
+     * @var string
+     */
+    public $nickname;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        
     }
 
     /**
@@ -41,7 +54,9 @@ class User implements SerializableJson
     public function serializeJson()
     {
         $json           = new \stdClass();
+        $json->id       = $this->id;
         $json->email    = $this->email;
+        $json->nickname = $this->nickname;
 
 
         return $json;
@@ -56,6 +71,11 @@ class User implements SerializableJson
     {
         $json = json_decode($json);
 
+        // Id
+        if (isset($json->id)) {
+            $this->id = (int) $json->id;
+        }
+
         // Email
         if (isset($json->email)) {
             $this->email = (string) $json->email;
@@ -66,5 +86,22 @@ class User implements SerializableJson
             $this->password = (string) $json->password;
         }
 
+        // Nickname
+        if (isset($json->nickname)) {
+            $this->nickname = (string) $json->nickname;
+        }
+
+    }
+
+    /**
+     * Get the role of the ACL
+     *
+     * @return  string                  The role
+     */
+    public function getAclRole()
+    {
+        $role = 'member';
+
+        return $role;
     }
 }

@@ -1,3 +1,14 @@
 {
-    "home.title"        : "Accueil"
+    "menu.login"                : "Connexion",
+    "menu.logout"               : "Déconnexion",
+
+    "home.title"                : "Accueil",
+
+    "profile.title"             : "Profil",
+    "profile.email.label"       : "Email&nbsp;:",
+    "profile.nickname.label"    : "Surnom : ",
+
+    "error.title"               : "Erreur",
+    "error.401.title"           : "Accès refusé",
+    "error.404.title"           : "Page introuvable"
 }

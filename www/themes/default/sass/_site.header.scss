@@ -9,6 +9,7 @@
     background: $site-header-background;
     border-bottom: solid $global-border-width darken($site-header-background, 15%);
     padding: .7rem 1rem .5rem 1rem;
+    color: $site-header-text-color;
 
     // Links
     a {

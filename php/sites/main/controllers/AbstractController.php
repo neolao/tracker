@@ -3,6 +3,7 @@
 use \Neolao\Site\Controller;
 use \Neolao\Site\Request;
 use \Auth;
+use \Bo\User;
 
 /**
  * Abstract controller
@@ -39,12 +40,17 @@ abstract class AbstractController extends Controller
      */
     public function isAllowed($resource, $privilege = '*')
     {
+
         // Get the ACL instance from the helper
         $acl = $this->getAcl();
 
         // Get the role of the current user
-        // @todo
-        $role = 'guest';
+        $auth           = Auth::getInstance();
+        $currentUser    = $auth->currentUser;
+        $role           = 'guest';
+        if ($currentUser instanceof User) {
+            $role = $currentUser->getAclRole();
+        }
 
         // Check the ACL
         if ($acl->isAllowed($role, $resource, $privilege)) {

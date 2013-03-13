@@ -23,6 +23,14 @@
         "reverse"   : "/logout"
     },
 
+    "profile":
+    {
+        "pattern"   : "/^\\\/account\\\/profile$/",
+        "controller": "account",
+        "action"    : "profile",
+        "reverse"   : "/account/profile"
+    },
+
     "default":
     {
         "controller": "error",

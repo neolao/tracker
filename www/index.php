@@ -56,6 +56,9 @@ foreach ($aclRules as $rule) {
     }
 }
 
+// ACL: Apply custom rules
+// @todo
+
 
 // Get the theme
 $themeName = 'default';

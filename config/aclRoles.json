@@ -1,4 +1,5 @@
 {
     "guest"     : null,
-    "admin"     : "guest"
+    "member"    : "guest",
+    "admin"     : "member"
 }

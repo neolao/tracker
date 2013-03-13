@@ -1,3 +1,14 @@
 {
-    "home.title"           : "Home"
+    "menu.login"                : "Log in",
+    "menu.logout"               : "Log out",
+
+    "home.title"                : "Home",
+
+    "profile.title"             : "Profile",
+    "profile.email.label"       : "Email:",
+    "profile.nickname.label"    : "Nickname:",
+
+    "error.title"               : "Error",
+    "error.401.title"           : "Access denied",
+    "error.404.title"           : "Page not found"
 }
