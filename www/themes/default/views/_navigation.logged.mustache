@@ -1,5 +1,11 @@
 <nav>
     <ul>
-        <li><a href="{{#link}}logout{{/link}}">{{#_}}menu.logout{{/_}}</a></li>
+        <li class="account">
+            <img src="/themes/default/images/header/avatar-default.svg" alt="{{#_}}menu.account{{/_}}"/>
+            <ul>
+                <li><a href="{{#link}}profile{{/link}}">{{#_}}menu.profile{{/_}}</a></li>
+                <li><a href="{{#link}}logout{{/link}}">{{#_}}menu.logout{{/_}}</a></li>
+            </ul>
+        </li>
     </ul>
 </nav>

@@ -1,6 +1,8 @@
 {
     "menu.login"                : "Connexion",
     "menu.logout"               : "Déconnexion",
+    "menu.account"              : "Compte",
+    "menu.profile"              : "Profil",
 
     "home.title"                : "Accueil",
 

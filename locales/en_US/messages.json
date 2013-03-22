@@ -1,6 +1,8 @@
 {
     "menu.login"                : "Log in",
     "menu.logout"               : "Log out",
+    "menu.account"              : "Account",
+    "menu.profile"              : "Profile",
 
     "home.title"                : "Home",
 
