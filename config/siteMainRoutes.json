@@ -1,4 +1,5 @@
 {
+    // Home page
     "home":
     {
         "pattern"   : "/^\\\/$/",
@@ -7,6 +8,7 @@
         "reverse"   : "/"
     },
 
+    // Login page
     "login":
     {
         "pattern"   : "/^\\\/login$/",
@@ -15,6 +17,7 @@
         "reverse"   : "/login"
     },
 
+    // Logout action
     "logout":
     {
         "pattern"   : "/^\\\/logout$/",
@@ -23,6 +26,7 @@
         "reverse"   : "/logout"
     },
 
+    // Profile
     "profile":
     {
         "pattern"   : "/^\\\/account\\\/profile$/",
@@ -31,6 +35,7 @@
         "reverse"   : "/account/profile"
     },
 
+    // Default action
     "default":
     {
         "controller": "error",

@@ -1,14 +1,25 @@
 {
+    // Profile of the environment
     "profile"           : "development",
 
+
+    // Indicates that the theme is generated
+    // false: The websites pre-compile the CSS
+    // true : The generated version of the style is used
+    //
+    // See the script ./php/scripts/generateStyle.php or ./nodejs/scripts/generateStyle.js)
     "themeGenerated"    : false,
 
 
+    // Availables profiles: productions, development
+    // Each profile override the parameters
     "profiles"          : {
+        // Production profile
         "production"        : {
             "themeGenerated"    : true
         },
 
+        // Development profile
         "development"       : {
             "themeGenerated"    : false
         }

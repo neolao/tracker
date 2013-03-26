@@ -1,8 +1,11 @@
 {
+    // Server configuration
     "server"    :
     {
         "name"      : "localhost"
     },
 
+    // Theme
+    // Availables: default, dark
     "theme"     : "default"
 }

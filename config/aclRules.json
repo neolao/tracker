@@ -1,6 +1,10 @@
 [
+    // By default, everything is denied
     {"type": "deny",    "role": "*",        "resource": "*",            "privilege": "*"},
 
+    // Rules of the guest
     {"type": "allow",   "role": "guest",    "resource": "main.home",    "privilege": "*"},
+
+    // Rules of a member (registred user)
     {"type": "allow",   "role": "member",   "resource": "main.profile", "privilege": "*"}
 ]

@@ -1,12 +1,15 @@
 <?php
 include_once __DIR__ . '/../php/bootstrap.php';
 
+use \Neolao\Util\Json;
+
 // General configuration
 $configPath = CONFIG_PATH . '/general.json';
 if (!is_readable($configPath)) {
     die('Please create the file: ' . $configPath);
 }
 $configContent = file_get_contents($configPath);
+$configContent = Json::removeComments($configContent);
 $configGeneral = \ConfigGeneral::getInstance();
 $configGeneral->parseJson($configContent);
 
@@ -16,11 +19,13 @@ if (!is_readable($configPath)) {
     die('Please create the file: ' . $configPath);
 }
 $configContent = file_get_contents($configPath);
+$configContent = Json::removeComments($configContent);
 $configSite = json_decode($configContent);
 
 // Routes
 $routesPath     = CONFIG_PATH . '/siteMainRoutes.json';
 $routesContent  = file_get_contents($routesPath);
+$routesContent  = Json::removeComments($routesContent);
 $routes         = json_decode($routesContent);
 
 // ACL: Create the controller helper
@@ -31,12 +36,15 @@ $acl            = $aclHelper->acl;
 // @todo Easier configuration
 $aclResourcesPath       = CONFIG_PATH . '/aclResources.json';
 $aclResourcesContent    = file_get_contents($aclResourcesPath);
+$aclResourcesContent    = Json::removeComments($aclResourcesContent);
 $aclResources           = json_decode($aclResourcesContent);
 $aclRolesPath           = CONFIG_PATH . '/aclRoles.json';
 $aclRolesContent        = file_get_contents($aclRolesPath);
+$aclRolesContent        = Json::removeComments($aclRolesContent);
 $aclRoles               = json_decode($aclRolesContent);
 $aclRulesPath           = CONFIG_PATH . '/aclRules.json';
 $aclRulesContent        = file_get_contents($aclRulesPath);
+$aclRulesContent        = Json::removeComments($aclRulesContent);
 $aclRules               = json_decode($aclRulesContent);
 foreach ($aclResources as $resourceName) {
     $acl->addResource($resourceName);
