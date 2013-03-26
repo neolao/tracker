@@ -87,7 +87,7 @@ $site->localeString         = 'fr_FR';
 $site->themePath            = $themePath;
 $site->themeUrl             = '/themes/' . $themeName;
 $site->themeGenerated       = $configGeneral->themeGenerated;
-$site->configureRoutes($routes);
+$site->configureRouter($routes);
 $site->addControllerHelper('getAcl', $aclHelper);
 $site->run();
 
