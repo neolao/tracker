@@ -2,7 +2,7 @@
     // Home page
     "home":
     {
-        "pattern"   : "/^\\\/$/",
+        "pattern"   : "/",
         "controller": "home",
         "action"    : "index",
         "reverse"   : "/"
@@ -11,7 +11,7 @@
     // Login page
     "login":
     {
-        "pattern"   : "/^\\\/login$/",
+        "pattern"   : "/login",
         "controller": "auth",
         "action"    : "login",
         "reverse"   : "/login"
@@ -20,7 +20,7 @@
     // Logout action
     "logout":
     {
-        "pattern"   : "/^\\\/logout$/",
+        "pattern"   : "/logout",
         "controller": "auth",
         "action"    : "logout",
         "reverse"   : "/logout"
@@ -29,7 +29,7 @@
     // Profile
     "profile":
     {
-        "pattern"   : "/^\\\/account\\\/profile$/",
+        "pattern"   : "/account/profile",
         "controller": "account",
         "action"    : "profile",
         "reverse"   : "/account/profile"
