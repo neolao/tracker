@@ -2,5 +2,7 @@
     // Resources of the main site
     "main.home",
     "main.profile",
+    "main.projects",
+    "main.milestones",
     "main.issues"
 ]

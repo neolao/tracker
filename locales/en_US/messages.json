@@ -3,12 +3,17 @@
     "menu.logout"               : "Log out",
     "menu.account"              : "Account",
     "menu.profile"              : "Profile",
+    "menu.issues"               : "Issues",
+    "menu.milestones"           : "Milestones",
+    "menu.projects"             : "Projects",
 
     "home.title"                : "Home",
 
     "profile.title"             : "Profile",
     "profile.email.label"       : "Email:",
     "profile.nickname.label"    : "Nickname:",
+
+    "projects.title"            : "Projects",
 
     "error.title"               : "Error",
     "error.401.title"           : "Access denied",

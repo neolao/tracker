@@ -35,6 +35,33 @@
         "reverse"   : "/account/profile"
     },
 
+    // Projects
+    "projects":
+    {
+        "pattern"   : "/projects",
+        "controller": "project",
+        "action"    : "all",
+        "reverse"   : "/projects"
+    },
+
+    // Milestones
+    "milestones":
+    {
+        "pattern"   : "/milestones",
+        "controller": "milestone",
+        "action"    : "all",
+        "reverse"   : "/milestones"
+    },
+
+    // Issues
+    "issues":
+    {
+        "pattern"   : "/issues",
+        "controller": "issue",
+        "action"    : "all",
+        "reverse"   : "/issues"
+    },
+
     // Default action
     "default":
     {

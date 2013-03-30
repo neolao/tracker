@@ -3,12 +3,17 @@
     "menu.logout"               : "Déconnexion",
     "menu.account"              : "Compte",
     "menu.profile"              : "Profil",
+    "menu.issues"               : "Tickets",
+    "menu.milestones"           : "Étapes",
+    "menu.projects"             : "Projets",
 
     "home.title"                : "Accueil",
 
     "profile.title"             : "Profil",
     "profile.email.label"       : "Email&nbsp;:",
     "profile.nickname.label"    : "Surnom : ",
+
+    "projects.title"            : "Projets",
 
     "error.title"               : "Erreur",
     "error.401.title"           : "Accès refusé",
