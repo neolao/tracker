@@ -8,19 +8,19 @@ $configPath = CONFIG_PATH . '/general.json';
 if (!is_readable($configPath)) {
     die('Please create the file: ' . $configPath);
 }
-$configContent = file_get_contents($configPath);
-$configContent = Json::removeComments($configContent);
-$configGeneral = \ConfigGeneral::getInstance();
+$configContent  = file_get_contents($configPath);
+$configContent  = Json::removeComments($configContent);
+$configGeneral  = \ConfigGeneral::getInstance();
 $configGeneral->parseJson($configContent);
 
 // Site configuration
-$configPath = CONFIG_PATH . '/siteMain.json';
+$configPath     = CONFIG_PATH . '/siteMain.json';
 if (!is_readable($configPath)) {
     die('Please create the file: ' . $configPath);
 }
-$configContent = file_get_contents($configPath);
-$configContent = Json::removeComments($configContent);
-$configSite = json_decode($configContent);
+$configContent  = file_get_contents($configPath);
+$configContent  = Json::removeComments($configContent);
+$configSite     = json_decode($configContent);
 
 // Routes
 $routesPath     = CONFIG_PATH . '/siteMainRoutes.json';

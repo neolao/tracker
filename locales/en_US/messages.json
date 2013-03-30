@@ -1,4 +1,5 @@
 {
+    // Navigation
     "menu.login"                : "Log in",
     "menu.logout"               : "Log out",
     "menu.account"              : "Account",
@@ -7,14 +8,24 @@
     "menu.milestones"           : "Milestones",
     "menu.projects"             : "Projects",
 
+    // homepage
     "home.title"                : "Home",
 
+    // Profile
     "profile.title"             : "Profile",
     "profile.email.label"       : "Email:",
     "profile.nickname.label"    : "Nickname:",
 
+    // Project pages
     "projects.title"            : "Projects",
 
+    // Milestone pages
+    "milestones.title"          : "Milestones",
+
+    // Issue pages
+    "issues.title"              : "Issues",
+
+    // Error pages
     "error.title"               : "Error",
     "error.401.title"           : "Access denied",
     "error.404.title"           : "Page not found"

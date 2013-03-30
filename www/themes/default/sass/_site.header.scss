@@ -43,7 +43,12 @@
     }
     li {
         display: inline-block;
+        vertical-align: top;
         padding: .5rem;
+
+        &:hover {
+            background-color: $site-header-submenu-background;
+        }
     }
 
     // Menu: account

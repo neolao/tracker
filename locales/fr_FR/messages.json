@@ -1,4 +1,5 @@
 {
+    // Navigation
     "menu.login"                : "Connexion",
     "menu.logout"               : "Déconnexion",
     "menu.account"              : "Compte",
@@ -7,14 +8,24 @@
     "menu.milestones"           : "Étapes",
     "menu.projects"             : "Projets",
 
+    //Homepage
     "home.title"                : "Accueil",
 
+    // Profile
     "profile.title"             : "Profil",
     "profile.email.label"       : "Email&nbsp;:",
     "profile.nickname.label"    : "Surnom : ",
 
+    // Projet pages
     "projects.title"            : "Projets",
 
+    // Milestone pages
+    "milestones.title"          : "Étapes",
+
+    // Issue pages
+    "issues.title"              : "Tickets",
+
+    // Error pages
     "error.title"               : "Erreur",
     "error.401.title"           : "Accès refusé",
     "error.404.title"           : "Page introuvable"

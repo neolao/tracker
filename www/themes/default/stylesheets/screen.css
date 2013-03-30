@@ -298,7 +298,10 @@ input[type=email] {
     display: inline-block; }
   .site-header li {
     display: inline-block;
+    vertical-align: top;
     padding: 0.5rem; }
+    .site-header li:hover {
+      background-color: #354b60; }
   .site-header .account {
     position: relative;
     height: 2.5rem;
