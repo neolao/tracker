@@ -198,6 +198,7 @@ a,
 .button,
 input[type=submit] {
   padding: 0.5rem 0.8rem;
+  text-decoration: none;
   font-size: 1rem;
   background: #7878b4;
   border: none;
@@ -211,7 +212,8 @@ input[type=submit] {
   .button:focus,
   input[type=submit]:hover,
   input[type=submit]:focus {
-    background: #5959a0; }
+    background: #5959a0;
+    color: #fafafa; }
 
 /*
  * *
@@ -219,12 +221,7 @@ input[type=submit] {
  */
 form {
   margin: 1rem 0;
-  padding: 1rem;
-  background: #f0f0f0;
-  border: solid 2px #cacaca;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
+  padding: 1rem; }
   form p {
     margin: 1rem 0 0.5rem 0; }
     form p:first-child {
@@ -351,7 +348,8 @@ input[type=email] {
   color: #323232; }
   .site-body h1 {
     font-size: 2rem;
-    font-weight: bold; }
+    font-weight: bold;
+    margin: 0 0 0.5em 0; }
 
 /*
  * *
@@ -364,5 +362,27 @@ input[type=email] {
   .page-login form {
     width: 25rem;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    background: #f0f0f0;
+    border: solid 2px #cacaca;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+
+.widget {
+  display: inline-block;
+  vertical-align: top;
+  padding: 1rem; }
+  .widget h1 {
+    font-size: 1.5rem; }
+  .widget.project-create {
+    width: 20rem;
+    text-align: center;
+    background: #f0f0f0;
+    border: solid 2px #cacaca;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+    .widget.project-create p {
+      line-height: 5rem; }
 

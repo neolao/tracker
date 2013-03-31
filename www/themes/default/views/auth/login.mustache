@@ -1,17 +1,17 @@
 {{> _header}}
 
 <article class="site-body page-login">
-    <h1>Login</h1>
+    <h1>{{#_}}login.title{{/_}}</h1>
     <form method="post" action="{{formAction}}">
         <p>
-            <label for="email">Email</label>
+            <label for="email">{{#_}}form.email.label{{/_}}</label>
             <input id="email" type="email" name="email" required="required" placeholder="my.name@domain.tld" autofocus="autofocus"/>
         </p>
         <p>
-            <label for="password">Password</label>
+            <label for="password">{{#_}}form.password.label{{/_}}</label>
             <input id="password" type="password" name="password" required="required" placeholder=""/>
         </p>
-        <p><input type="submit"/></p>
+        <p><input type="submit" value="{{#_}}button.validate{{/_}}"/></p>
     </form>
 </article>
 

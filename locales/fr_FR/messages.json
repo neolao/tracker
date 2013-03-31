@@ -11,6 +11,9 @@
     //Homepage
     "home.title"                : "Accueil",
 
+    // Login
+    "login.title"               : "Connexion",
+
     // Profile
     "profile.title"             : "Profil",
     "profile.email.label"       : "Email&nbsp;:",
@@ -18,12 +21,24 @@
 
     // Projet pages
     "projects.title"            : "Projets",
+    "project.create.title"      : "Nouveau projet",
 
     // Milestone pages
     "milestones.title"          : "Étapes",
 
     // Issue pages
     "issues.title"              : "Tickets",
+
+    // Widget: create a project
+    "widget.project.create.title" : "Nouveau projet",
+
+    // Form
+    "form.email.label"          : "Email&nbsp;:",
+    "form.password.label"       : "Mot de passe&nbsp;:",
+
+    // Buttons
+    "button.validate"           : "Valider",
+    "button.create"             : "Créer",
 
     // Error pages
     "error.title"               : "Erreur",

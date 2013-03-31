@@ -43,6 +43,13 @@
         "action"    : "all",
         "reverse"   : "/projects"
     },
+    "project.create":
+    {
+        "pattern"   : "/project/create",
+        "controller": "project",
+        "action"    : "create",
+        "reverse"   : "/project/create"
+    },
 
     // Milestones
     "milestones":

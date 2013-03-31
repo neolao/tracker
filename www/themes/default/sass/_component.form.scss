@@ -5,10 +5,6 @@ form {
     margin: 1rem 0;
     padding: 1rem;
 
-    background: $global-panel-background;
-    border: solid $global-border-width $component-border-color;
-    @include border-radius($component-border-radius);
-
     // Normally, each field is in a paragraph
     p {
         margin: 1rem 0 .5rem 0;

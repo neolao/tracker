@@ -1,0 +1,24 @@
+.widget {
+    display: inline-block;
+    vertical-align: top;
+    padding: 1rem;
+
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    // Widget: create a project
+    &.project-create {
+        width: 20rem;
+        text-align: center;
+
+        background: $global-panel-background;
+        border: solid $global-border-width $component-border-color;
+        @include border-radius($component-border-radius);
+
+        p {
+            line-height: 5rem;
+        }
+    }
+}

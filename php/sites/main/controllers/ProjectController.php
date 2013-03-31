@@ -19,4 +19,13 @@ class ProjectController extends AbstractController
         // Render
         $this->render('projects/all');
     }
+
+    /**
+     * Create page
+     */
+    public function createAction()
+    {
+        // Render
+        $this->render('projects/create');
+    }
 }
