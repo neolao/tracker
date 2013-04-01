@@ -300,7 +300,8 @@ textarea {
   .site-header nav:first-child {
     margin-left: 0; }
   .site-header ul {
-    display: inline-block; }
+    display: inline-block;
+    white-space: nowrap; }
   .site-header li {
     display: inline-block;
     vertical-align: top;
@@ -346,6 +347,29 @@ textarea {
       .site-header .account:hover ul,
       .site-header .account.opened ul {
         display: block; }
+  @media screen and (max-width: 768px) {
+    .site-header h1 {
+      float: left;
+      width: 36.875%;
+      margin: 0 0 0 1%; }
+  .site-header h1:first-child {
+    margin-left: 0; }
+    .site-header nav {
+      float: left;
+      width: 62.125%;
+      margin: 0 0 0 1%; }
+  .site-header nav:first-child {
+    margin-left: 0; } }
+  @media screen and (max-width: 400px) {
+    .site-header h1 {
+      display: none; }
+    .site-header nav {
+      float: left;
+      width: 100%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+  .site-header nav:first-child {
+    margin-left: 0; } }
 
 /*
  * *
@@ -373,7 +397,6 @@ textarea {
     margin-right: auto;
     padding: 1rem;
     background: #e6e6e6;
-    border: solid false silver;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px; }
@@ -505,7 +528,6 @@ textarea {
     width: 20rem;
     text-align: center;
     background: #e6e6e6;
-    border: solid false silver;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px; }

@@ -40,6 +40,7 @@
     }
     ul {
         display: inline-block;
+        white-space: nowrap;
     }
     li {
         display: inline-block;
@@ -110,8 +111,24 @@
                 display: block;
             }
         }
+    }
 
 
-
+    // Responsive
+    @media screen and (max-width: $grid-breakpoint-medium) {
+        h1 {
+            @include column(3, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+        }
+        nav {
+            @include column(5, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+        }
+    }
+    @media screen and (max-width: $grid-breakpoint-small) {
+        h1 {
+            display: none;
+        }
+        nav {
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
     }
 }

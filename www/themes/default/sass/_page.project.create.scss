@@ -23,54 +23,45 @@
 
     // Responsive
     @media screen and (max-width: $grid-breakpoint-large) {
-        $grid-columns: $grid-breakpoint-large-columns;
-        $grid-gutter: $grid-breakpoint-large-gutter;
-
         label {
-            @include column(3, $grid-columns, $grid-gutter);
+            @include column(3, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
         }
 
         input[type=text],
         textarea {
-            @include column(6, $grid-columns, $grid-gutter);
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
         }
 
         .form-field-note {
-            @include column(6, $grid-columns, $grid-gutter, $offetLeft: 3);
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, $offetLeft: 3);
         }
     }
     @media screen and (max-width: $grid-breakpoint-medium) {
-        $grid-columns: $grid-breakpoint-medium-columns;
-        $grid-gutter: $grid-breakpoint-medium-gutter;
-
         label {
-            @include column(2, $grid-columns, $grid-gutter);
+            @include column(2, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
         }
 
         input[type=text],
         textarea {
-            @include column(6, $grid-columns, $grid-gutter);
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
         }
 
         .form-field-note {
-            @include column(6, $grid-columns, $grid-gutter, $offetLeft: 2);
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, $offetLeft: 2);
         }
     }
     @media screen and (max-width: $grid-breakpoint-small) {
-        $grid-columns: $grid-breakpoint-small-columns;
-        $grid-gutter: $grid-breakpoint-small-gutter;
-
         label {
-            @include column($grid-columns, $grid-columns, $grid-gutter);
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
         }
 
         input[type=text],
         textarea {
-            @include column($grid-columns, $grid-columns, $grid-gutter);
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
         }
 
         .form-field-note {
-            @include column($grid-columns, $grid-columns, $grid-gutter);
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
         }
     }
 

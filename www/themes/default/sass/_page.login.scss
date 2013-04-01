@@ -19,7 +19,6 @@
         padding: 1rem;
 
         background: $global-panel-background;
-        border: solid $global-border-width $component-border-color;
         @include border-radius($component-border-radius);
     }
     label {
