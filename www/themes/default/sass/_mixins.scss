@@ -11,6 +11,8 @@
  * Box shadow
  */
 @mixin box-shadow($x: 0, $y: 0, $blur: 0, $color: #000, $inset: false) {
+    -webkit-appearance: none;
+
     @if $x == none {
         -moz-box-shadow: none;
         -webkit-box-shadow: none;

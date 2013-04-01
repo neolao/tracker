@@ -184,6 +184,7 @@ a,
  */
 .button,
 input[type=submit] {
+  -webkit-appearance: none;
   padding: 0.5rem 0.8rem;
   margin: 0;
   text-decoration: none;
@@ -240,6 +241,7 @@ textarea {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+  -webkit-appearance: none;
   -moz-box-shadow: 0 0 5px #a0a0a0 inset;
   -webkit-box-shadow: 0 0 5px #a0a0a0 inset;
   box-shadow: 0 0 5px #a0a0a0 inset;
@@ -325,6 +327,7 @@ textarea {
       position: absolute;
       right: 0;
       top: 2.5rem;
+      white-space: normal;
       background: #354b60;
       padding: 1em; }
       .site-header .account ul:before {
@@ -409,7 +412,14 @@ textarea {
     .page-login h1 {
       width: auto; }
     .page-login form {
-      width: auto; } }
+      width: auto; }
+    .page-login label {
+      display: block;
+      width: auto; }
+    .page-login input[type=email],
+    .page-login input[type=password] {
+      display: block;
+      width: 100%; } }
 
   .page-project-create p {
     padding: 0; }

@@ -38,6 +38,15 @@
         form {
             width: auto;
         }
+        label {
+            display: block;
+            width: auto;
+        }
+        input[type=email],
+        input[type=password] {
+            display: block;
+            width: 100%;
+        }
     }
 }
 
