@@ -35,6 +35,11 @@
     // Form
     "form.email.label"          : "Email:",
     "form.password.label"       : "Password:",
+    "form.identifier.label"     : "Identifier:",
+    "form.identifier.project.note" : "Between 1 and 20 characters. Only lower case letters (a-z), numbers and dashes are allowed. Once saved, the identifier can not be changed.",
+    "form.name.label"           : "Name:",
+    "form.name.project.note"    : "Between 1 and 50 characters.",
+    "form.description.label"    : "Description:",
 
     // Buttons
     "button.create"             : "Create",

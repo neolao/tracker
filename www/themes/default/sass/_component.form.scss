@@ -3,11 +3,10 @@
  */
 form {
     margin: 1rem 0;
-    padding: 1rem;
 
     // Normally, each field is in a paragraph
     p {
-        margin: 1rem 0 .5rem 0;
+        margin: .5rem 0;
 
         &:first-child {
             margin-top: 0;
@@ -18,29 +17,38 @@ form {
     }
 }
 
+// Buttons of the form
+.form-buttons {
+    margin-top: 1rem;
+}
+
 // label
 label {
-    display: block;
-    margin: 0 0 .2rem 0;
+    display: inline-block;
+    vertical-align: top;
+    padding: .5rem 0;
+
+    font-weight: bold;
 }
 
 // Input text
 input[type=text],
 input[type=password],
-input[type=email] {
-    display: block;
-    width: 100%;
-
-    padding: .5rem;
+input[type=email],
+textarea {
+    display: inline-block;
+    vertical-align: top;
+    padding: .45rem;
+    margin: 0;
 
     font-size: 1rem;
     color: $global-text-color;
 
     outline: none;
-    border: solid $global-border-width $component-border-color;
+    border: solid 0 $component-border-color;
     @include border-radius($component-border-radius);
 
-    @include box-shadow(0, 0, 5px, rgb(200, 200, 200), true);
+    @include box-shadow(0, 0, 5px, rgb(160, 160, 160), true);
 
     // Change the border color on focus
     &:focus {
@@ -55,4 +63,12 @@ input[type=email] {
 // Submit button
 input[type=submit] {
     @extend .button;
+}
+
+// Field note
+.form-field-note {
+    display: inline-block;
+    vertical-align: top;
+    padding: .5rem 0;
+    margin: 0;
 }

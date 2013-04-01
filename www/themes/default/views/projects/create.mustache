@@ -1,11 +1,23 @@
 {{> _header}}
 
-<article class="site-body">
-    <h1>{{#_}}project.create.title{{/_}}</h1>
+<article class="site-body page-project-create">
+    <h1>{{#i18n}}project.create.title{{/i18n}}</h1>
 
-    <form method="post" action="">
-
-        <p><input type="submit" value="{{#_}}button.create{{/_}}"/></p>
+    <form method="post" action="{{#link}}project.create{{/link}}">
+        <p>
+            <label>{{#i18n}}form.identifier.label{{/i18n}}</label><input type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value=""/>
+            <em class="form-field-note">{{#i18n}}form.identifier.project.note{{/i18n}}</em>
+        </p>
+        <p>
+            <label>{{#i18n}}form.name.label{{/i18n}}</label><input type="text" required="required" pattern="^.{1,50}$" maxlength="50" value=""/>
+            <em class="form-field-note">{{#i18n}}form.name.project.note{{/i18n}}</em>
+        </p>
+        <p>
+            <label>{{#i18n}}form.description.label{{/i18n}}</label><textarea></textarea>
+        </p>
+        <p class="form-buttons">
+            <input type="submit" value="{{#i18n}}button.create{{/i18n}}"/>
+        </p>
     </form>
 
 </article>

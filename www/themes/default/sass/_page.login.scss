@@ -16,10 +16,29 @@
         width: $width;
         margin-left: auto;
         margin-right: auto;
+        padding: 1rem;
 
         background: $global-panel-background;
         border: solid $global-border-width $component-border-color;
         @include border-radius($component-border-radius);
+    }
+    label {
+        width: 35%;
+    }
+    input[type=email],
+    input[type=password] {
+        width: 65%;
+    }
+
+
+    // Responsive
+    @media screen and (max-width: 30rem) {
+        h1 {
+            width: auto;
+        }
+        form {
+            width: auto;
+        }
     }
 }
 

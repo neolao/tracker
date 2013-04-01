@@ -1,0 +1,79 @@
+.page-project-create {
+    p {
+        @include row;
+    }
+
+    label {
+        @include column(2, $grid-columns, $grid-gutter);
+    }
+
+    input[type=text],
+    textarea {
+        @include column(5, $grid-columns, $grid-gutter);
+    }
+    textarea {
+        height: 6rem;
+    }
+
+    .form-field-note {
+        clear: both;
+        @include column(5, $grid-columns, $grid-gutter, $offsetLeft: 2);
+    }
+
+
+    // Responsive
+    @media screen and (max-width: $grid-breakpoint-large) {
+        $grid-columns: $grid-breakpoint-large-columns;
+        $grid-gutter: $grid-breakpoint-large-gutter;
+
+        label {
+            @include column(3, $grid-columns, $grid-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column(6, $grid-columns, $grid-gutter);
+        }
+
+        .form-field-note {
+            @include column(6, $grid-columns, $grid-gutter, $offetLeft: 3);
+        }
+    }
+    @media screen and (max-width: $grid-breakpoint-medium) {
+        $grid-columns: $grid-breakpoint-medium-columns;
+        $grid-gutter: $grid-breakpoint-medium-gutter;
+
+        label {
+            @include column(2, $grid-columns, $grid-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column(6, $grid-columns, $grid-gutter);
+        }
+
+        .form-field-note {
+            @include column(6, $grid-columns, $grid-gutter, $offetLeft: 2);
+        }
+    }
+    @media screen and (max-width: $grid-breakpoint-small) {
+        $grid-columns: $grid-breakpoint-small-columns;
+        $grid-gutter: $grid-breakpoint-small-gutter;
+
+        label {
+            @include column($grid-columns, $grid-columns, $grid-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column($grid-columns, $grid-columns, $grid-gutter);
+        }
+
+        .form-field-note {
+            @include column($grid-columns, $grid-columns, $grid-gutter);
+        }
+    }
+
+
+
+}
