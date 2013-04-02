@@ -4,6 +4,9 @@ html, body {
 
     font-family: Helvetica, Arial, sans-serif;
 }
+html {
+    background: $site-background;
+}
 
 // Paragraph
 p {

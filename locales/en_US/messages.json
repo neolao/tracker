@@ -40,6 +40,10 @@
     "form.name.label"           : "Name:",
     "form.name.project.note"    : "Between 1 and 50 characters.",
     "form.description.label"    : "Description:",
+    "form.error.unknown"        : "Unknown error",
+    "form.error.identifier.empty" : "You must provide an identifier.",
+    "form.error.name.empty"     : "You must provide a name.",
+
 
     // Buttons
     "button.create"             : "Create",

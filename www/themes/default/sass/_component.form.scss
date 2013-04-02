@@ -52,7 +52,7 @@ textarea {
 
     // Change the border color on focus
     &:focus {
-        border-color: $component-focus-color;
+        @include box-shadow(0, 0, 5px, rgb(30, 30, 30), true);
     }
 
     &:invalid {

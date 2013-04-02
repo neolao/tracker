@@ -161,6 +161,9 @@ body {
   padding: 0;
   font-family: Helvetica, Arial, sans-serif; }
 
+html {
+  background: white; }
+
 p {
   line-height: 1.2rem;
   margin: 0.2rem 0 0 0; }
@@ -251,7 +254,10 @@ textarea {
   input[type=password]:focus,
   input[type=email]:focus,
   textarea:focus {
-    border-color: #7878b4; }
+    -webkit-appearance: none;
+    -moz-box-shadow: 0 0 5px #1e1e1e inset;
+    -webkit-box-shadow: 0 0 5px #1e1e1e inset;
+    box-shadow: 0 0 5px #1e1e1e inset; }
 
 
 .form-field-note {

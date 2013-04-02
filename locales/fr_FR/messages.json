@@ -40,6 +40,9 @@
     "form.name.label"           : "Nom&nbsp;:",
     "form.name.project.note"    : "Entre 1 et 50 caractères.",
     "form.description.label"    : "Description&nbsp;:",
+    "form.error.unknown"        : "Erreur inconnue",
+    "form.error.identifier.empty" : "Vous devez renseigner un identifiant.",
+    "form.error.name.empty"     : "Vous devez renseigner un nom.",
 
     // Buttons
     "button.validate"           : "Valider",
