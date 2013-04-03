@@ -1,9 +1,16 @@
 .page-project-create {
     p {
-        @include row;
+        @include row();
+    }
+    .form-field {
+        &.identifier,
+        &.name {
+            @include form-add-separator(7, $grid-columns, $grid-gutter);
+        }
     }
 
     label {
+        clear: both;
         @include column(2, $grid-columns, $grid-gutter);
     }
 
@@ -20,9 +27,20 @@
         @include column(5, $grid-columns, $grid-gutter, $offsetLeft: 2);
     }
 
+    .form-buttons {
+        @include column(5, $grid-columns, $grid-gutter, $offsetLeft: 2);
+    }
+
 
     // Responsive
     @media screen and (max-width: $grid-breakpoint-large) {
+        .form-field {
+            &.identifier,
+            &.name {
+                @include form-add-separator(9, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
+            }
+        }
+
         label {
             @include column(3, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
         }
@@ -35,8 +53,19 @@
         .form-field-note {
             @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, $offetLeft: 3);
         }
+
+        .form-buttons {
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, $offsetLeft: 3);
+        }
     }
     @media screen and (max-width: $grid-breakpoint-medium) {
+        .form-field {
+            &.identifier,
+            &.name {
+                @include form-add-separator(8, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+            }
+        }
+
         label {
             @include column(2, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
         }
@@ -49,9 +78,22 @@
         .form-field-note {
             @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, $offetLeft: 2);
         }
+
+        .form-buttons {
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, $offsetLeft: 2);
+        }
+
     }
     @media screen and (max-width: $grid-breakpoint-small) {
+        .form-field {
+            &.identifier,
+            &.name {
+                @include form-add-separator($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+            }
+        }
+
         label {
+            text-align: left;
             @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
         }
 
@@ -63,8 +105,11 @@
         .form-field-note {
             @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
         }
+
+        .form-buttons {
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
     }
-
-
 
 }

@@ -164,6 +164,9 @@ body {
 html {
   background: white; }
 
+body {
+  padding-bottom: 2rem; }
+
 p {
   line-height: 1.2rem;
   margin: 0.2rem 0 0 0; }
@@ -194,9 +197,9 @@ input[type=submit] {
   font-size: 1rem;
   background: #7878b4;
   border: none;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   color: #fafafa;
   cursor: pointer;
   outline: none; }
@@ -221,13 +224,17 @@ form {
       margin-bottom: 0; }
 
 .form-buttons {
-  margin-top: 1rem; }
+  text-align: right; }
+  .form-buttons:before {
+    content: "";
+    height: 1rem; }
 
 label {
   display: inline-block;
   vertical-align: top;
   padding: 0.5rem 0;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: right; }
 
 input[type=text],
 input[type=password],
@@ -241,9 +248,9 @@ textarea {
   color: #323232;
   outline: none;
   border: solid 0 silver;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   -webkit-appearance: none;
   -moz-box-shadow: 0 0 5px #a0a0a0 inset;
   -webkit-box-shadow: 0 0 5px #a0a0a0 inset;
@@ -263,7 +270,7 @@ textarea {
 .form-field-note {
   display: inline-block;
   vertical-align: top;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0 0;
   margin: 0; }
 
 /*
@@ -273,8 +280,9 @@ textarea {
  * * It contains the site title and the main navigation.
  */
 .site-header {
+  margin: 0;
   padding: 0;
-  background: #2c3e50;
+  background: #395b81;
   padding: 0;
   color: #f0f0f0;
   line-height: 1.5rem; }
@@ -315,7 +323,7 @@ textarea {
     vertical-align: top;
     padding: 0.5rem; }
     .site-header li:hover {
-      background-color: #354b60; }
+      background-color: #416793; }
   .site-header .account {
     position: relative;
     height: 2.5rem;
@@ -334,7 +342,7 @@ textarea {
       right: 0;
       top: 2.5rem;
       white-space: normal;
-      background: #354b60;
+      background: #416793;
       padding: 1em; }
       .site-header .account ul:before {
         content: "";
@@ -349,7 +357,7 @@ textarea {
       padding: 0; }
     .site-header .account:hover,
     .site-header .account.opened {
-      background-color: #354b60; }
+      background-color: #416793; }
       .site-header .account:hover img,
       .site-header .account.opened img {
         border-color: #f0f0f0; }
@@ -392,6 +400,10 @@ textarea {
     font-weight: bold;
     margin: 0 0 0.5em 0; }
 
+.site-footer {
+  clear: both;
+  margin: 2rem 0 0 0; }
+
 /*
  * *
  * * Login page
@@ -406,11 +418,12 @@ textarea {
     margin-right: auto;
     padding: 1rem;
     background: #e6e6e6;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px; }
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
   .page-login label {
-    width: 35%; }
+    width: 35%;
+    padding-right: 1ex; }
   .page-login input[type=email],
   .page-login input[type=password] {
     width: 65%; }
@@ -428,6 +441,7 @@ textarea {
       width: 100%; } }
 
   .page-project-create p {
+    margin: 0;
     padding: 0; }
   .page-project-create p:before,
   .page-project-create p:after {
@@ -435,7 +449,24 @@ textarea {
     display: table; }
   .page-project-create p:after {
     clear: both; }
+  .page-project-create .form-field.identifier:after,
+  .page-project-create .form-field.name:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eeeeee;
+    height: 1px;
+    float: left;
+    width: 57.917%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .page-project-create .form-field.identifier:after:first-child,
+  .page-project-create .form-field.name:after:first-child {
+    margin-left: 0; }
   .page-project-create label {
+    clear: both;
     float: left;
     width: 15.833%;
     margin: 0 0 0 1%; }
@@ -461,7 +492,32 @@ textarea {
     margin-left: 0; }
     .page-project-create .form-field-note:first-child {
       margin-left: 16.833%; }
+  .page-project-create .form-buttons {
+    float: left;
+    width: 41.083%;
+    margin: 0 0 0 1%;
+    margin-left: 16.833%; }
+  .page-project-create .form-buttons:first-child {
+    margin-left: 0; }
+    .page-project-create .form-buttons:first-child {
+      margin-left: 16.833%; }
   @media screen and (max-width: 1024px) {
+    .page-project-create .form-field.identifier:after,
+  .page-project-create .form-field.name:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eeeeee;
+    height: 1px;
+    float: left;
+    width: 74.75%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .page-project-create .form-field.identifier:after:first-child,
+  .page-project-create .form-field.name:after:first-child {
+    margin-left: 0; }
     .page-project-create label {
       float: left;
       width: 24.25%;
@@ -484,8 +540,34 @@ textarea {
   .page-project-create .form-field-note:first-child {
     margin-left: 0; }
     .page-project-create .form-field-note:first-child {
+      margin-left: 25.25%; }
+    .page-project-create .form-buttons {
+      float: left;
+      width: 49.5%;
+      margin: 0 0 0 1%;
+      margin-left: 25.25%; }
+  .page-project-create .form-buttons:first-child {
+    margin-left: 0; }
+    .page-project-create .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 768px) {
+    .page-project-create .form-field.identifier:after,
+  .page-project-create .form-field.name:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eeeeee;
+    height: 1px;
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .page-project-create .form-field.identifier:after:first-child,
+  .page-project-create .form-field.name:after:first-child {
+    margin-left: 0; }
     .page-project-create label {
       float: left;
       width: 24.25%;
@@ -508,9 +590,36 @@ textarea {
   .page-project-create .form-field-note:first-child {
     margin-left: 0; }
     .page-project-create .form-field-note:first-child {
+      margin-left: 25.25%; }
+    .page-project-create .form-buttons {
+      float: left;
+      width: 74.75%;
+      margin: 0 0 0 1%;
+      margin-left: 25.25%; }
+  .page-project-create .form-buttons:first-child {
+    margin-left: 0; }
+    .page-project-create .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 400px) {
+    .page-project-create .form-field.identifier:after,
+  .page-project-create .form-field.name:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eeeeee;
+    height: 1px;
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .page-project-create .form-field.identifier:after:first-child,
+  .page-project-create .form-field.name:after:first-child {
+    margin-left: 0; }
     .page-project-create label {
+      text-align: left;
       float: left;
       width: 100%;
       margin: 0 0 0 1%;
@@ -532,6 +641,13 @@ textarea {
       margin: 0 0 0 1%;
       margin-left: 0; }
   .page-project-create .form-field-note:first-child {
+    margin-left: 0; }
+    .page-project-create .form-buttons {
+      float: left;
+      width: 100%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+  .page-project-create .form-buttons:first-child {
     margin-left: 0; } }
 
 .widget {
@@ -544,9 +660,9 @@ textarea {
     width: 20rem;
     text-align: center;
     background: #e6e6e6;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px; }
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
     .widget.project-create p {
       line-height: 5rem; }
 

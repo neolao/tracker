@@ -4,7 +4,7 @@
  * It contains the site title and the main navigation.
  */
 .site-header {
-    @include row;
+    @include row();
 
     background: $site-header-background;
 

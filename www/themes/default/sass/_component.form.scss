@@ -19,7 +19,12 @@ form {
 
 // Buttons of the form
 .form-buttons {
-    margin-top: 1rem;
+    text-align: right;
+
+    &:before {
+        content: "";
+        height: 1rem;
+    }
 }
 
 // label
@@ -29,6 +34,7 @@ label {
     padding: .5rem 0;
 
     font-weight: bold;
+    text-align: right;
 }
 
 // Input text
@@ -69,6 +75,22 @@ input[type=submit] {
 .form-field-note {
     display: inline-block;
     vertical-align: top;
-    padding: .5rem 0;
+    padding: .5rem 0 0 0;
     margin: 0;
+}
+
+// Field separator
+@mixin form-add-separator($column-count, $column-total, $gutter) {
+    &:after {
+        display: block;
+        clear: both;
+        content: "";
+        background: #eee;
+        height: 1px;
+
+        @include column($column-count, $column-total, $gutter);
+        margin-left: 0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
 }

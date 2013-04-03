@@ -4,15 +4,15 @@
     <h1>{{#i18n}}project.create.title{{/i18n}}</h1>
 
     <form method="post" action="{{#link}}project.create{{/link}}">
-        <p>
+        <p class="form-field identifier">
             <label>{{#i18n}}form.identifier.label{{/i18n}}</label><input type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value=""/>
             <em class="form-field-note">{{#i18n}}form.identifier.project.note{{/i18n}}</em>
         </p>
-        <p>
+        <p class="form-field name">
             <label>{{#i18n}}form.name.label{{/i18n}}</label><input type="text" required="required" pattern="^.{1,50}$" maxlength="50" value=""/>
             <em class="form-field-note">{{#i18n}}form.name.project.note{{/i18n}}</em>
         </p>
-        <p>
+        <p class="form-field description">
             <label>{{#i18n}}form.description.label{{/i18n}}</label><textarea></textarea>
         </p>
         <p class="form-buttons">

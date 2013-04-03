@@ -19,7 +19,17 @@ img {
 }
 
 // Mixins
-@mixin row {
+@mixin row($count: none, $total: none, $gutter: 0) {
+    @if $count != none and $total != none {
+        // Calculate the with of one column
+        $one: (100% - ($total - 1) * $gutter) / $total;
+
+        // Width
+        width: $one * $count + $gutter * ($count - 1);
+    }
+
+    // Margin and padding
+    margin: 0;
     padding: 0;
 
     &:before, &:after {
