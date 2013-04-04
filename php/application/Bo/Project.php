@@ -1,7 +1,4 @@
 <?php
-/**
- * Package Bo
- */
 namespace Bo;
 
 use \Neolao\Behavior\SerializableJson;

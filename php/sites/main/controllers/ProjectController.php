@@ -4,6 +4,7 @@ require_once __DIR__ . '/AbstractController.php';
 use \Neolao\Site\Request;
 use \Bo\Project;
 use \Dao\Project as DaoProject;
+use \Filter\Project as FilterProject;
 
 /**
  * Project pages
@@ -20,7 +21,14 @@ class ProjectController extends AbstractController
             $this->forward('error', 'http401');
         }
 
+        // Get all projects
+        // @todo Create a pagination
+        $daoProject = DaoProject::getInstance();
+        $filter     = new FilterProject();
+        $projects   = $daoProject->getList($filter);
+
         // Render
+        $this->view->projects = $projects;
         $this->render('projects/all');
     }
 

@@ -1,8 +1,7 @@
 <?php
-/**
- * Package Dao
- */
 namespace Dao;
+
+use \Filter\Project as FilterProject;
 
 /**
  * DAO of projects
@@ -64,6 +63,19 @@ class Project
         }
 
         return null;
+    }
+
+    /**
+     * Get a project list
+     *
+     * @param   \Filter\Project     $filter         Filter
+     * @return  array                               Project list
+     */
+    public function getList(FilterProject $filter)
+    {
+        $list = [];
+
+        return $list;
     }
 
     /**
