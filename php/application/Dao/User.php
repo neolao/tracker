@@ -57,10 +57,10 @@ class User
         }
 
         // Get the file content
-        $fileContent    = file_get_contents($filePath);
+        $fileContent = file_get_contents($filePath);
 
         // Create the user instance
-        $user           = new \Bo\User();
+        $user = new \Bo\User();
         $user->unserializeJson($fileContent);
 
         return $user;

@@ -36,13 +36,15 @@
     "form.email.label"          : "Email&nbsp;:",
     "form.password.label"       : "Mot de passe&nbsp;:",
     "form.identifier.label"     : "Identifiant&nbsp;:",
-    "form.identifier.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis. L'identifiant ne peut être changé après la création.",
+    "form.identifier.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis.",
     "form.name.label"           : "Nom&nbsp;:",
     "form.name.project.note"    : "Entre 1 et 50 caractères.",
     "form.description.label"    : "Description&nbsp;:",
     "form.error.unknown"        : "Erreur inconnue",
     "form.error.identifier.empty" : "Vous devez renseigner un identifiant.",
+    "form.error.identifier.invalid" : "Vous devez renseigner un identifiant valide.",
     "form.error.name.empty"     : "Vous devez renseigner un nom.",
+    "form.error.name.invalid"   : "Vous devez renseigner un nom valide.",
 
     // Buttons
     "button.validate"           : "Valider",

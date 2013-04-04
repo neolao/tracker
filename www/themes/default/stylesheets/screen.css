@@ -271,7 +271,22 @@ textarea {
   display: inline-block;
   vertical-align: top;
   padding: 0.5rem 0 0 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.1em; }
+
+.form-errors {
+  list-style: disc;
+  background: #cc2233;
+  color: white;
+  padding: 1rem 1rem 1rem 2rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+  .form-errors li {
+    margin-bottom: 0.5em; }
+    .form-errors li:last-child {
+      margin-bottom: 0; }
 
 /*
  * *

@@ -36,13 +36,15 @@
     "form.email.label"          : "Email:",
     "form.password.label"       : "Password:",
     "form.identifier.label"     : "Identifier:",
-    "form.identifier.project.note" : "Between 1 and 20 characters. Only lower case letters (a-z), numbers and dashes are allowed. Once saved, the identifier can not be changed.",
+    "form.identifier.project.note" : "Between 1 and 50 characters. Only lower case letters (a-z), numbers and dashes are allowed.",
     "form.name.label"           : "Name:",
     "form.name.project.note"    : "Between 1 and 50 characters.",
     "form.description.label"    : "Description:",
     "form.error.unknown"        : "Unknown error",
     "form.error.identifier.empty" : "You must provide an identifier.",
+    "form.error.identifier.invalid" : "You must provide a valid identifier.",
     "form.error.name.empty"     : "You must provide a name.",
+    "form.error.name.invalid"   : "You must provide a valid name.",
 
 
     // Buttons

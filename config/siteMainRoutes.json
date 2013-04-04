@@ -50,6 +50,13 @@
         "action"    : "create",
         "reverse"   : "/project/create"
     },
+    "project":
+    {
+        "pattern"   : "/project/:codeName",
+        "controller": "project",
+        "action"    : "sheetByCodeName",
+        "reverse"   : "/project/%s"
+    },
 
     // Milestones
     "milestones":

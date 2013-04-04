@@ -7,37 +7,37 @@ namespace Bo;
 use \Neolao\Behavior\SerializableJson;
 
 /**
- * User
+ * Project
  */
-class User implements SerializableJson
+class Project implements SerializableJson
 {
     /**
-     * User id
+     * Project id
      *
      * @var int
      */
     public $id;
 
     /**
-     * User email
+     * Project code name
      *
      * @var string
      */
-    public $email;
+    public $codeName;
 
     /**
-     * User password (hash)
+     * Project name
      *
      * @var string
      */
-    public $password;
+    public $name;
 
     /**
-     * User nickname
+     * Project description
      *
      * @var string
      */
-    public $nickname;
+    public $description;
 
     /**
      * Constructor
@@ -53,11 +53,11 @@ class User implements SerializableJson
      */
     public function serializeJson()
     {
-        $json           = new \stdClass();
-        $json->id       = $this->id;
-        $json->email    = $this->email;
-        $json->nickname = $this->nickname;
-
+        $json               = new \stdClass();
+        $json->id           = $this->id;
+        $json->codeName     = $this->codeName;
+        $json->name         = $this->name;
+        $json->description  = $this->description;
 
         return json_encode($json);
     }
@@ -76,32 +76,20 @@ class User implements SerializableJson
             $this->id = (int) $json->id;
         }
 
-        // Email
-        if (isset($json->email)) {
-            $this->email = (string) $json->email;
+        // Code name
+        if (isset($json->codeName)) {
+            $this->codeName = (string) $json->codeName;
         }
 
-        // Password
-        if (isset($json->password)) {
-            $this->password = (string) $json->password;
+        // Name
+        if (isset($json->name)) {
+            $this->name = (string) $json->name;
         }
 
-        // Nickname
-        if (isset($json->nickname)) {
-            $this->nickname = (string) $json->nickname;
+        // Description
+        if (isset($json->description)) {
+            $this->description = (string) $json->description;
         }
 
-    }
-
-    /**
-     * Get the role of the ACL
-     *
-     * @return  string                  The role
-     */
-    public function getAclRole()
-    {
-        $role = 'member';
-
-        return $role;
     }
 }

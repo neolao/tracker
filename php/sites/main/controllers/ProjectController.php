@@ -2,6 +2,8 @@
 require_once __DIR__ . '/AbstractController.php';
 
 use \Neolao\Site\Request;
+use \Bo\Project;
+use \Dao\Project as DaoProject;
 
 /**
  * Project pages
@@ -20,6 +22,28 @@ class ProjectController extends AbstractController
 
         // Render
         $this->render('projects/all');
+    }
+
+    /**
+     * Display a project by his code name
+     */
+    public function sheetByCodeNameAction()
+    {
+        $request    = $this->request;
+        $parameters = $request->parameters;
+        $codeName   = $parameters['codeName'];
+
+        // Get the project instance
+        $daoProject = DaoProject::getInstance();
+        $project    = $daoProject->getByCodeName($codeName);
+        if ($project instanceof Project === false) {
+            $this->forward('error', 'http404');
+        }
+
+        // Render
+        $this->view->project        = $project;
+        $this->view->projectName    = $project->name;
+        $this->render('projects/sheet');
     }
 
     /**
@@ -44,21 +68,62 @@ class ProjectController extends AbstractController
      */
     private function _submitCreateForm()
     {
-        $request    = $this->request;
-        $parameters = $request->parameters;
-        $errors     = [];
+        $request        = $this->request;
+        $parameters     = $request->parameters;
+        $errors         = [];
+        $identifier     = '';
+        $name           = '';
+        $description    = '';
 
-        if (!isset($parameters['identifier'])) {
+        // Get the identifier
+        if (isset($parameters['identifier'])) {
+            $identifier = trim($parameters['identifier']);
+        }
+        if (empty($identifier)) {
             $errors[] = $this->_('form.error.identifier.empty');
+        } else if (!preg_match('/^[a-z0-9\-]{1,50}$/', $identifier)) {
+            $errors[] = $this->_('form.error.identifier.invalid');
         }
 
-        if (!isset($parameters['name'])) {
+        // Get the name
+        if (isset($parameters['name'])) {
+            $name = trim($parameters['name']);
+        }
+        if (empty($name)) {
             $errors[] = $this->_('form.error.name.empty');
+        } else if (!preg_match('/^.{1,50}$/', $name)) {
+            $errors[] = $this->_('form.error.name.invalid');
         }
 
-        //$errors[] = $this->_('form.error.unknown');
+        // Get the description
+        if (isset($parameters['description'])) {
+            $description = $parameters['description'];
+        }
+
+        // Create the project
+        if (empty($errors)) {
+            try {
+                $project = new Project();
+                $project->codeName = $identifier;
+                $project->name = $name;
+                $project->description = $description;
+
+                $daoProject = DaoProject::getInstance();
+                $daoProject->add($project);
+
+                // Redirect to the project page
+                $this->redirect('project', ['codeName' => $project->codeName]);
+            } catch (\Exception $exception) {
+                $errors[] = $this->_('form.error.unknown');
+            }
+        }
 
 
-        $this->view->errors = $errors;
+        // View parameters
+        $this->view->identifier     = $identifier;
+        $this->view->name           = $name;
+        $this->view->description    = $description;
+        $this->view->hasErrors      = !empty($errors);
+        $this->view->errors         = $errors;
     }
 }
