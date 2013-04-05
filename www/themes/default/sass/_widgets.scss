@@ -40,4 +40,21 @@
             padding-top: 2rem;
         }
     }
+
+
+    // Responsive
+    @media screen and (max-width: $grid-breakpoint-small) {
+        display: block;
+        width: auto;
+        height: auto;
+
+        &.project,
+        &.project-create {
+            display: inherit;
+            width: inherit;
+            height: inherit;
+        }
+    }
 }
+
+

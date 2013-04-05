@@ -20,10 +20,15 @@ form {
 // Buttons of the form
 .form-buttons {
     text-align: right;
+    clear: both;
 
     &:before {
         content: "";
         height: 1rem;
+    }
+
+    .button {
+        margin-left: 1rem;
     }
 }
 
@@ -85,8 +90,9 @@ input[type=submit] {
 // Errors
 .form-errors {
     list-style: disc;
-    background: #c23;
+    background: $global-panel-error-background;
     color: #fff;
+    margin-top: 1rem;
     padding: 1rem 1rem 1rem 2rem;
 
     @include border-radius($component-border-radius);

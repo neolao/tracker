@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 /**
- * Border radius
+ * Clearfix
  */
 /**
  * Grid system
@@ -90,6 +90,7 @@ a, .link {
     color: #5959a0; }
 
 .button, input[type=submit] {
+  display: inline-block;
   -webkit-appearance: none;
   padding: 0.5rem 0.8rem;
   margin: 0;
@@ -102,6 +103,12 @@ a, .link {
   border-radius: 5px;
   /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */
   color: #fafafa;
   cursor: pointer;
@@ -109,6 +116,12 @@ a, .link {
   .button:hover, input[type=submit]:hover, .button:focus, input[type=submit]:focus {
     background: #5959a0;
     color: #fafafa; }
+  .button.delete, input[type=submit].delete {
+    background: #c81e1e;
+    color: #fff; }
+    .button.delete:hover, input[type=submit].delete:hover, .button.delete:focus, input[type=submit].delete:focus {
+      background: #9c1717;
+      color: #fff; }
 
 form {
   margin: 1rem 0; }
@@ -120,10 +133,13 @@ form {
       margin-bottom: 0; }
 
 .form-buttons {
-  text-align: right; }
+  text-align: right;
+  clear: both; }
   .form-buttons:before {
     content: "";
     height: 1rem; }
+  .form-buttons .button, .form-buttons input[type=submit] {
+    margin-left: 1rem; }
 
 label {
   display: inline-block;
@@ -146,6 +162,12 @@ input[type=text], input[type=password], input[type=email], textarea {
   border-radius: 5px;
   /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */
   -webkit-appearance: none;
   -moz-box-shadow: 0 0 5px #a0a0a0 inset;
@@ -173,14 +195,21 @@ input[type=text], input[type=password], input[type=email], textarea {
 
 .form-errors {
   list-style: disc;
-  background: #c23;
+  background: #c81e1e;
   color: #fff;
+  margin-top: 1rem;
   padding: 1rem 1rem 1rem 2rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */ }
   .form-errors li {
     margin-bottom: 0.5em; }
@@ -294,10 +323,17 @@ input[type=text], input[type=password], input[type=email], textarea {
 .site-body {
   padding: 2rem 1rem;
   color: #323232; }
+  .site-body:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 2rem; }
   .site-body h1 {
     font-size: 2rem;
     font-weight: bold;
     margin: 0 0 0.5em 0; }
+  .site-body section {
+    clear: both; }
 
 .site-footer {
   clear: both;
@@ -318,6 +354,12 @@ input[type=text], input[type=password], input[type=email], textarea {
     border-radius: 5px;
     /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */ }
   .page-login label {
     width: 35%;
@@ -344,7 +386,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     display: table; }
   .page-project-create p:after, .page-project-edit p:after {
     clear: both; }
-  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
+  .page-project-create .form-field.codename:after, .page-project-edit .form-field.codename:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -356,7 +398,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
+    .page-project-create .form-field.codename:after:first-child, .page-project-edit .form-field.codename:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
   .page-project-create label, .page-project-edit label {
     clear: both;
@@ -393,7 +435,7 @@ input[type=text], input[type=password], input[type=email], textarea {
   .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
     margin-left: 16.83333%; }
   @media screen and (max-width: 1024px) {
-  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
+  .page-project-create .form-field.codename:after, .page-project-edit .form-field.codename:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -405,7 +447,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
+    .page-project-create .form-field.codename:after:first-child, .page-project-edit .form-field.codename:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
   .page-project-create label, .page-project-edit label {
     float: left;
@@ -440,7 +482,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 768px) {
-  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
+  .page-project-create .form-field.codename:after, .page-project-edit .form-field.codename:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -453,7 +495,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
+    .page-project-create .form-field.codename:after:first-child, .page-project-edit .form-field.codename:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
   .page-project-create label, .page-project-edit label {
     float: left;
@@ -488,7 +530,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 400px) {
-  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
+  .page-project-create .form-field.codename:after, .page-project-edit .form-field.codename:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -501,7 +543,7 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
+    .page-project-create .form-field.codename:after:first-child, .page-project-edit .form-field.codename:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
   .page-project-create label, .page-project-edit label {
     text-align: left;
@@ -533,6 +575,37 @@ input[type=text], input[type=password], input[type=email], textarea {
     .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 0; } }
 
+.page-project-edit .section-delete {
+  padding: 1rem;
+  background: #ffdcdc;
+  /**
+ * Border radius
+ *
+ * @param   unit    $radius     The radius
+ */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /**
+ * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
+ */
+  margin-left: 0;
+  margin-top: 5rem; }
+  .page-project-edit .section-delete:after {
+    content: "";
+    display: block;
+    clear: both; }
+  .page-project-edit .section-delete form {
+    margin-bottom: 0; }
+  .page-project-edit .section-delete .form-field.codename:after {
+    display: none; }
+
 .widget {
   display: inline-block;
   vertical-align: top;
@@ -552,6 +625,12 @@ input[type=text], input[type=password], input[type=email], textarea {
     border-radius: 5px;
     /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */ }
   .widget.project h1 {
     text-align: center; }
@@ -565,6 +644,21 @@ input[type=text], input[type=password], input[type=email], textarea {
     border-radius: 5px;
     /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */ }
   .widget.project-create p {
     padding-top: 2rem; }
+  @media screen and (max-width: 400px) {
+  .widget {
+    display: block;
+    width: auto;
+    height: auto; }
+    .widget.project, .widget.project-create {
+      display: inherit;
+      width: inherit;
+      height: inherit; } }

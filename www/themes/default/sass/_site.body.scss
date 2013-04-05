@@ -5,10 +5,22 @@
     padding: 2rem 1rem;
     color: $global-text-color;
 
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 2rem;
+    }
+
     // Title
     h1 {
         font-size: 2rem;
         font-weight: bold;
         margin: 0 0 .5em 0;
+    }
+
+    // Section
+    section {
+        clear: both;
     }
 }

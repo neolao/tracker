@@ -11,12 +11,12 @@
         </ul>
     {{/hasErrors}}
 
-{{#project}}
+    {{#project}}
     <form method="post" action="{{linkEdit}}">
-        <p class="form-field identifier">
-            <label for="form-input-identifier">{{#i18n}}form.identifier.label{{/i18n}}</label>
-            <input id="form-input-identifier" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
-            <em class="form-field-note">{{#i18n}}form.identifier.project.note{{/i18n}}</em>
+        <p class="form-field codename">
+            <label for="form-input-codename">{{#i18n}}form.codeName.label{{/i18n}}</label>
+            <input id="form-input-codename" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
+            <em class="form-field-note">{{#i18n}}form.codeName.project.note{{/i18n}}</em>
         </p>
         <p class="form-field name">
             <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>
@@ -28,10 +28,36 @@
             <textarea id="form-input-description" name="description">{{description}}</textarea>
         </p>
         <p class="form-buttons">
+            <a href="{{#link}}project,codeName:{{codeName}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
             <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
         </p>
     </form>
-{{/project}}
+    {{/project}}
+
+
+    <section class="section-delete" id="delete">
+        <h1>{{#i18n}}project.edit.section.delete.title{{/i18n}}</h1>
+        <p>{{#i18n}}project.edit.section.delete.note{{/i18n}}</p>
+
+        {{#hasDeleteErrors}}
+            <ul class="form-errors">
+            {{#deleteErrors}}
+                <li>{{.}}</li>
+            {{/deleteErrors}}
+            </ul>
+        {{/hasDeleteErrors}}
+
+        <form method="post" action="{{linkEdit}}#delete">
+            <p class="form-field codename">
+                <label for="form-input-codename">{{#i18n}}form.codeName.label{{/i18n}}</label>
+                <input id="form-input-codename" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
+            </p>
+            <p class="form-buttons">
+                <input type="hidden" name="delete" value="true"/>
+                <input type="submit" value="{{#i18n}}button.delete{{/i18n}}" class="button delete"/>
+            </p>
+        </form>
+    </section>
 </article>
 
 {{> _footer}}

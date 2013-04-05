@@ -1,5 +1,18 @@
 /**
+ * Clearfix
+ */
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+/**
  * Border radius
+ *
+ * @param   unit    $radius     The radius
  */
 @mixin border-radius($radius: 0) {
     -webkit-border-radius: $radius;
@@ -9,6 +22,12 @@
 
 /**
  * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
  */
 @mixin box-shadow($x: 0, $y: 0, $blur: 0, $color: #000, $inset: false) {
     -webkit-appearance: none;

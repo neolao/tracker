@@ -206,6 +206,22 @@ class Project
     }
 
     /**
+     * Delete a project
+     *
+     * @param   int         $projectId      Project id
+     */
+    public function delete($projectId)
+    {
+        $directory = $this->getDataDirectory();
+        $filePath = $directory . '/' . $projectId . '.json';
+
+        // Delete
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+    }
+
+    /**
      * Build a project instance from a file
      *
      * @param   string      $filePath       File path

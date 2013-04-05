@@ -12,10 +12,10 @@
     {{/hasErrors}}
 
     <form method="post" action="{{#link}}project.create{{/link}}">
-        <p class="form-field identifier">
-            <label for="form-input-identifier">{{#i18n}}form.identifier.label{{/i18n}}</label>
-            <input id="form-input-identifier" name="identifier" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{identifier}}"/>
-            <em class="form-field-note">{{#i18n}}form.identifier.project.note{{/i18n}}</em>
+        <p class="form-field codename">
+            <label for="form-input-codename">{{#i18n}}form.codeName.label{{/i18n}}</label>
+            <input id="form-input-codename" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
+            <em class="form-field-note">{{#i18n}}form.codeName.project.note{{/i18n}}</em>
         </p>
         <p class="form-field name">
             <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>

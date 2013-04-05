@@ -21,8 +21,11 @@
 
     // Projet pages
     "projects.title"            : "Projets",
+    "project.sheet.title"       : "Projet {{name}}",
     "project.create.title"      : "Nouveau projet",
     "project.edit.title"        : "Édition du projet \"{{name}}\"",
+    "project.edit.section.delete.title" : "Supprimer ce projet",
+    "project.edit.section.delete.note" : "Veuillez indiquer l'identifiant de ce projet afin de confirmer la suppression. Attention, cette action est irréversible.",
 
     // Milestone pages
     "milestones.title"          : "Étapes",
@@ -36,15 +39,16 @@
     // Form
     "form.email.label"          : "Email&nbsp;:",
     "form.password.label"       : "Mot de passe&nbsp;:",
-    "form.identifier.label"     : "Identifiant&nbsp;:",
-    "form.identifier.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis.",
+    "form.codeName.label"       : "Identifiant&nbsp;:",
+    "form.codeName.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis.",
     "form.name.label"           : "Nom&nbsp;:",
     "form.name.project.note"    : "Entre 1 et 50 caractères.",
     "form.description.label"    : "Description&nbsp;:",
     "form.error.unknown"        : "Erreur inconnue",
-    "form.error.identifier.empty" : "Vous devez renseigner un identifiant.",
-    "form.error.identifier.invalid" : "Vous devez renseigner un identifiant valide.",
-    "form.error.identifier.exists" : "Cet identifier existe déjà, veuillez en choisir un autre.",
+    "form.error.codeName.empty" : "Vous devez renseigner un identifiant.",
+    "form.error.codeName.invalid" : "Vous devez renseigner un identifiant valide.",
+    "form.error.codeName.exists" : "Cet identifiant existe déjà, veuillez en choisir un autre.",
+    "form.error.codeName.notMatch" : "Les identifiants ne sont pas similaires.",
     "form.error.name.empty"     : "Vous devez renseigner un nom.",
     "form.error.name.invalid"   : "Vous devez renseigner un nom valide.",
 
@@ -52,6 +56,8 @@
     "button.validate"           : "Valider",
     "button.create"             : "Créer",
     "button.edit"               : "Éditer",
+    "button.cancel"             : "Annuler",
+    "button.delete"             : "Supprimer",
 
     // Error pages
     "error.title"               : "Erreur",

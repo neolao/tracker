@@ -21,8 +21,11 @@
 
     // Project pages
     "projects.title"            : "Projects",
+    "project.sheet.title",      : "Project {{name}}",
     "project.create.title",     : "New project",
     "project.edit.title"        : "Edit the project \"{{name}}\"",
+    "project.edit.section.delete.title" : "Delete this projevt",
+    "project.edit.section.delete.note" : "Please provide the identifier of the project in order to confirm the deletion. Beware, there is no way back.",
 
     // Milestone pages
     "milestones.title"          : "Milestones",
@@ -36,15 +39,16 @@
     // Form
     "form.email.label"          : "Email:",
     "form.password.label"       : "Password:",
-    "form.identifier.label"     : "Identifier:",
-    "form.identifier.project.note" : "Between 1 and 50 characters. Only lower case letters (a-z), numbers and dashes are allowed.",
+    "form.codeName.label"       : "Identifier:",
+    "form.codeName.project.note" : "Between 1 and 50 characters. Only lower case letters (a-z), numbers and dashes are allowed.",
     "form.name.label"           : "Name:",
     "form.name.project.note"    : "Between 1 and 50 characters.",
     "form.description.label"    : "Description:",
     "form.error.unknown"        : "Unknown error",
-    "form.error.identifier.empty" : "You must provide an identifier.",
-    "form.error.identifier.invalid" : "You must provide a valid identifier.",
-    "form.error.identifier.exists" : "This identifier already exists, please choose another one.",
+    "form.error.codeName.empty" : "You must provide an identifier.",
+    "form.error.codeName.invalid" : "You must provide a valid identifier.",
+    "form.error.codeName.exists" : "This identifier already exists, please choose another one.",
+    "form.error.codeName.notMatch" : "The identifiers do not match.",
     "form.error.name.empty"     : "You must provide a name.",
     "form.error.name.invalid"   : "You must provide a valid name.",
 
@@ -53,6 +57,8 @@
     "button.validate"           : "Validate",
     "button.create"             : "Create",
     "button.edit"               : "Edit",
+    "button.cancel"             : "Cancel",
+    "button.delete"             : "Delete",
 
     // Error pages
     "error.title"               : "Error",

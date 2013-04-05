@@ -3,7 +3,7 @@
         @include row();
     }
     .form-field {
-        &.identifier,
+        &.codename,
         &.name {
             @include form-add-separator(7, $grid-columns, $grid-gutter);
         }
@@ -35,7 +35,7 @@
     // Responsive
     @media screen and (max-width: $grid-breakpoint-large) {
         .form-field {
-            &.identifier,
+            &.codename,
             &.name {
                 @include form-add-separator(9, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
             }
@@ -60,7 +60,7 @@
     }
     @media screen and (max-width: $grid-breakpoint-medium) {
         .form-field {
-            &.identifier,
+            &.codename,
             &.name {
                 @include form-add-separator(8, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
             }
@@ -86,7 +86,7 @@
     }
     @media screen and (max-width: $grid-breakpoint-small) {
         .form-field {
-            &.identifier,
+            &.codename,
             &.name {
                 @include form-add-separator($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
             }

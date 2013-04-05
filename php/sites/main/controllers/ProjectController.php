@@ -75,7 +75,11 @@ class ProjectController extends AbstractController
 
         // The user submit the form
         if ($method === Request::METHOD_POST) {
-            $this->_submitEditForm($project);
+            if (isset($parameters['delete'])) {
+                $this->_submitDeleteForm($project);
+            } else {
+                $this->_submitEditForm($project);
+            }
         }
 
 
@@ -111,18 +115,18 @@ class ProjectController extends AbstractController
         $request        = $this->request;
         $parameters     = $request->parameters;
         $errors         = [];
-        $identifier     = '';
+        $codeName       = '';
         $name           = '';
         $description    = '';
 
-        // Get the identifier
-        if (isset($parameters['identifier'])) {
-            $identifier = trim($parameters['identifier']);
+        // Get the code name
+        if (isset($parameters['codeName'])) {
+            $codeName = trim($parameters['codeName']);
         }
-        if (empty($identifier)) {
-            $errors[] = $this->_('form.error.identifier.empty');
-        } else if (!preg_match('/^[a-z0-9\-]{1,50}$/', $identifier)) {
-            $errors[] = $this->_('form.error.identifier.invalid');
+        if (empty($codeName)) {
+            $errors[] = $this->_('form.error.codeName.empty');
+        } else if (!preg_match('/^[a-z0-9\-]{1,50}$/', $codeName)) {
+            $errors[] = $this->_('form.error.codeName.invalid');
         }
 
         // Get the name
@@ -145,7 +149,7 @@ class ProjectController extends AbstractController
             try {
                 // Build the project instance
                 $project                = new Project();
-                $project->codeName      = $identifier;
+                $project->codeName      = $codeName;
                 $project->name          = $name;
                 $project->description   = $description;
 
@@ -159,7 +163,7 @@ class ProjectController extends AbstractController
                 $exceptionCode = $exception->getCode();
                 switch ($exceptionCode) {
                     case CreateException::CODENAME_ALREADY_EXISTS:
-                        $errors[] = $this->_('form.error.identifier.exists');
+                        $errors[] = $this->_('form.error.codeName.exists');
                         break;
                     default:
                         $errors[] = $this->_('form.error.unknown');
@@ -173,7 +177,7 @@ class ProjectController extends AbstractController
 
 
         // View parameters
-        $this->view->identifier     = $identifier;
+        $this->view->codeName     = $codeName;
         $this->view->name           = $name;
         $this->view->description    = $description;
         $this->view->hasErrors      = !empty($errors);
@@ -199,9 +203,9 @@ class ProjectController extends AbstractController
             $codeName = trim($parameters['codeName']);
         }
         if (empty($codeName)) {
-            $errors[] = $this->_('form.error.identifier.empty');
+            $errors[] = $this->_('form.error.codeName.empty');
         } else if (!preg_match('/^[a-z0-9\-]{1,50}$/', $codeName)) {
-            $errors[] = $this->_('form.error.identifier.invalid');
+            $errors[] = $this->_('form.error.codeName.invalid');
         }
 
         // Get the name
@@ -240,7 +244,7 @@ class ProjectController extends AbstractController
                         $this->forward('error', 'http404');
                         break;
                     case EditException::CODENAME_ALREADY_EXISTS:
-                        $errors[] = $this->_('form.error.identifier.exists');
+                        $errors[] = $this->_('form.error.codeName.exists');
                         break;
                     default:
                         $errors[] = $this->_('form.error.unknown');
@@ -256,5 +260,44 @@ class ProjectController extends AbstractController
         // View parameters
         $this->view->hasErrors      = !empty($errors);
         $this->view->errors         = $errors;
+    }
+
+    /**
+     * The delete form is submitted
+     *
+     * @param   \Bo\Project     $project        Project instance
+     */
+    private function _submitDeleteForm($project)
+    {
+        $request        = $this->request;
+        $parameters     = $request->parameters;
+        $deleteErrors   = [];
+        $codeName       = '';
+
+        // Get the code name
+        if (isset($parameters['codeName'])) {
+            $codeName = trim($parameters['codeName']);
+        }
+
+        // Check if the code names are the same
+        if ($codeName !== $project->codeName) {
+            $deleteErrors[] = $this->_('form.error.codeName.notMatch');
+        }
+
+        // Delete the project and redirect to the list
+        if (empty($deleteErrors)) {
+            try {
+                $daoProject = DaoProject::getInstance();
+                $daoProject->delete($project->id);
+
+                $this->redirect('projects');
+            } catch (\Exception $exception) {
+                $deleteErrors[] = $this->_('form.error.unknown');
+            }
+        }
+
+        // View parameters
+        $this->view->hasDeleteErrors = !empty($deleteErrors);
+        $this->view->deleteErrors = $deleteErrors;
     }
 }
