@@ -1,0 +1,37 @@
+{{> _header}}
+
+<article class="site-body page-project-edit">
+    <h1>{{#i18n}}project.edit.title,name:{{projectName}}{{/i18n}}</h1>
+
+    {{#hasErrors}}
+        <ul class="form-errors">
+        {{#errors}}
+            <li>{{.}}</li>
+        {{/errors}}
+        </ul>
+    {{/hasErrors}}
+
+{{#project}}
+    <form method="post" action="{{linkEdit}}">
+        <p class="form-field identifier">
+            <label for="form-input-identifier">{{#i18n}}form.identifier.label{{/i18n}}</label>
+            <input id="form-input-identifier" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
+            <em class="form-field-note">{{#i18n}}form.identifier.project.note{{/i18n}}</em>
+        </p>
+        <p class="form-field name">
+            <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>
+            <input id="form-input-name" name="name" type="text" required="required" pattern="^.{1,50}$" maxlength="50" value="{{name}}"/>
+            <em class="form-field-note">{{#i18n}}form.name.project.note{{/i18n}}</em>
+        </p>
+        <p class="form-field description">
+            <label for="form-input-description">{{#i18n}}form.description.label{{/i18n}}</label>
+            <textarea id="form-input-description" name="description">{{description}}</textarea>
+        </p>
+        <p class="form-buttons">
+            <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
+        </p>
+    </form>
+{{/project}}
+</article>
+
+{{> _footer}}

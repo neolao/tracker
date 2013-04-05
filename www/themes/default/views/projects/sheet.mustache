@@ -1,8 +1,13 @@
 {{> _header}}
 
 <article class="site-body">
-    <h1>{{projectName}}</h1>
+{{#project}}
+    <h1>{{name}}</h1>
+    <p>ID: {{id}}</p>
+    <p>{{description}}</p>
 
+    <p><a href="{{linkEdit}}" class="button">{{#i18n}}button.edit{{/i18n}}</a></p>
+{{/project}}
 </article>
 
 {{> _footer}}

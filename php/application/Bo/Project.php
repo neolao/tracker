@@ -2,6 +2,7 @@
 namespace Bo;
 
 use \Neolao\Behavior\SerializableJson;
+use \Filter\Project as FilterProject;
 
 /**
  * Project
@@ -14,6 +15,13 @@ class Project implements SerializableJson
      * @var int
      */
     public $id;
+
+    /**
+     * Indicates that the project is enabled
+     *
+     * @var bool
+     */
+    public $enabled;
 
     /**
      * Project code name
@@ -41,6 +49,7 @@ class Project implements SerializableJson
      */
     public function __construct()
     {
+        $this->enabled = true;
     }
 
     /**
@@ -52,6 +61,7 @@ class Project implements SerializableJson
     {
         $json               = new \stdClass();
         $json->id           = $this->id;
+        $json->enabled      = $this->enabled;
         $json->codeName     = $this->codeName;
         $json->name         = $this->name;
         $json->description  = $this->description;
@@ -73,6 +83,11 @@ class Project implements SerializableJson
             $this->id = (int) $json->id;
         }
 
+        // Enabled
+        if (isset($json->enabled)) {
+            $this->enabled = ($json->enabled == 'true')?true:false;
+        }
+
         // Code name
         if (isset($json->codeName)) {
             $this->codeName = (string) $json->codeName;
@@ -87,6 +102,23 @@ class Project implements SerializableJson
         if (isset($json->description)) {
             $this->description = (string) $json->description;
         }
+    }
 
+    /**
+     * Check if a filter matches the project
+     *
+     * @param   \Filter\Project     $filter     Filter
+     * @return  bool                            true if the filter matches, false otherwise
+     */
+    public function matchFilter(FilterProject $filter)
+    {
+        // Check the property "enabled"
+        if (!is_null($filter->enabled)) {
+            if ($filter->enabled !== $this->enabled) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -336,15 +336,15 @@ input[type=text], input[type=password], input[type=email], textarea {
     display: block;
     width: 100%; } }
 
-.page-project-create p {
+.page-project-create p, .page-project-edit p {
   margin: 0;
   padding: 0; }
-  .page-project-create p:before, .page-project-create p:after {
+  .page-project-create p:before, .page-project-edit p:before, .page-project-create p:after, .page-project-edit p:after {
     content: "";
     display: table; }
-  .page-project-create p:after {
+  .page-project-create p:after, .page-project-edit p:after {
     clear: both; }
-  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -356,44 +356,44 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
-  .page-project-create label {
+  .page-project-create label, .page-project-edit label {
     clear: both;
     float: left;
     width: 15.83333%;
     margin: 0 0 0 1%; }
-  .page-project-create label:first-child {
+  .page-project-create label:first-child, .page-project-edit label:first-child {
     margin-left: 0; }
-  .page-project-create input[type=text], .page-project-create textarea {
+  .page-project-create input[type=text], .page-project-edit input[type=text], .page-project-create textarea, .page-project-edit textarea {
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%; }
-  .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+  .page-project-create input[type=text]:first-child, .page-project-edit input[type=text]:first-child, .page-project-create textarea:first-child, .page-project-edit textarea:first-child {
     margin-left: 0; }
-  .page-project-create textarea {
+  .page-project-create textarea, .page-project-edit textarea {
     height: 6rem; }
-  .page-project-create .form-field-note {
+  .page-project-create .form-field-note, .page-project-edit .form-field-note {
     clear: both;
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%;
     margin-left: 16.83333%; }
-  .page-project-create .form-field-note:first-child {
+  .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
     margin-left: 0; }
-  .page-project-create .form-field-note:first-child {
+  .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
     margin-left: 16.83333%; }
-  .page-project-create .form-buttons {
+  .page-project-create .form-buttons, .page-project-edit .form-buttons {
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%;
     margin-left: 16.83333%; }
-  .page-project-create .form-buttons:first-child {
+  .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
     margin-left: 0; }
-  .page-project-create .form-buttons:first-child {
+  .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
     margin-left: 16.83333%; }
   @media screen and (max-width: 1024px) {
-  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -405,42 +405,42 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
-  .page-project-create label {
+  .page-project-create label, .page-project-edit label {
     float: left;
     width: 24.25%;
     margin: 0 0 0 1%; }
-    .page-project-create label:first-child {
+    .page-project-create label:first-child, .page-project-edit label:first-child {
       margin-left: 0; }
-  .page-project-create input[type=text], .page-project-create textarea {
+  .page-project-create input[type=text], .page-project-edit input[type=text], .page-project-create textarea, .page-project-edit textarea {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%; }
-    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+    .page-project-create input[type=text]:first-child, .page-project-edit input[type=text]:first-child, .page-project-create textarea:first-child, .page-project-edit textarea:first-child {
       margin-left: 0; }
-  .page-project-create .form-field-note {
+  .page-project-create .form-field-note, .page-project-edit .form-field-note {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .page-project-create .form-field-note:first-child {
+    .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
       margin-left: 0; }
 
-    .page-project-create .form-field-note:first-child {
+    .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
       margin-left: 25.25%; }
-  .page-project-create .form-buttons {
+  .page-project-create .form-buttons, .page-project-edit .form-buttons {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .page-project-create .form-buttons:first-child {
+    .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 0; }
 
-    .page-project-create .form-buttons:first-child {
+    .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 768px) {
-  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -453,42 +453,42 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
-  .page-project-create label {
+  .page-project-create label, .page-project-edit label {
     float: left;
     width: 24.25%;
     margin: 0 0 0 1%; }
-    .page-project-create label:first-child {
+    .page-project-create label:first-child, .page-project-edit label:first-child {
       margin-left: 0; }
-  .page-project-create input[type=text], .page-project-create textarea {
+  .page-project-create input[type=text], .page-project-edit input[type=text], .page-project-create textarea, .page-project-edit textarea {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%; }
-    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+    .page-project-create input[type=text]:first-child, .page-project-edit input[type=text]:first-child, .page-project-create textarea:first-child, .page-project-edit textarea:first-child {
       margin-left: 0; }
-  .page-project-create .form-field-note {
+  .page-project-create .form-field-note, .page-project-edit .form-field-note {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .page-project-create .form-field-note:first-child {
+    .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
       margin-left: 0; }
 
-    .page-project-create .form-field-note:first-child {
+    .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
       margin-left: 25.25%; }
-  .page-project-create .form-buttons {
+  .page-project-create .form-buttons, .page-project-edit .form-buttons {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .page-project-create .form-buttons:first-child {
+    .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 0; }
 
-    .page-project-create .form-buttons:first-child {
+    .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 400px) {
-  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-edit .form-field.identifier:after, .page-project-create .form-field.name:after, .page-project-edit .form-field.name:after {
     display: block;
     clear: both;
     content: "";
@@ -501,44 +501,48 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+    .page-project-create .form-field.identifier:after:first-child, .page-project-edit .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child, .page-project-edit .form-field.name:after:first-child {
       margin-left: 0; }
-  .page-project-create label {
+  .page-project-create label, .page-project-edit label {
     text-align: left;
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create label:first-child {
+    .page-project-create label:first-child, .page-project-edit label:first-child {
       margin-left: 0; }
-  .page-project-create input[type=text], .page-project-create textarea {
+  .page-project-create input[type=text], .page-project-edit input[type=text], .page-project-create textarea, .page-project-edit textarea {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+    .page-project-create input[type=text]:first-child, .page-project-edit input[type=text]:first-child, .page-project-create textarea:first-child, .page-project-edit textarea:first-child {
       margin-left: 0; }
-  .page-project-create .form-field-note {
+  .page-project-create .form-field-note, .page-project-edit .form-field-note {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create .form-field-note:first-child {
+    .page-project-create .form-field-note:first-child, .page-project-edit .form-field-note:first-child {
       margin-left: 0; }
-  .page-project-create .form-buttons {
+  .page-project-create .form-buttons, .page-project-edit .form-buttons {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create .form-buttons:first-child {
+    .page-project-create .form-buttons:first-child, .page-project-edit .form-buttons:first-child {
       margin-left: 0; } }
 
 .widget {
   display: inline-block;
   vertical-align: top;
-  padding: 1rem; }
+  padding: 1rem;
+  margin: 0 0.5rem 0.5rem 0; }
   .widget h1 {
     font-size: 1.5rem; }
+  .widget h1 a {
+    text-decoration: none;
+    color: inherit; }
   .widget.project {
     width: 20rem;
     height: 10rem;

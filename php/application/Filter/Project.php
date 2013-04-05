@@ -6,5 +6,10 @@ namespace Filter;
  */
 class Project
 {
-
+    /**
+     * Value of the "enabled" property
+     *
+     * @var bool
+     */
+    public $enabled;
 }

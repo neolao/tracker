@@ -22,6 +22,7 @@
     // Projet pages
     "projects.title"            : "Projets",
     "project.create.title"      : "Nouveau projet",
+    "project.edit.title"        : "Édition du projet \"{{name}}\"",
 
     // Milestone pages
     "milestones.title"          : "Étapes",
@@ -50,6 +51,7 @@
     // Buttons
     "button.validate"           : "Valider",
     "button.create"             : "Créer",
+    "button.edit"               : "Éditer",
 
     // Error pages
     "error.title"               : "Erreur",

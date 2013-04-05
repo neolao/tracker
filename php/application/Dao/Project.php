@@ -4,6 +4,8 @@ namespace Dao;
 use \Filter\Project as FilterProject;
 use \Bo\Project as BoProject;
 use \Dao\Project\Exception\CreateException;
+use \Dao\Project\Exception\EditException;
+use \Neolao\Util\String as StringUtil;
 
 /**
  * DAO of projects
@@ -39,7 +41,7 @@ class Project
             throw new CreateException('The project already exists: ' . $project->codeName, CreateException::CODENAME_ALREADY_EXISTS);
         }
 
-        // Update and serialize the project isntance
+        // Update and serialize the project instance
         $project->id    = $nextId;
         $serialized     = $project->serializeJson();
 
@@ -52,9 +54,30 @@ class Project
     }
 
     /**
-     * Get project by identifier
+     * Get project by id
      *
-     * @param   string      $identifier     Project identifier
+     * @param   string      $id             Project id
+     * @return  \Bo\Project                 Project instance
+     */
+    public function getById($id)
+    {
+        // Check the cache
+
+        // Search in the directory
+        $directory = $this->getDataDirectory();
+        $filePath = $directory . '/' . $id . '.json';
+        if (is_file($filePath)) {
+            $project = $this->_buildProjectFromFile($filePath);
+            return $project;
+        }
+
+        return null;
+    }
+
+    /**
+     * Get project by code name
+     *
+     * @param   string      $codeName       Project code name
      * @return  \Bo\Project                 Project instance
      */
     public function getByCodeName($codeName)
@@ -77,27 +100,109 @@ class Project
     /**
      * Get a project list
      *
-     * @param   \Filter\Project     $filter         Filter
+     * @param   \Filter\Project     $filter         The filter
+     * @param   string              $orderBy        The property name to sort
+     * @param   int                 $count          The list length
+     * @param   int                 $offset         The offset
      * @return  array                               Project list
      */
-    public function getList(FilterProject $filter)
+    public function getList(FilterProject $filter = null, $orderBy = null, $count = null, $offset = null)
     {
         $directory  = $this->getDataDirectory();
+        $sortedIds  = [];
         $list       = [];
+
+        // Initialize the parameter "filter"
+        if (is_null($filter)) {
+            $filter = new FilterProject();
+        }
+
+        // Sanitize the parameter "orderBy"
+        switch ($orderBy) {
+            default:
+            case 'id':
+                $orderBy = 'id';
+                $sortFlag = SORT_NUMERIC;
+                break;
+            case 'name':
+                $orderBy = 'name';
+                $sortFlag = SORT_STRING;
+                break;
+        }
+
 
         // Get the projects
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
             // Build the project instance
             $project = $this->_buildProjectFromFile($filePath);
+            $projectId = $project->id;
 
             // Apply the filter
+            if (!$project->matchFilter($filter)) {
+                continue;
+            }
+
+            // Update the sorted list
+            $sortProperty = $project->$orderBy;
+            $sortProperty = strtolower($sortProperty);
+            $sortProperty = StringUtil::removeAccents($sortProperty);
+            $sortedIds[$projectId] = $sortProperty;
 
             // Add the project to the list
-            $list[] = $project;
+            $list[$projectId] = $project;
         }
 
+        // Sort the filtered projects
+        asort($sortedIds, $sortFlag);
+        foreach ($list as $id => $project) {
+            $sortedIds[$id] = $project;
+        }
+        $list = array_merge($sortedIds);
+
+        // Extract
+        if (!is_null($count) && $count > 0) {
+            if (is_null($offset)) {
+                $offset = 0;
+            }
+            $list = array_splice($list, $offset, $count);
+        }
+
+        // Return the list
         return $list;
+    }
+
+    /**
+     * Update a project
+     *
+     * @param   \Bo\Project     $project    Project instance
+     */
+    public function update(BoProject $project)
+    {
+        $directory      = $this->getDataDirectory();
+        $projectId      = $project->id;
+        $filePath       = $directory . '/' . $projectId . '.json';
+
+        // Check if the file exists
+        if (!is_file($filePath)) {
+            throw new EditException('Project not found: ' . $projectId, EditException::PROJECT_NOT_FOUND);
+        }
+
+        // Check if the code name already exists
+        $projectFound = $this->getByCodeName($project->codeName);
+        if ($projectFound instanceof BoProject && $projectFound->id !== $projectId) {
+            throw new EditException('The project already exists: ' . $project->codeName, EditException::CODENAME_ALREADY_EXISTS);
+        }
+
+        // Serialize the project instance
+        $serialized = $project->serializeJson();
+
+        // Update the file
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777 - umask(), true);
+        }
+        file_put_contents($filePath, $serialized);
+
     }
 
     /**

@@ -50,6 +50,13 @@
         "action"    : "create",
         "reverse"   : "/project/create"
     },
+    "project.edit":
+    {
+        "pattern"   : "/project/:id/edit",
+        "controller": "project",
+        "action"    : "edit",
+        "reverse"   : "/project/%d/edit"
+    },
     "project":
     {
         "pattern"   : "/project/:codeName",
