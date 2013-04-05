@@ -157,7 +157,11 @@ input[type=text], input[type=password], input[type=email], textarea {
     -webkit-box-shadow: 0 0 5px #1e1e1e inset;
     box-shadow: 0 0 5px #1e1e1e inset; }
   input[type=text]:invalid, input[type=password]:invalid, input[type=email]:invalid, textarea:invalid {
-    background: red; }
+    -webkit-appearance: none;
+    -moz-box-shadow: 0 0 5px #f00 inset;
+    -webkit-box-shadow: 0 0 5px #f00 inset;
+    box-shadow: 0 0 5px #f00 inset;
+    background: rgba(255, 0, 0, .1); }
 
 .form-field-note {
   display: inline-block;
