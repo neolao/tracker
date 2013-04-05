@@ -3,6 +3,13 @@
 <article class="site-body">
     <h1>{{#i18n}}projects.title{{/i18n}}</h1>
 
+    {{#projects}}
+    <section class="widget project">
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+    </section>
+    {{/projects}}
+
     <section class="widget project-create">
         <h1>{{#i18n}}widget.project.create.title{{/i18n}}</h1>
         <p><a href="{{#link}}project.create{{/link}}" class="button">{{#i18n}}button.create{{/i18n}}</a></p>

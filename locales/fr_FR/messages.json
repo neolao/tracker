@@ -43,6 +43,7 @@
     "form.error.unknown"        : "Erreur inconnue",
     "form.error.identifier.empty" : "Vous devez renseigner un identifiant.",
     "form.error.identifier.invalid" : "Vous devez renseigner un identifiant valide.",
+    "form.error.identifier.exists" : "Cet identifier existe déjà, veuillez en choisir un autre.",
     "form.error.name.empty"     : "Vous devez renseigner un nom.",
     "form.error.name.invalid"   : "Vous devez renseigner un nom valide.",
 

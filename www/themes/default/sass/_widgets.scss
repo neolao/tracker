@@ -8,16 +8,30 @@
         font-size: 1.5rem;
     }
 
+    // Widget: project
+    &.project {
+        width: 20rem;
+        height: 10rem;
+
+        background: $global-panel-background;
+        @include border-radius($component-border-radius);
+
+        h1 {
+            text-align: center;
+        }
+    }
+
     // Widget: create a project
     &.project-create {
         width: 20rem;
+        height: 10rem;
         text-align: center;
 
         background: $global-panel-background;
         @include border-radius($component-border-radius);
 
         p {
-            line-height: 5rem;
+            padding-top: 2rem;
         }
     }
 }

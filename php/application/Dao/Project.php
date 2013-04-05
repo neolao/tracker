@@ -2,6 +2,8 @@
 namespace Dao;
 
 use \Filter\Project as FilterProject;
+use \Bo\Project as BoProject;
+use \Dao\Project\Exception\CreateException;
 
 /**
  * DAO of projects
@@ -24,11 +26,18 @@ class Project
      * Add a project
      *
      * @param   \Bo\Project $project        Project instance
+     * @throws  \Dao\Project\Exception\CreateException
      */
-    public function add(\Bo\Project $project)
+    public function add(BoProject $project)
     {
         $directory      = $this->getDataDirectory();
         $nextId         = $this->_getNextId();
+
+        // Check if the code name already exists
+        $projectFound = $this->getByCodeName($project->codeName);
+        if ($projectFound instanceof BoProject) {
+            throw new CreateException('The project already exists: ' . $project->codeName, CreateException::CODENAME_ALREADY_EXISTS);
+        }
 
         // Update and serialize the project isntance
         $project->id    = $nextId;
@@ -73,7 +82,20 @@ class Project
      */
     public function getList(FilterProject $filter)
     {
-        $list = [];
+        $directory  = $this->getDataDirectory();
+        $list       = [];
+
+        // Get the projects
+        $filePaths  = glob($directory . '/*.json');
+        foreach ($filePaths as $filePath) {
+            // Build the project instance
+            $project = $this->_buildProjectFromFile($filePath);
+
+            // Apply the filter
+
+            // Add the project to the list
+            $list[] = $project;
+        }
 
         return $list;
     }
@@ -94,7 +116,7 @@ class Project
         $fileContent = file_get_contents($filePath);
 
         // Create the project instance
-        $project = new \Bo\Project();
+        $project = new BoProject();
         $project->unserializeJson($fileContent);
 
         return $project;
@@ -113,12 +135,11 @@ class Project
         // Check the data directory for the next id
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
-            if (preg_match('/^([0-9]+)\\.json$/', $filePath, $matches)) {
-                $currentId = (int) $matches[1];
+            $fileName = pathinfo($filePath, PATHINFO_FILENAME);
+            $currentId = (int) $fileName;
 
-                if ($currentId >= $id) {
-                    $id = $currentId + 1;
-                }
+            if ($currentId >= $id) {
+                $id = $currentId + 1;
             }
         }
 

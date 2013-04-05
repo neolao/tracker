@@ -43,6 +43,7 @@
     "form.error.unknown"        : "Unknown error",
     "form.error.identifier.empty" : "You must provide an identifier.",
     "form.error.identifier.invalid" : "You must provide a valid identifier.",
+    "form.error.identifier.exists" : "This identifier already exists, please choose another one.",
     "form.error.name.empty"     : "You must provide a name.",
     "form.error.name.invalid"   : "You must provide a valid name.",
 

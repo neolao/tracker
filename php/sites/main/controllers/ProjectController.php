@@ -4,6 +4,7 @@ require_once __DIR__ . '/AbstractController.php';
 use \Neolao\Site\Request;
 use \Bo\Project;
 use \Dao\Project as DaoProject;
+use \Dao\Project\Exception\CreateException;
 use \Filter\Project as FilterProject;
 
 /**
@@ -111,16 +112,27 @@ class ProjectController extends AbstractController
         // Create the project
         if (empty($errors)) {
             try {
-                $project = new Project();
-                $project->codeName = $identifier;
-                $project->name = $name;
-                $project->description = $description;
+                // Build the project instance
+                $project                = new Project();
+                $project->codeName      = $identifier;
+                $project->name          = $name;
+                $project->description   = $description;
 
+                // Add the project
                 $daoProject = DaoProject::getInstance();
                 $daoProject->add($project);
 
                 // Redirect to the project page
                 $this->redirect('project', ['codeName' => $project->codeName]);
+            } catch (CreateException $exception) {
+                $exceptionCode = $exception->getCode();
+                switch ($exceptionCode) {
+                    case CreateException::CODENAME_ALREADY_EXISTS:
+                        $errors[] = $this->_('form.error.identifier.exists');
+                        break;
+                    default:
+                        $errors[] = $this->_('form.error.unknown');
+                }
             } catch (\Exception $exception) {
                 $errors[] = $this->_('form.error.unknown');
             }
