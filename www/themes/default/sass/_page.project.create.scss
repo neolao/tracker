@@ -51,11 +51,11 @@
         }
 
         .form-field-note {
-            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, $offetLeft: 3);
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, 3);
         }
 
         .form-buttons {
-            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, $offsetLeft: 3);
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, 3);
         }
     }
     @media screen and (max-width: $grid-breakpoint-medium) {
@@ -76,11 +76,11 @@
         }
 
         .form-field-note {
-            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, $offetLeft: 2);
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, 2);
         }
 
         .form-buttons {
-            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, $offsetLeft: 2);
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, 2);
         }
 
     }

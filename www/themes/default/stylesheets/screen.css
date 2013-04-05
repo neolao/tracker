@@ -1,127 +1,55 @@
-/*
- * http://meyerweb.com/eric/tools/css/reset/
- * v2.0 | 20110126
- * License: none (public domain)
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/**
+ * Border radius
  */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/**
+ * Grid system
+ */
+/**
+ * Link
+ */
+/**
+ * Button
+ */
+/**
+ * Form
+ */
+/**
+ * Site header
+ *
+ * It contains the site title and the main navigation.
+ */
+/**
+ * Site body
+ */
+/**
+ * Login page
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  /* HTML5 display-role reset for older browsers */ }
 
-/*
- * HTML5 display-role reset for older browsers
- */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
   line-height: 1; }
 
-ol,
-ul {
+ol, ul {
   list-style: none; }
 
-blockquote,
-q {
+blockquote, q {
   quotes: none; }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none; }
 
@@ -129,40 +57,25 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*
- * *
- * * Border radius
- */
-/*
- * *
- * * Box shadow
- */
-/*
- * *
- * * Grid system
- */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-img,
-object,
-embed {
+img, object, embed {
   max-width: 100%;
   height: auto; }
 
 img {
   -ms-interpolation-mode: bicubic; }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif; }
 
 html {
-  background: white; }
+  background: #fff; }
 
 body {
   padding-bottom: 2rem; }
@@ -171,25 +84,12 @@ p {
   line-height: 1.2rem;
   margin: 0.2rem 0 0 0; }
 
-/*
- * *
- * * Link
- */
-a,
-.link {
+a, .link {
   color: #7878b4; }
-  a:hover,
-  .link:hover,
-  a:focus,
-  .link:focus {
+  a:hover, .link:hover, a:focus, .link:focus {
     color: #5959a0; }
 
-/*
- * *
- * * Button
- */
-.button,
-input[type=submit] {
+.button, input[type=submit] {
   -webkit-appearance: none;
   padding: 0.5rem 0.8rem;
   margin: 0;
@@ -200,20 +100,16 @@ input[type=submit] {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  /**
+ * Box shadow
+ */
   color: #fafafa;
   cursor: pointer;
   outline: none; }
-  .button:hover,
-  .button:focus,
-  input[type=submit]:hover,
-  input[type=submit]:focus {
+  .button:hover, input[type=submit]:hover, .button:focus, input[type=submit]:focus {
     background: #5959a0;
     color: #fafafa; }
 
-/*
- * *
- * * Form
- */
 form {
   margin: 1rem 0; }
   form p {
@@ -236,10 +132,7 @@ label {
   font-weight: bold;
   text-align: right; }
 
-input[type=text],
-input[type=password],
-input[type=email],
-textarea {
+input[type=text], input[type=password], input[type=email], textarea {
   display: inline-block;
   vertical-align: top;
   padding: 0.45rem;
@@ -247,25 +140,24 @@ textarea {
   font-size: 1rem;
   color: #323232;
   outline: none;
-  border: solid 0 silver;
+  border: solid 0 #c0c0c0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  /**
+ * Box shadow
+ */
   -webkit-appearance: none;
   -moz-box-shadow: 0 0 5px #a0a0a0 inset;
   -webkit-box-shadow: 0 0 5px #a0a0a0 inset;
-  box-shadow: 0 0 5px #a0a0a0 inset;
-  &: invalid;
-  &-background: red; }
-  input[type=text]:focus,
-  input[type=password]:focus,
-  input[type=email]:focus,
-  textarea:focus {
+  box-shadow: 0 0 5px #a0a0a0 inset; }
+  input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus {
     -webkit-appearance: none;
     -moz-box-shadow: 0 0 5px #1e1e1e inset;
     -webkit-box-shadow: 0 0 5px #1e1e1e inset;
     box-shadow: 0 0 5px #1e1e1e inset; }
-
+  input[type=text]:invalid, input[type=password]:invalid, input[type=email]:invalid, textarea:invalid {
+    background: red; }
 
 .form-field-note {
   display: inline-block;
@@ -277,23 +169,20 @@ textarea {
 
 .form-errors {
   list-style: disc;
-  background: #cc2233;
-  color: white;
+  background: #c23;
+  color: #fff;
   padding: 1rem 1rem 1rem 2rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  /**
+ * Box shadow
+ */ }
   .form-errors li {
     margin-bottom: 0.5em; }
     .form-errors li:last-child {
       margin-bottom: 0; }
 
-/*
- * *
- * * Site header
- * *
- * * It contains the site title and the main navigation.
- */
 .site-header {
   margin: 0;
   padding: 0;
@@ -301,8 +190,7 @@ textarea {
   padding: 0;
   color: #f0f0f0;
   line-height: 1.5rem; }
-  .site-header:before,
-  .site-header:after {
+  .site-header:before, .site-header:after {
     content: "";
     display: table; }
   .site-header:after {
@@ -310,9 +198,8 @@ textarea {
   .site-header a {
     color: #f0f0f0;
     text-decoration: none; }
-    .site-header a:hover,
-    .site-header a:focus {
-      color: white; }
+    .site-header a:hover, .site-header a:focus {
+      color: #fff; }
   .site-header h1 {
     float: left;
     width: 49.5%;
@@ -321,15 +208,15 @@ textarea {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0.5rem 0 0.5rem 1rem; }
-  .site-header h1:first-child {
-    margin-left: 0; }
+    .site-header h1:first-child {
+      margin-left: 0; }
   .site-header nav {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%;
     text-align: right; }
-  .site-header nav:first-child {
-    margin-left: 0; }
+    .site-header nav:first-child {
+      margin-left: 0; }
   .site-header ul {
     display: inline-block;
     white-space: nowrap; }
@@ -338,7 +225,7 @@ textarea {
     vertical-align: top;
     padding: 0.5rem; }
     .site-header li:hover {
-      background-color: #416793; }
+      background-color: #416893; }
   .site-header .account {
     position: relative;
     height: 2.5rem;
@@ -357,7 +244,7 @@ textarea {
       right: 0;
       top: 2.5rem;
       white-space: normal;
-      background: #416793;
+      background: #416893;
       padding: 1em; }
       .site-header .account ul:before {
         content: "";
@@ -370,43 +257,36 @@ textarea {
     .site-header .account li {
       line-height: 1.5em;
       padding: 0; }
-    .site-header .account:hover,
-    .site-header .account.opened {
-      background-color: #416793; }
-      .site-header .account:hover img,
-      .site-header .account.opened img {
+    .site-header .account:hover, .site-header .account.opened {
+      background-color: #416893; }
+      .site-header .account:hover img, .site-header .account.opened img {
         border-color: #f0f0f0; }
-      .site-header .account:hover ul,
-      .site-header .account.opened ul {
+      .site-header .account:hover ul, .site-header .account.opened ul {
         display: block; }
   @media screen and (max-width: 768px) {
-    .site-header h1 {
-      float: left;
-      width: 36.875%;
-      margin: 0 0 0 1%; }
-  .site-header h1:first-child {
-    margin-left: 0; }
-    .site-header nav {
-      float: left;
-      width: 62.125%;
-      margin: 0 0 0 1%; }
-  .site-header nav:first-child {
-    margin-left: 0; } }
-  @media screen and (max-width: 400px) {
-    .site-header h1 {
-      display: none; }
-    .site-header nav {
-      float: left;
-      width: 100%;
-      margin: 0 0 0 1%;
+  .site-header h1 {
+    float: left;
+    width: 36.875%;
+    margin: 0 0 0 1%; }
+    .site-header h1:first-child {
       margin-left: 0; }
-  .site-header nav:first-child {
-    margin-left: 0; } }
+  .site-header nav {
+    float: left;
+    width: 62.125%;
+    margin: 0 0 0 1%; }
+    .site-header nav:first-child {
+      margin-left: 0; } }
+  @media screen and (max-width: 400px) {
+  .site-header h1 {
+    display: none; }
+  .site-header nav {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0; }
+    .site-header nav:first-child {
+      margin-left: 0; } }
 
-/*
- * *
- * * Site body
- */
 .site-body {
   padding: 2rem 1rem;
   color: #323232; }
@@ -419,14 +299,10 @@ textarea {
   clear: both;
   margin: 2rem 0 0 0; }
 
-/*
- * *
- * * Login page
- */
-  .page-login h1 {
-    width: 25rem;
-    margin-left: auto;
-    margin-right: auto; }
+.page-login h1 {
+  width: 25rem;
+  margin-left: auto;
+  margin-right: auto; }
   .page-login form {
     width: 25rem;
     margin-left: auto;
@@ -435,94 +311,89 @@ textarea {
     background: #e6e6e6;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    /**
+ * Box shadow
+ */ }
   .page-login label {
     width: 35%;
     padding-right: 1ex; }
-  .page-login input[type=email],
-  .page-login input[type=password] {
+  .page-login input[type=email], .page-login input[type=password] {
     width: 65%; }
   @media screen and (max-width: 30rem) {
-    .page-login h1 {
-      width: auto; }
-    .page-login form {
-      width: auto; }
-    .page-login label {
-      display: block;
-      width: auto; }
-    .page-login input[type=email],
-    .page-login input[type=password] {
-      display: block;
-      width: 100%; } }
+  .page-login h1 {
+    width: auto; }
+  .page-login form {
+    width: auto; }
+  .page-login label {
+    display: block;
+    width: auto; }
+  .page-login input[type=email], .page-login input[type=password] {
+    display: block;
+    width: 100%; } }
 
-  .page-project-create p {
-    margin: 0;
-    padding: 0; }
-  .page-project-create p:before,
-  .page-project-create p:after {
+.page-project-create p {
+  margin: 0;
+  padding: 0; }
+  .page-project-create p:before, .page-project-create p:after {
     content: "";
     display: table; }
   .page-project-create p:after {
     clear: both; }
-  .page-project-create .form-field.identifier:after,
-  .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
     display: block;
     clear: both;
     content: "";
-    background: #eeeeee;
+    background: #eee;
     height: 1px;
     float: left;
-    width: 57.917%;
+    width: 57.91667%;
     margin: 0 0 0 1%;
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-  .page-project-create .form-field.identifier:after:first-child,
-  .page-project-create .form-field.name:after:first-child {
-    margin-left: 0; }
+    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+      margin-left: 0; }
   .page-project-create label {
     clear: both;
     float: left;
-    width: 15.833%;
+    width: 15.83333%;
     margin: 0 0 0 1%; }
   .page-project-create label:first-child {
     margin-left: 0; }
-  .page-project-create input[type=text],
-  .page-project-create textarea {
+  .page-project-create input[type=text], .page-project-create textarea {
     float: left;
-    width: 41.083%;
+    width: 41.08333%;
     margin: 0 0 0 1%; }
-  .page-project-create input[type=text]:first-child,
-  .page-project-create textarea:first-child {
+  .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
     margin-left: 0; }
   .page-project-create textarea {
     height: 6rem; }
   .page-project-create .form-field-note {
     clear: both;
     float: left;
-    width: 41.083%;
+    width: 41.08333%;
     margin: 0 0 0 1%;
-    margin-left: 16.833%; }
+    margin-left: 16.83333%; }
   .page-project-create .form-field-note:first-child {
     margin-left: 0; }
-    .page-project-create .form-field-note:first-child {
-      margin-left: 16.833%; }
+  .page-project-create .form-field-note:first-child {
+    margin-left: 16.83333%; }
   .page-project-create .form-buttons {
     float: left;
-    width: 41.083%;
+    width: 41.08333%;
     margin: 0 0 0 1%;
-    margin-left: 16.833%; }
+    margin-left: 16.83333%; }
   .page-project-create .form-buttons:first-child {
     margin-left: 0; }
-    .page-project-create .form-buttons:first-child {
-      margin-left: 16.833%; }
+  .page-project-create .form-buttons:first-child {
+    margin-left: 16.83333%; }
   @media screen and (max-width: 1024px) {
-    .page-project-create .form-field.identifier:after,
-  .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
     display: block;
     clear: both;
     content: "";
-    background: #eeeeee;
+    background: #eee;
     height: 1px;
     float: left;
     width: 74.75%;
@@ -530,48 +401,46 @@ textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-  .page-project-create .form-field.identifier:after:first-child,
-  .page-project-create .form-field.name:after:first-child {
-    margin-left: 0; }
-    .page-project-create label {
-      float: left;
-      width: 24.25%;
-      margin: 0 0 0 1%; }
-  .page-project-create label:first-child {
-    margin-left: 0; }
-    .page-project-create input[type=text],
-    .page-project-create textarea {
-      float: left;
-      width: 49.5%;
-      margin: 0 0 0 1%; }
-  .page-project-create input[type=text]:first-child,
-  .page-project-create textarea:first-child {
-    margin-left: 0; }
-    .page-project-create .form-field-note {
-      float: left;
-      width: 49.5%;
-      margin: 0 0 0 1%;
-      margin-left: 25.25%; }
-  .page-project-create .form-field-note:first-child {
-    margin-left: 0; }
+    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+      margin-left: 0; }
+  .page-project-create label {
+    float: left;
+    width: 24.25%;
+    margin: 0 0 0 1%; }
+    .page-project-create label:first-child {
+      margin-left: 0; }
+  .page-project-create input[type=text], .page-project-create textarea {
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%; }
+    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+      margin-left: 0; }
+  .page-project-create .form-field-note {
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%;
+    margin-left: 25.25%; }
+    .page-project-create .form-field-note:first-child {
+      margin-left: 0; }
+
     .page-project-create .form-field-note:first-child {
       margin-left: 25.25%; }
-    .page-project-create .form-buttons {
-      float: left;
-      width: 49.5%;
-      margin: 0 0 0 1%;
-      margin-left: 25.25%; }
-  .page-project-create .form-buttons:first-child {
-    margin-left: 0; }
+  .page-project-create .form-buttons {
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%;
+    margin-left: 25.25%; }
+    .page-project-create .form-buttons:first-child {
+      margin-left: 0; }
+
     .page-project-create .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 768px) {
-    .page-project-create .form-field.identifier:after,
-  .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
     display: block;
     clear: both;
     content: "";
-    background: #eeeeee;
+    background: #eee;
     height: 1px;
     float: left;
     width: 100%;
@@ -580,48 +449,46 @@ textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-  .page-project-create .form-field.identifier:after:first-child,
-  .page-project-create .form-field.name:after:first-child {
-    margin-left: 0; }
-    .page-project-create label {
-      float: left;
-      width: 24.25%;
-      margin: 0 0 0 1%; }
-  .page-project-create label:first-child {
-    margin-left: 0; }
-    .page-project-create input[type=text],
-    .page-project-create textarea {
-      float: left;
-      width: 74.75%;
-      margin: 0 0 0 1%; }
-  .page-project-create input[type=text]:first-child,
-  .page-project-create textarea:first-child {
-    margin-left: 0; }
-    .page-project-create .form-field-note {
-      float: left;
-      width: 74.75%;
-      margin: 0 0 0 1%;
-      margin-left: 25.25%; }
-  .page-project-create .form-field-note:first-child {
-    margin-left: 0; }
+    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
+      margin-left: 0; }
+  .page-project-create label {
+    float: left;
+    width: 24.25%;
+    margin: 0 0 0 1%; }
+    .page-project-create label:first-child {
+      margin-left: 0; }
+  .page-project-create input[type=text], .page-project-create textarea {
+    float: left;
+    width: 74.75%;
+    margin: 0 0 0 1%; }
+    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
+      margin-left: 0; }
+  .page-project-create .form-field-note {
+    float: left;
+    width: 74.75%;
+    margin: 0 0 0 1%;
+    margin-left: 25.25%; }
+    .page-project-create .form-field-note:first-child {
+      margin-left: 0; }
+
     .page-project-create .form-field-note:first-child {
       margin-left: 25.25%; }
-    .page-project-create .form-buttons {
-      float: left;
-      width: 74.75%;
-      margin: 0 0 0 1%;
-      margin-left: 25.25%; }
-  .page-project-create .form-buttons:first-child {
-    margin-left: 0; }
+  .page-project-create .form-buttons {
+    float: left;
+    width: 74.75%;
+    margin: 0 0 0 1%;
+    margin-left: 25.25%; }
+    .page-project-create .form-buttons:first-child {
+      margin-left: 0; }
+
     .page-project-create .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 400px) {
-    .page-project-create .form-field.identifier:after,
-  .page-project-create .form-field.name:after {
+  .page-project-create .form-field.identifier:after, .page-project-create .form-field.name:after {
     display: block;
     clear: both;
     content: "";
-    background: #eeeeee;
+    background: #eee;
     height: 1px;
     float: left;
     width: 100%;
@@ -630,40 +497,37 @@ textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-  .page-project-create .form-field.identifier:after:first-child,
-  .page-project-create .form-field.name:after:first-child {
-    margin-left: 0; }
-    .page-project-create label {
-      text-align: left;
-      float: left;
-      width: 100%;
-      margin: 0 0 0 1%;
+    .page-project-create .form-field.identifier:after:first-child, .page-project-create .form-field.name:after:first-child {
       margin-left: 0; }
-  .page-project-create label:first-child {
+  .page-project-create label {
+    text-align: left;
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create input[type=text],
-    .page-project-create textarea {
-      float: left;
-      width: 100%;
-      margin: 0 0 0 1%;
+    .page-project-create label:first-child {
       margin-left: 0; }
-  .page-project-create input[type=text]:first-child,
-  .page-project-create textarea:first-child {
+  .page-project-create input[type=text], .page-project-create textarea {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create .form-field-note {
-      float: left;
-      width: 100%;
-      margin: 0 0 0 1%;
+    .page-project-create input[type=text]:first-child, .page-project-create textarea:first-child {
       margin-left: 0; }
-  .page-project-create .form-field-note:first-child {
+  .page-project-create .form-field-note {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
     margin-left: 0; }
-    .page-project-create .form-buttons {
-      float: left;
-      width: 100%;
-      margin: 0 0 0 1%;
+    .page-project-create .form-field-note:first-child {
       margin-left: 0; }
-  .page-project-create .form-buttons:first-child {
-    margin-left: 0; } }
+  .page-project-create .form-buttons {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0; }
+    .page-project-create .form-buttons:first-child {
+      margin-left: 0; } }
 
 .widget {
   display: inline-block;
@@ -677,7 +541,9 @@ textarea {
     background: #e6e6e6;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px; }
-    .widget.project-create p {
-      line-height: 5rem; }
-
+    border-radius: 5px;
+    /**
+ * Box shadow
+ */ }
+  .widget.project-create p {
+    line-height: 5rem; }
