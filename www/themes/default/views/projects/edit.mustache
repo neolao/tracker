@@ -11,28 +11,26 @@
         </ul>
     {{/hasErrors}}
 
-    {{#project}}
     <form method="post" action="{{linkEdit}}">
         <p class="form-field codename">
             <label for="form-input-codename">{{#i18n}}form.codeName.label{{/i18n}}</label>
-            <input id="form-input-codename" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{codeName}}"/>
+            <input id="form-input-codename" name="codeName" type="text" required="required" pattern="^[a-z0-9\-]{1,50}$" maxlength="50" value="{{project.codeName}}"/>
             <em class="form-field-note">{{#i18n}}form.codeName.project.note{{/i18n}}</em>
         </p>
         <p class="form-field name">
             <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>
-            <input id="form-input-name" name="name" type="text" required="required" pattern="^.{1,50}$" maxlength="50" value="{{name}}"/>
+            <input id="form-input-name" name="name" type="text" required="required" pattern="^.{1,50}$" maxlength="50" value="{{project.name}}"/>
             <em class="form-field-note">{{#i18n}}form.name.project.note{{/i18n}}</em>
         </p>
         <p class="form-field description">
             <label for="form-input-description">{{#i18n}}form.description.label{{/i18n}}</label>
-            <textarea id="form-input-description" name="description">{{description}}</textarea>
+            <textarea id="form-input-description" name="description">{{project.description}}</textarea>
         </p>
         <p class="form-buttons">
             <a href="{{#link}}project,codeName:{{codeName}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
             <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
         </p>
     </form>
-    {{/project}}
 
 
     <section class="section-delete" id="delete">

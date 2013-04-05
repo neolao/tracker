@@ -1,12 +1,10 @@
 {{> _header}}
 
 <article class="site-body">
-{{#project}}
-    <h1>{{#i18n}}project.sheet.title,name:{{name}}{{/i18n}}</h1>
-    <p>{{description}}</p>
+    <h1>{{#i18n}}project.sheet.title,name:{{project.name}}{{/i18n}}</h1>
+    <p>{{project.description}}</p>
 
     <p><a href="{{linkEdit}}" class="button">{{#i18n}}button.edit{{/i18n}}</a></p>
-{{/project}}
 </article>
 
 {{> _footer}}
