@@ -1,13 +1,10 @@
-.page-project-create {
+.page-issue-create {
 
     form {
         @extend .form-basic;
-
     }
 
-    .codename,
     .name {
         @extend .basic-with-separator;
     }
-
 }

@@ -5,7 +5,7 @@ use \Neolao\Site\Request;
 use \Bo\Project;
 use \Dao\Project as DaoProject;
 use \Dao\Project\Exception\CreateException;
-use \Dao\Project\Exception\EditException;
+use \Dao\Project\Exception\UpdateException;
 use \Filter\Project as FilterProject;
 
 /**
@@ -226,24 +226,25 @@ class ProjectController extends AbstractController
         // Update the project
         if (empty($errors)) {
             try {
-                // Build the project instance
+                // Update the project instance
                 $project->codeName      = $codeName;
                 $project->name          = $name;
                 $project->description   = $description;
 
-                // Add the project
+                // Update the database
                 $daoProject = DaoProject::getInstance();
                 $daoProject->update($project);
 
                 // Redirect to the project page
                 $this->redirect('project', ['codeName' => $project->codeName]);
-            } catch (EditException $exception) {
+
+            } catch (UpdateException $exception) {
                 $exceptionCode = $exception->getCode();
                 switch ($exceptionCode) {
-                    case EditException::PROJECT_NOT_FOUND:
+                    case UpdateException::PROJECT_NOT_FOUND:
                         $this->forward('error', 'http404');
                         break;
-                    case EditException::CODENAME_ALREADY_EXISTS:
+                    case UpdateException::CODENAME_ALREADY_EXISTS:
                         $errors[] = $this->_('form.error.codeName.exists');
                         break;
                     default:

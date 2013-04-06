@@ -32,6 +32,9 @@
 
     // Issue pages
     "issues.title"              : "Issues",
+    "issue.sheet.title"         : "Issue: {{name}}",
+    "issue.create.title"        : "New issue",
+    "issue.edit.title"          : "Edit the issue \"{{name}}\"",
 
     // Widget: create a project
     "widget.project.create.title" : "New project",
@@ -56,6 +59,7 @@
     // Buttons
     "button.validate"           : "Validate",
     "button.create"             : "Create",
+    "button.createIssue"        : "Create an issue",
     "button.edit"               : "Edit",
     "button.cancel"             : "Cancel",
     "button.delete"             : "Delete",

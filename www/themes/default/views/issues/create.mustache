@@ -1,0 +1,32 @@
+{{> _header}}
+
+<article class="site-body page-issue-create">
+    <h1>{{#i18n}}issue.create.title{{/i18n}}</h1>
+
+    {{#hasErrors}}
+        <ul class="form-errors">
+        {{#errors}}
+            <li>{{.}}</li>
+        {{/errors}}
+        </ul>
+    {{/hasErrors}}
+
+    <form method="post" action="{{#link}}issue.create{{/link}}">
+        <p class="form-field name">
+            <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>
+            <input id="form-input-name" name="name" type="text" required="required" pattern="^.{1,}$" value="{{name}}"/>
+        </p>
+        <p class="form-field description">
+            <label for="form-input-description">{{#i18n}}form.description.label{{/i18n}}</label>
+            <textarea id="form-input-description" name="description">{{description}}</textarea>
+        </p>
+        <p class="form-buttons">
+            <input type="submit" value="{{#i18n}}button.create{{/i18n}}"/>
+        </p>
+    </form>
+
+
+
+</article>
+
+{{> _footer}}

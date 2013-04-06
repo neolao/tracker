@@ -6,6 +6,11 @@
 
         <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" type="text/css" href="{{#stylesheetsPath}}screen.css{{/stylesheetsPath}}"/>
+
+        {{#isProfileDevelopment}}
+        <script type="text/javascript" src="{{#javascriptsPath}}lib/livejs/live-4.js{{/javascriptsPath}}"></script>
+        {{/isProfileDevelopment}}
+
         <script type="text/javascript" src="{{#javascriptsPath}}lib/modernizr/modernizr-2.6.2.js{{/javascriptsPath}}"></script>
         {{#modernizrLoad}}general.js{{/modernizrLoad}}
     </head>

@@ -32,6 +32,9 @@
 
     // Issue pages
     "issues.title"              : "Tickets",
+    "issue.sheet.title"         : "Ticket&nbsp;: {{name}}",
+    "issue.create.title"        : "Nouveau ticket",
+    "issue.edit.title"          : "Édition du ticket \"{{name}}\"",
 
     // Widget: create a project
     "widget.project.create.title" : "Nouveau projet",
@@ -55,6 +58,7 @@
     // Buttons
     "button.validate"           : "Valider",
     "button.create"             : "Créer",
+    "button.createIssue"        : "Créer un ticket",
     "button.edit"               : "Éditer",
     "button.cancel"             : "Annuler",
     "button.delete"             : "Supprimer",

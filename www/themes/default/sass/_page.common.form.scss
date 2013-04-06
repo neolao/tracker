@@ -1,0 +1,112 @@
+/**
+ * Basic form
+ */
+.form-basic {
+    p {
+        @include row();
+    }
+
+    label {
+        clear: both;
+        @include column(2, $grid-columns, $grid-gutter);
+    }
+
+    input[type=text],
+    textarea {
+        @include column(5, $grid-columns, $grid-gutter);
+    }
+    textarea {
+        height: 6rem;
+    }
+
+    .form-field-note {
+        clear: both;
+        @include column(5, $grid-columns, $grid-gutter, $offsetLeft: 2);
+    }
+
+    .form-buttons {
+        @include column(5, $grid-columns, $grid-gutter, $offsetLeft: 2);
+    }
+
+
+    // Responsive
+    @media screen and (max-width: $grid-breakpoint-large) {
+        label {
+            @include column(3, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
+        }
+
+        .form-field-note {
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, 3);
+        }
+
+        .form-buttons {
+            @include column(6, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter, 3);
+        }
+    }
+    @media screen and (max-width: $grid-breakpoint-medium) {
+        label {
+            @include column(2, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+        }
+
+        .form-field-note {
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, 2);
+        }
+
+        .form-buttons {
+            @include column(6, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter, 2);
+        }
+
+    }
+    @media screen and (max-width: $grid-breakpoint-small) {
+        label {
+            text-align: left;
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
+        input[type=text],
+        textarea {
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
+        .form-field.with-separator {
+            @include form-add-separator($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
+        .form-field-note {
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
+        .form-buttons {
+            @include column($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+        }
+
+    }
+
+}
+
+// Field with a separator on the bottom
+.form-field.basic-with-separator {
+    @include form-add-separator(7, $grid-columns, $grid-gutter);
+
+    // Responsive
+    @media screen and (max-width: $grid-breakpoint-large) {
+        @include form-add-separator(9, $grid-breakpoint-large-columns, $grid-breakpoint-large-gutter);
+    }
+    @media screen and (max-width: $grid-breakpoint-medium) {
+        @include form-add-separator(8, $grid-breakpoint-medium-columns, $grid-breakpoint-medium-gutter);
+    }
+    @media screen and (max-width: $grid-breakpoint-small) {
+        @include form-add-separator($grid-breakpoint-small-columns, $grid-breakpoint-small-columns, $grid-breakpoint-small-gutter);
+    }
+}
+

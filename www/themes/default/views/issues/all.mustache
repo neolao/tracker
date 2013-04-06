@@ -1,7 +1,39 @@
 {{> _header}}
 
-<article class="site-body">
+<article class="site-body page-issues">
     <h1>{{#i18n}}issues.title{{/i18n}}</h1>
+
+    <aside>
+        <p><a class="button" href="{{#link}}issue.create{{/link}}">{{#i18n}}button.createIssue{{/i18n}}</a></p>
+
+        <section>
+            <h1>Filter</h1>
+        </section>
+
+        <section>
+            <h1>Order</h1>
+        </section>
+
+        <section>
+            <h1>Options</h1>
+        </section>
+    </aside>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>id</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            
+        </tbody>
+    </table>
 </article>
 
 {{> _footer}}

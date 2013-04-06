@@ -82,6 +82,29 @@
         "action"    : "all",
         "reverse"   : "/issues"
     },
+    "issue.create":
+    {
+        "pattern"   : "/issue/create",
+        "controller": "issue",
+        "action"    : "create",
+        "reverse"   : "/issue/create"
+    },
+    "issue.edit":
+    {
+        "pattern"   : "/issue/:id/edit",
+        "controller": "issue",
+        "action"    : "edit",
+        "reverse"   : "/issue/%d/edit"
+    },
+    "issue":
+    {
+        "pattern"   : "/issue/:id",
+        "controller": "issue",
+        "action"    : "sheet",
+        "reverse"   : "/issue/%d"
+    },
+
+
 
     // Default action
     "default":

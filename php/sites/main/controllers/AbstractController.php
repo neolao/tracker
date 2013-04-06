@@ -27,6 +27,12 @@ abstract class AbstractController extends Controller
         $this->view->currentUser    = $currentUser;
         $this->view->isLogged       = $isLogged;
 
+        // Some informations from the configuration
+        $configGeneral                      = \ConfigGeneral::getInstance();
+        $profile                            = $configGeneral->profile;
+        $this->view->isProfileDevelopment   = ($profile === 'development');
+        $this->view->isProfileProduction    = ($profile === 'production');
+
         // Dispatch
         parent::dispatch($request);
     }

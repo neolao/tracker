@@ -89,6 +89,7 @@
             padding: 1em;
 
             // This transparent area is used to maintains the sub menu opened
+            /*
             &:before {
                 content: "";
                 display: block;
@@ -98,6 +99,7 @@
                 right: 0;
                 top: -3rem;
             }
+            */
         }
         li {
             line-height: 1.5em;

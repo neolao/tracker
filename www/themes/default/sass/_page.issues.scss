@@ -1,0 +1,33 @@
+.page-issues {
+
+
+    // Sidebar
+    aside {
+        @include column(3, $grid-columns, $grid-gutter * 3);
+        margin-left: 0;
+
+        .button {
+            display: block;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section {
+            background: $global-panel-background;
+            @include border-radius($component-border-radius);
+            padding: 0.8rem;
+            margin: 0 0 1rem 0;
+        }
+
+        h1 {
+            font-size: 1rem;
+            border-bottom: solid 1px #ccc;
+        }
+    }
+
+
+    // Issues
+    table {
+        @include column($grid-columns - 3, $grid-columns, $grid-gutter * 3);
+    }
+}

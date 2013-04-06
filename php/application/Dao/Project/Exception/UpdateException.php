@@ -2,9 +2,9 @@
 namespace Dao\Project\Exception;
 
 /**
- * An error occurred during the edition
+ * An error occurred during the update
  */
-class EditException extends \Exception
+class UpdateException extends \Exception
 {
     const UNKNOWN                   = 0;
     const PROJECT_NOT_FOUND         = 1;

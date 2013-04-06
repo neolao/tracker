@@ -4,7 +4,7 @@ namespace Dao;
 use \Filter\Project as FilterProject;
 use \Bo\Project as BoProject;
 use \Dao\Project\Exception\CreateException;
-use \Dao\Project\Exception\EditException;
+use \Dao\Project\Exception\UpdateException;
 use \Neolao\Util\String as StringUtil;
 
 /**
@@ -176,6 +176,7 @@ class Project
      * Update a project
      *
      * @param   \Bo\Project     $project    Project instance
+     * @throws  \Dao\Project\Exception\UpdateException
      */
     public function update(BoProject $project)
     {
@@ -185,13 +186,13 @@ class Project
 
         // Check if the file exists
         if (!is_file($filePath)) {
-            throw new EditException('Project not found: ' . $projectId, EditException::PROJECT_NOT_FOUND);
+            throw new UpdateException('Project not found: ' . $projectId, UpdateException::PROJECT_NOT_FOUND);
         }
 
         // Check if the code name already exists
         $projectFound = $this->getByCodeName($project->codeName);
         if ($projectFound instanceof BoProject && $projectFound->id !== $projectId) {
-            throw new EditException('The project already exists: ' . $project->codeName, EditException::CODENAME_ALREADY_EXISTS);
+            throw new UpdateException('The project already exists: ' . $project->codeName, UpdateException::CODENAME_ALREADY_EXISTS);
         }
 
         // Serialize the project instance

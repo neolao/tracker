@@ -16,3 +16,21 @@ p {
     line-height: 1.2rem;
     margin: .2rem 0 0 0;
 }
+
+// table
+thead {
+    border-bottom: solid 1px $globa-text-color;
+}
+th {
+    font-weight: bold;
+    text-align: left;
+    padding: .2rem .5rem;
+}
+td {
+    @extend th;
+
+    border-bottom: solid 1px #ccc;
+}
+tfoot {
+    display: none;
+}
