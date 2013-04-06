@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/AbstractController.php';
 
-use \Bo\User;
-use \Dao\User as DaoUser;
+use \Vo\User;
+use \Bo\User as BoUser;
 
 /**
  * Authentication actions
@@ -19,7 +19,7 @@ class AuthController extends AbstractController
             $parameters = $this->request->parameters;
             $email      = '';
             $password   = '';
-            $daoUser    = DaoUser::getInstance();
+            $boUser     = BoUser::getInstance();
             $auth       = Auth::getInstance();
 
             if (isset($parameters['email'])) {
@@ -31,7 +31,7 @@ class AuthController extends AbstractController
 
             // Check the passwords
             $password   = $auth->getPasswordHash($password);
-            $user       = $daoUser->getByEmail($email);
+            $user       = $boUser->getByEmail($email);
             if ($user instanceof User) {
                 // The user exists
                 if ($user->password === $password) {

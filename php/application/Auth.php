@@ -1,8 +1,8 @@
 <?php
 
 use \Neolao\Auth\BasicCookie;
-use \Bo\User;
-use \Dao\User as DaoUser;
+use \Vo\User;
+use \Bo\User as BoUser;
 
 /**
  * Authentication
@@ -76,8 +76,8 @@ class Auth extends BasicCookie
      */
     public function getUserByIdentity($identity)
     {
-        $dao = DaoUser::getInstance();
-        $user = $dao->getByEmail($identity);
+        $boUser = BoUser::getInstance();
+        $user = $boUser->getByEmail($identity);
         return $user;
     }
 

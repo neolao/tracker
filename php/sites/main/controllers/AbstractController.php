@@ -3,7 +3,7 @@
 use \Neolao\Site\Controller;
 use \Neolao\Site\Request;
 use \Auth;
-use \Bo\User;
+use \Vo\User;
 
 /**
  * Abstract controller
