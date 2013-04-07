@@ -2,8 +2,8 @@
 require_once __DIR__ . '/AbstractController.php';
 
 use \Neolao\Site\Request;
-use \Bo\Issue;
-use \Dao\Issue as DaoIssue;
+use \Vo\Issue;
+use \Bo\Issue as BoIssue;
 use \Dao\Issue\Exception\UpdateException;
 
 /**
@@ -35,8 +35,8 @@ class IssueController extends AbstractController
         $id         = $parameters['id'];
 
         // Get the issue instance
-        $daoIssue   = DaoIssue::getInstance();
-        $issue      = $daoIssue->getById($id);
+        $boIssue    = BoIssue::getInstance();
+        $issue      = $boIssue->getById($id);
         if ($issue instanceof Issue === false) {
             $this->forward('error', 'http404');
         }
@@ -81,8 +81,8 @@ class IssueController extends AbstractController
         $id         = $parameters['id'];
 
         // Get the issue instance
-        $daoIssue   = DaoIssue::getInstance();
-        $issue      = $daoIssue->getById($id);
+        $boIssue    = BoIssue::getInstance();
+        $issue      = $boIssue->getById($id);
         if ($issue instanceof Issue === false) {
             $this->forward('error', 'http404');
         }
@@ -132,8 +132,8 @@ class IssueController extends AbstractController
                 $issue->description = $description;
 
                 // Add the issue
-                $daoIssue = DaoIssue::getInstance();
-                $daoIssue->add($issue);
+                $boIssue = BoIssue::getInstance();
+                $boIssue->add($issue);
 
                 // Redirect to the project page
                 $this->redirect('issue', ['id' => $issue->id]);
@@ -155,7 +155,7 @@ class IssueController extends AbstractController
     /**
      * The edit form is submitted
      *
-     * @param   \Bo\Issue       $issue      Issue instance
+     * @param   \Vo\Issue       $issue      Issue instance
      */
     private function _submitEditForm(Issue $issue)
     {
@@ -186,8 +186,8 @@ class IssueController extends AbstractController
                 $issue->description     = $description;
 
                 // Update the database
-                $daoIssue = DaoIssue::getInstance();
-                $daoIssue->update($issue);
+                $boIssue = BoIssue::getInstance();
+                $boIssue->update($issue);
 
                 // Redirect to the issue page
                 $this->redirect('issue', ['id' => $issue->id]);

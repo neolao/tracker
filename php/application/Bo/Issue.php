@@ -1,90 +1,90 @@
 <?php
 namespace Bo;
 
-use \Neolao\Behavior\SerializableJson;
+use \Dao\Issue as DaoIssue;
+use \Vo\Issue as VoIssue;
 use \Filter\Issue as FilterIssue;
 
 /**
- * Issue
+ * Business Object to work with issues
  */
-class Issue implements SerializableJson
+class Issue
 {
-    /**
-     * Issue id
-     *
-     * @var int
-     */
-    public $id;
+    use \Neolao\Mixin\Singleton;
 
     /**
-     * Issue name
+     * Instance of DAO issue
      *
-     * @var string
+     * @var \Dao\Issue\IssueInterface
      */
-    public $name;
-
-    /**
-     * Issue description
-     *
-     * @var string
-     */
-    public $description;
+    protected $_daoIssue;
 
     /**
      * Constructor
      */
-    public function __construct()
+    protected function __construct()
     {
+        $this->_daoIssue = DaoIssue::factory();
     }
 
     /**
-     * Serialize to a json format
+     * Add an issue
      *
-     * @return  string                  json string
+     * @param   \Vo\Issue   $issue      Issue instance
      */
-    public function serializeJson()
+    public function add(VoIssue $issue)
     {
-        $json               = new \stdClass();
-        $json->id           = $this->id;
-        $json->name         = $this->name;
-        $json->description  = $this->description;
-
-        return json_encode($json);
+        $this->_daoIssue->add($issue);
     }
 
     /**
-     * Unserialize from a json
+     * Get issue by id
      *
-     * @param   string      $json       json string
+     * @param   string      $id             Issue id
+     * @return  \Vo\Issue                   Issue instance
      */
-    public function unserializeJson($json)
+    public function getById($id)
     {
-        $json = json_decode($json);
+        $issue = $this->_daoIssue->getById($id);
 
-        // Id
-        if (isset($json->id)) {
-            $this->id = (int) $json->id;
-        }
-
-        // Name
-        if (isset($json->name)) {
-            $this->name = (string) $json->name;
-        }
-
-        // Description
-        if (isset($json->description)) {
-            $this->description = (string) $json->description;
-        }
+        return $issue;
     }
 
     /**
-     * Check if a filter matches the project
+     * Get a issue list
      *
-     * @param   \Filter\Issue       $filter     Filter
-     * @return  bool                            true if the filter matches, false otherwise
+     * @param   \Filter\Issue       $filter         The filter
+     * @param   string              $orderBy        The property name to sort
+     * @param   int                 $count          The list length
+     * @param   int                 $offset         The offset
+     * @return  array                               Issue list
      */
-    public function matchFilter(FilterIssue $filter)
+    public function getList(FilterIssue $filter = null, $orderBy = null, $count = null, $offset = null)
     {
-        return true;
+        $list = $this->_daoIssue->getList($filter, $orderBy, $count, $offset);
+
+        return $list;
     }
+
+    /**
+     * Update an issue
+     *
+     * @param   \Vo\Issue       $issue      Issue instance
+     * @throws  \Dao\Issue\Exception\UpdateException
+     */
+    public function update(VoIssue $issue)
+    {
+        $this->_daoIssue->update($issue);
+    }
+
+    /**
+     * Delete an issue
+     *
+     * @param   int         $issueId        Issue id
+     */
+    public function delete($issueId)
+    {
+        $this->_daoIssue->delete($issueId);
+    }
+
 }

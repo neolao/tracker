@@ -13,7 +13,7 @@ class Project
     use \Neolao\Mixin\Singleton;
 
     /**
-     * DAO instance
+     * Instance of DAO project
      *
      * @var \Dao\Project\ProjectInterface
      */
@@ -22,7 +22,7 @@ class Project
     /**
      * Constructor
      */
-    public function __construct()
+    protected function __construct()
     {
         $this->_daoProject = DaoProject::factory();
     }
