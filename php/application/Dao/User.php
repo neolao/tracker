@@ -8,8 +8,6 @@ use \Dao\User\FileSystem as DaoFileSystem;
  */
 class User
 {
-    use \Neolao\Mixin\Singleton;
-
     /**
      * Get the concrete DAO
      *

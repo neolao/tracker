@@ -2,8 +2,8 @@
 require_once __DIR__ . '/AbstractController.php';
 
 use \Neolao\Site\Request;
-use \Bo\Project;
-use \Dao\Project as DaoProject;
+use \Vo\Project;
+use \Bo\Project as BoProject;
 use \Dao\Project\Exception\CreateException;
 use \Dao\Project\Exception\UpdateException;
 use \Filter\Project as FilterProject;
@@ -24,10 +24,10 @@ class ProjectController extends AbstractController
         }
 
         // Get all projects
-        $daoProject         = DaoProject::getInstance();
+        $boProject          = BoProject::getInstance();
         $filter             = new FilterProject();
         $filter->enabled    = true;
-        $projects           = $daoProject->getList($filter, 'name');
+        $projects           = $boProject->getList($filter, 'name');
 
         // Render
         $this->view->projects = $projects;
@@ -44,8 +44,8 @@ class ProjectController extends AbstractController
         $codeName   = $parameters['codeName'];
 
         // Get the project instance
-        $daoProject = DaoProject::getInstance();
-        $project    = $daoProject->getByCodeName($codeName);
+        $boProject  = BoProject::getInstance();
+        $project    = $boProject->getByCodeName($codeName);
         if ($project instanceof Project === false) {
             $this->forward('error', 'http404');
         }
@@ -67,8 +67,8 @@ class ProjectController extends AbstractController
         $id         = $parameters['id'];
 
         // Get the project instance
-        $daoProject = DaoProject::getInstance();
-        $project    = $daoProject->getById($id);
+        $boProject  = BoProject::getInstance();
+        $project    = $boProject->getById($id);
         if ($project instanceof Project === false) {
             $this->forward('error', 'http404');
         }
@@ -154,8 +154,8 @@ class ProjectController extends AbstractController
                 $project->description   = $description;
 
                 // Add the project
-                $daoProject = DaoProject::getInstance();
-                $daoProject->add($project);
+                $boProject = BoProject::getInstance();
+                $boProject->add($project);
 
                 // Redirect to the project page
                 $this->redirect('project', ['codeName' => $project->codeName]);
@@ -177,7 +177,7 @@ class ProjectController extends AbstractController
 
 
         // View parameters
-        $this->view->codeName     = $codeName;
+        $this->view->codeName       = $codeName;
         $this->view->name           = $name;
         $this->view->description    = $description;
         $this->view->hasErrors      = !empty($errors);
@@ -187,7 +187,7 @@ class ProjectController extends AbstractController
     /**
      * The edit form is submitted
      *
-     * @param   \Bo\Project     $project        Project instance
+     * @param   \Vo\Project     $project        Project instance
      */
     private function _submitEditForm(Project $project)
     {
@@ -232,8 +232,8 @@ class ProjectController extends AbstractController
                 $project->description   = $description;
 
                 // Update the database
-                $daoProject = DaoProject::getInstance();
-                $daoProject->update($project);
+                $boProject = BoProject::getInstance();
+                $boProject->update($project);
 
                 // Redirect to the project page
                 $this->redirect('project', ['codeName' => $project->codeName]);
@@ -266,7 +266,7 @@ class ProjectController extends AbstractController
     /**
      * The delete form is submitted
      *
-     * @param   \Bo\Project     $project        Project instance
+     * @param   \Vo\Project     $project        Project instance
      */
     private function _submitDeleteForm($project)
     {
@@ -288,8 +288,8 @@ class ProjectController extends AbstractController
         // Delete the project and redirect to the list
         if (empty($deleteErrors)) {
             try {
-                $daoProject = DaoProject::getInstance();
-                $daoProject->delete($project->id);
+                $boProject = BoProject::getInstance();
+                $boProject->delete($project->id);
 
                 $this->redirect('projects');
             } catch (\Exception $exception) {

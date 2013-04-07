@@ -1,124 +1,110 @@
 <?php
 namespace Bo;
 
-use \Neolao\Behavior\SerializableJson;
+use \Dao\Project as DaoProject;
+use \Vo\Project as VoProject;
 use \Filter\Project as FilterProject;
 
 /**
- * Project
+ * Business Object to work with projects
  */
-class Project implements SerializableJson
+class Project
 {
-    /**
-     * Project id
-     *
-     * @var int
-     */
-    public $id;
+    use \Neolao\Mixin\Singleton;
 
     /**
-     * Indicates that the project is enabled
+     * DAO instance
      *
-     * @var bool
+     * @var \Dao\Project\ProjectInterface
      */
-    public $enabled;
-
-    /**
-     * Project code name
-     *
-     * @var string
-     */
-    public $codeName;
-
-    /**
-     * Project name
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * Project description
-     *
-     * @var string
-     */
-    public $description;
+    protected $_daoProject;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->enabled = true;
+        $this->_daoProject = DaoProject::factory();
     }
 
     /**
-     * Serialize to a json format
+     * Add a project
      *
-     * @return  string                  json string
+     * @param   \Vo\Project $project        Project instance
+     * @throws  \Dao\Project\Exception\CreateException
      */
-    public function serializeJson()
+    public function add(VoProject $project)
     {
-        $json               = new \stdClass();
-        $json->id           = $this->id;
-        $json->enabled      = $this->enabled;
-        $json->codeName     = $this->codeName;
-        $json->name         = $this->name;
-        $json->description  = $this->description;
-
-        return json_encode($json);
+        $this->_daoProject->add($project);
     }
 
     /**
-     * Unserialize from a json
+     * Get project by id
      *
-     * @param   string      $json       json string
+     * @param   string      $id             Project id
+     * @return  \Vo\Project                 Project instance
      */
-    public function unserializeJson($json)
+    public function getById($id)
     {
-        $json = json_decode($json);
+        $project = $this->_daoProject->getById($id);
 
-        // Id
-        if (isset($json->id)) {
-            $this->id = (int) $json->id;
-        }
-
-        // Enabled
-        if (isset($json->enabled)) {
-            $this->enabled = ($json->enabled == 'true')?true:false;
-        }
-
-        // Code name
-        if (isset($json->codeName)) {
-            $this->codeName = (string) $json->codeName;
-        }
-
-        // Name
-        if (isset($json->name)) {
-            $this->name = (string) $json->name;
-        }
-
-        // Description
-        if (isset($json->description)) {
-            $this->description = (string) $json->description;
-        }
+        return $project;
     }
 
     /**
-     * Check if a filter matches the project
+     * Get project by code name
      *
-     * @param   \Filter\Project     $filter     Filter
-     * @return  bool                            true if the filter matches, false otherwise
+     * @param   string      $codeName       Project code name
+     * @return  \Vo\Project                 Project instance
      */
-    public function matchFilter(FilterProject $filter)
+    public function getByCodeName($codeName)
     {
-        // Check the property "enabled"
-        if (!is_null($filter->enabled)) {
-            if ($filter->enabled !== $this->enabled) {
-                return false;
-            }
-        }
+        $project = $this->_daoProject->getByCodeName($codeName);
 
-        return true;
+        return $project;
+    }
+
+    /**
+     * Get a project list
+     *
+     * @param   \Filter\Project     $filter         The filter
+     * @param   string              $orderBy        The property name to sort
+     * @param   int                 $count          The list length
+     * @param   int                 $offset         The offset
+     * @return  array                               Project list
+     */
+    public function getList(FilterProject $filter = null, $orderBy = null, $count = null, $offset = null)
+    {
+        $list = $this->_daoProject->getList($filter, $orderBy, $count, $offset);
+
+        return $list;
+    }
+
+    /**
+     * Update a project
+     *
+     * @param   \Vo\Project     $project    Project instance
+     * @throws  \Dao\Project\Exception\UpdateException
+     */
+    public function update(VoProject $project)
+    {
+        $this->_daoProject->update($project);
+    }
+
+    /**
+     * Delete a project
+     *
+     * @param   int         $projectId      Project id
+     */
+    public function delete($projectId)
+    {
+        // Delete the issues
+        // @todo
+
+        // Delete the milestones
+        // @todo
+
+        // Delete the project
+        $this->_daoProject->delete($projectId);
     }
 }
