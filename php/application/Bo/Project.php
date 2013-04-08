@@ -1,6 +1,8 @@
 <?php
 namespace Bo;
 
+use \Bo\Project\Exception\CreateException;
+use \Bo\Project\Exception\UpdateException;
 use \Dao\Project as DaoProject;
 use \Vo\Project as VoProject;
 use \Filter\Project as FilterProject;
@@ -31,11 +33,28 @@ class Project
      * Add a project
      *
      * @param   \Vo\Project $project        Project instance
-     * @throws  \Dao\Project\Exception\CreateException
+     * @throws  \Bo\Project\Exception\CreateException
      */
     public function add(VoProject $project)
     {
-        $this->_daoProject->add($project);
+        // Check if the code name already exists
+        try {
+            $projectFound = $this->_daoProject->getByCodeName($project->codeName);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new CreateException($message, CreateException::UNKNOWN, $exception);
+        }
+        if (!is_null($projectFound)) {
+            throw new CreateException('The project already exists: ' . $project->codeName, CreateException::CODENAME_ALREADY_EXISTS);
+        }
+
+        // Add the project into the database
+        try {
+            $this->_daoProject->add($project);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new CreateException($message, CreateException::UNKNOWN, $exception);
+        }
     }
 
     /**
@@ -84,11 +103,30 @@ class Project
      * Update a project
      *
      * @param   \Vo\Project     $project    Project instance
-     * @throws  \Dao\Project\Exception\UpdateException
+     * @throws  \Bo\Project\Exception\UpdateException
      */
     public function update(VoProject $project)
     {
-        $this->_daoProject->update($project);
+        // Check if the code name already exists
+        try {
+            $projectFound = $this->_daoProject->getByCodeName($project->codeName);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new UpdateException($message, UpdateException::UNKNOWN, $exception);
+        }
+        if (!is_object($projectFound)) {
+            throw new UpdateException('Project not found: ' . $project->id, UpdateException::PROJECT_NOT_FOUND);
+        } else if ($projectFound->id !== $project->id) {
+            throw new UpdateException('The project already exists: ' . $project->codeName, UpdateException::CODENAME_ALREADY_EXISTS);
+        }
+
+        // Update the project in the database
+        try {
+            $this->_daoProject->update($project);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new UpdateException($message, UpdateException::UNKNOWN, $exception);
+        }
     }
 
     /**

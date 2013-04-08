@@ -3,8 +3,6 @@ namespace Dao\Project;
 
 use \Filter\Project as FilterProject;
 use \Vo\Project;
-use \Dao\Project\Exception\CreateException;
-use \Dao\Project\Exception\UpdateException;
 use \Neolao\Util\String as StringUtil;
 
 /**
@@ -24,12 +22,6 @@ class FileSystem implements ProjectInterface
     {
         $directory      = $this->_getDataDirectory();
         $nextId         = $this->_getNextId();
-
-        // Check if the code name already exists
-        $projectFound = $this->getByCodeName($project->codeName);
-        if ($projectFound instanceof Project) {
-            throw new CreateException('The project already exists: ' . $project->codeName, CreateException::CODENAME_ALREADY_EXISTS);
-        }
 
         // Update and serialize the project instance
         $project->id    = $nextId;
@@ -166,24 +158,12 @@ class FileSystem implements ProjectInterface
      * Update a project
      *
      * @param   \Vo\Project     $project    Project instance
-     * @throws  \Dao\Project\Exception\UpdateException
      */
     public function update(Project $project)
     {
         $directory      = $this->_getDataDirectory();
         $projectId      = $project->id;
         $filePath       = $directory . '/' . $projectId . '.json';
-
-        // Check if the file exists
-        if (!is_file($filePath)) {
-            throw new UpdateException('Project not found: ' . $projectId, UpdateException::PROJECT_NOT_FOUND);
-        }
-
-        // Check if the code name already exists
-        $projectFound = $this->getByCodeName($project->codeName);
-        if ($projectFound instanceof BoProject && $projectFound->id !== $projectId) {
-            throw new UpdateException('The project already exists: ' . $project->codeName, UpdateException::CODENAME_ALREADY_EXISTS);
-        }
 
         // Serialize the project instance
         $serialized = $project->serializeJson();

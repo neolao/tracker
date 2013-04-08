@@ -1,5 +1,5 @@
 <?php
-namespace Dao\Project\Exception;
+namespace Bo\Project\Exception;
 
 /**
  * An error occurred during the creation

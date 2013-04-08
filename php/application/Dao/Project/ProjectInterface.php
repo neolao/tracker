@@ -13,7 +13,6 @@ interface ProjectInterface extends \Neolao\Behavior\Singleton
      * Add a project
      *
      * @param   \Vo\Project $project        Project instance
-     * @throws  \Dao\Project\Exception\CreateException
      */
     function add(Project $project);
 
@@ -48,7 +47,6 @@ interface ProjectInterface extends \Neolao\Behavior\Singleton
      * Update a project
      *
      * @param   \Vo\Project     $project    Project instance
-     * @throws  \Dao\Project\Exception\UpdateException
      */
     function update(Project $project);
 

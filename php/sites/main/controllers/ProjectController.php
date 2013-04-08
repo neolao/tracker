@@ -4,8 +4,8 @@ require_once __DIR__ . '/AbstractController.php';
 use \Neolao\Site\Request;
 use \Vo\Project;
 use \Bo\Project as BoProject;
-use \Dao\Project\Exception\CreateException;
-use \Dao\Project\Exception\UpdateException;
+use \Bo\Project\Exception\CreateException;
+use \Bo\Project\Exception\UpdateException;
 use \Filter\Project as FilterProject;
 
 /**
