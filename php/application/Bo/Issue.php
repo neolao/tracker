@@ -1,6 +1,7 @@
 <?php
 namespace Bo;
 
+use \Bo\Issue\Exception\UpdateException;
 use \Dao\Issue as DaoIssue;
 use \Vo\Issue as VoIssue;
 use \Filter\Issue as FilterIssue;
@@ -74,7 +75,25 @@ class Issue
      */
     public function update(VoIssue $issue)
     {
-        $this->_daoIssue->update($issue);
+        // Check if the file exists
+        try {
+            $issueFound = $this->_daoIssue->getById($issue->id);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new UpdateException($message, UpdateException::UNKNOWN, $exception);
+        }
+        if ($issueFound instanceof VoIssue === false) {
+            throw new UpdateException('Issue not found: ' . $issue->id, UpdateException::ISSUE_NOT_FOUND);
+        }
+
+
+        // Update the database
+        try {
+            $this->_daoIssue->update($issue);
+        } catch (\Exception $exception) {
+            $message = $exception->getMessage();
+            throw new UpdateException($message, UpdateException::UNKNOWN, $exception);
+        }
     }
 
     /**

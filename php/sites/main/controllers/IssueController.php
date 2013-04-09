@@ -4,7 +4,7 @@ require_once __DIR__ . '/AbstractController.php';
 use \Neolao\Site\Request;
 use \Vo\Issue;
 use \Bo\Issue as BoIssue;
-use \Dao\Issue\Exception\UpdateException;
+use \Bo\Issue\Exception\UpdateException;
 
 /**
  * Issue pages

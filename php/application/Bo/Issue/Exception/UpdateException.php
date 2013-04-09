@@ -1,5 +1,5 @@
 <?php
-namespace Dao\Issue\Exception;
+namespace Bo\Issue\Exception;
 
 /**
  * An error occurred during the update

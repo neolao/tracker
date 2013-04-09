@@ -3,7 +3,6 @@ namespace Dao\Issue;
 
 use \Filter\Issue as FilterIssue;
 use \Vo\Issue as Issue;
-use \Dao\Issue\Exception\UpdateException;
 use \Neolao\Util\String as StringUtil;
 
 /**
@@ -131,18 +130,12 @@ class FileSystem implements IssueInterface
      * Update an issue
      *
      * @param   \Vo\Issue       $issue      Issue instance
-     * @throws  \Dao\Issue\Exception\UpdateException
      */
     public function update(Issue $issue)
     {
         $directory      = $this->_getDataDirectory();
         $issueId        = $issue->id;
         $filePath       = $directory . '/' . $issueId . '.json';
-
-        // Check if the file exists
-        if (!is_file($filePath)) {
-            throw new UpdateException('Issue not found: ' . $issueId, UpdateException::ISSUE_NOT_FOUND);
-        }
 
         // Serialize the issue instance
         $serialized = $issue->serializeJson();
@@ -185,7 +178,7 @@ class FileSystem implements IssueInterface
      * Build an issue instance from a file
      *
      * @param   string      $filePath       File path
-     * @return  \Bo\Issue                   Issue instance
+     * @return  \Vo\Issue                   Issue instance
      */
     protected function _buildIssueFromFile($filePath)
     {
