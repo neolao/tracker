@@ -4,6 +4,7 @@ namespace Dao\Project;
 use \Filter\Project as FilterProject;
 use \Vo\Project;
 use \Neolao\Util\String as StringUtil;
+use \Dao\Database\Sqlite;
 
 /**
  * DAO of projects

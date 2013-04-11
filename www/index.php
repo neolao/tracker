@@ -28,6 +28,25 @@ $routesContent  = file_get_contents($routesPath);
 $routesContent  = Json::removeComments($routesContent);
 $routes         = json_decode($routesContent);
 
+// Get the storage type
+$storageType = 'filesystem';
+if (isset($configGeneral->storageType)) {
+    $storageType = $configGeneral->storageType;
+}
+
+
+// Check the requirements
+if (!class_exists('\SQLite3', false)) {
+    die('You have to install SQLite3 on your server.');
+}
+
+
+// Initialize the database
+if ($storageType === 'filesystem') {
+    $sqlite = \Dao\Database\Sqlite::getInstance();
+    $sqlite->initialize(ROOT_PATH . '/data/database.sqlite', ROOT_PATH . '/install/database/sqlite-schema.sql');
+}
+
 // ACL: Create the controller helper
 $aclHelper      = new \Neolao\Site\Helper\Controller\AclHelper();
 $acl            = $aclHelper->acl;

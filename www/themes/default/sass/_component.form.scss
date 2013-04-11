@@ -66,10 +66,13 @@ textarea {
         @include box-shadow(0, 0, 5px, rgb(30, 30, 30), true);
     }
 
+    // Change the background if the field is invalid
+    /*
     &:invalid {
         @include box-shadow(0, 0, 5px, rgb(255, 0, 0), true);
         background: rgba(255, 0, 0, .1);
     }
+    */
 }
 
 // Submit button
