@@ -14,6 +14,25 @@ class FileSystem implements ProjectInterface
     use \Neolao\Mixin\Singleton;
 
     /**
+     * Database instance
+     *
+     * @var \Dao\Database\Sqlite
+     */
+    protected $_database;
+
+    /**
+     * Constructor
+     */
+    protected function __construct()
+    {
+        // Get the database instance
+        try {
+            $this->_database = Sqlite::getInstance();
+        } catch (\Exception $exception) {
+        }
+    }
+
+    /**
      * Add a project
      *
      * @param   \Vo\Project $project        Project instance
@@ -44,8 +63,6 @@ class FileSystem implements ProjectInterface
      */
     public function getById($id)
     {
-        // Check the cache
-
         // Search in the directory
         $directory = $this->_getDataDirectory();
         $filePath = $directory . '/' . $id . '.json';
@@ -65,7 +82,26 @@ class FileSystem implements ProjectInterface
      */
     public function getByCodeName($codeName)
     {
-        // Check the cache
+        // @todo Check the cache
+
+        // Search in the database
+        try {
+            $statement = $this->_database->prepare('SELECT id FROM projects WHERE codeName = :codeName');
+            $statement->bindValue(':codeName', $codeName, SQLITE3_TEXT);
+            $result = $statement->execute();
+            $row = $result->fetchArray(SQLITE3_ASSOC);
+
+            if ($row) {
+                $projectId = (int) $row['id'];
+                $project = $this->getById($projectId);
+                return $project;
+            } else {
+                return null;
+            }
+        } catch (\Exception $exception) {
+        }
+
+        // The search in the database failed
 
         // Search in the directory
         $directory  = $this->_getDataDirectory();
@@ -187,9 +223,47 @@ class FileSystem implements ProjectInterface
         $directory = $this->_getDataDirectory();
         $filePath = $directory . '/' . $projectId . '.json';
 
-        // Delete
+        // Delete from the file system
         if (is_file($filePath)) {
             unlink($filePath);
+        }
+
+        // Delete from the database
+        try {
+            $this->_database->execute('DELETE FROM projects WHERE id = ' . $projectId);
+        } catch (\Exception $exception) {
+        }
+    }
+
+    /**
+     * Populate the database from the files
+     */
+    public function populateDatabase()
+    {
+        $directory  = $this->_getDataDirectory();
+
+        $filePaths  = glob($directory . '/*.json');
+        foreach ($filePaths as $filePath) {
+            // Get the project instance
+            $project = $this->_buildProjectFromFile($filePath);
+
+            // Prepare the query
+            $statement = $this->_database->prepare(
+                'INSERT INTO projects 
+                    (id, creationDate, modificationDate, codeName, name, description) 
+                 VALUES 
+                    (:id, :creationDate, :modificationDate, :codeName, :name, :description)'
+            );
+            $statement->bindValue(':id', $project->id, SQLITE3_INTEGER);
+            $statement->bindValue(':creationDate', $project->creationDate, SQLITE3_INTEGER);
+            $statement->bindValue(':modificationDate', $project->modificationDate, SQLITE3_INTEGER);
+            $statement->bindValue(':enabled', $project->codeName, SQLITE3_TEXT);
+            $statement->bindValue(':codeName', $project->codeName, SQLITE3_TEXT);
+            $statement->bindValue(':name', $project->name, SQLITE3_TEXT);
+            $statement->bindValue(':description', $project->description, SQLITE3_TEXT);
+
+            // Execute the query
+            $statement->execute();
         }
     }
 
