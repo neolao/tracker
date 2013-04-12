@@ -28,12 +28,12 @@ interface IssueInterface extends \Neolao\Behavior\Singleton
      * Get a issue list
      *
      * @param   \Filter\Issue       $filter         The filter
-     * @param   string              $orderBy        The property name to sort
+     * @param   array               $orderBy        The properties to sort
      * @param   int                 $count          The list length
      * @param   int                 $offset         The offset
      * @return  array                               Issue list
      */
-    function getList(FilterIssue $filter = null, $orderBy = null, $count = null, $offset = null);
+    function getList(FilterIssue $filter = null, array $orderBy = null, $count = null, $offset = null);
 
     /**
      * Update an issue

@@ -27,6 +27,9 @@ $routesPath     = CONFIG_PATH . '/siteMainRoutes.json';
 $routesContent  = file_get_contents($routesPath);
 $routesContent  = Json::removeComments($routesContent);
 $routes         = json_decode($routesContent);
+if (is_null($routes)) {
+    die("Invalid JSON file: $routePath");
+}
 
 // Get the storage type
 $storageType = 'filesystem';

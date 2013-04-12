@@ -4,6 +4,7 @@ include_once __DIR__ . '/../bootstrap.php';
 
 use \Dao\Database\Sqlite;
 use \Dao\Project\FileSystem as DaoProject;
+use \Dao\Issue\FileSystem as DaoIssue;
 
 // Initialize the database
 $sqlite = Sqlite::getInstance();
@@ -13,4 +14,6 @@ $sqlite->initialize(ROOT_PATH . '/data/database.sqlite', ROOT_PATH . '/install/d
 $daoProject = DaoProject::getInstance();
 $daoProject->populateDatabase();
 
+$daoIssue = DaoIssue::getInstance();
+$daoIssue->populateDatabase();
 

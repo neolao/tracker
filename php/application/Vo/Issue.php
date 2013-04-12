@@ -17,6 +17,20 @@ class Issue implements SerializableJson
     public $id;
 
     /**
+     * Date of the creation (timestamp)
+     *
+     * @var int
+     */
+    public $creationDate;
+
+    /**
+     * Date of the modification (timestamp)
+     *
+     * @var int
+     */
+    public $modificationDate;
+
+    /**
      * Issue name
      *
      * @var string
@@ -44,10 +58,12 @@ class Issue implements SerializableJson
      */
     public function serializeJson()
     {
-        $json               = new \stdClass();
-        $json->id           = $this->id;
-        $json->name         = $this->name;
-        $json->description  = $this->description;
+        $json                   = new \stdClass();
+        $json->id               = $this->id;
+        $json->creationDate     = $this->creationDate;
+        $json->modificationDate = $this->modificationDate;
+        $json->name             = $this->name;
+        $json->description      = $this->description;
 
         return json_encode($json);
     }
@@ -64,6 +80,16 @@ class Issue implements SerializableJson
         // Id
         if (isset($json->id)) {
             $this->id = (int) $json->id;
+        }
+
+        // Creation date
+        if (isset($json->creationDate)) {
+            $this->creationDate = (int) $json->creationDate;
+        }
+
+        // Modification date
+        if (isset($json->modificationDate)) {
+            $this->modificationDate = (int) $json->modificationDate;
         }
 
         // Name

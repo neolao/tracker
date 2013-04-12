@@ -26,6 +26,19 @@ class User
     }
 
     /**
+     * Get user by id
+     *
+     * @param   int         $id         User id
+     * @return  \Vo\User                User instance
+     */
+    public function getById($id)
+    {
+        $user = $this->_daoUser->getById($id);
+
+        return $user;
+    }
+
+    /**
      * Get user by email
      *
      * @param   string      $email      User email

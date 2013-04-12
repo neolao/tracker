@@ -4,8 +4,7 @@
     {
         "pattern"   : "/",
         "controller": "home",
-        "action"    : "index",
-        "reverse"   : "/"
+        "action"    : "index"
     },
 
     // Login page
@@ -13,8 +12,7 @@
     {
         "pattern"   : "/login",
         "controller": "auth",
-        "action"    : "login",
-        "reverse"   : "/login"
+        "action"    : "login"
     },
 
     // Logout action
@@ -22,8 +20,7 @@
     {
         "pattern"   : "/logout",
         "controller": "auth",
-        "action"    : "logout",
-        "reverse"   : "/logout"
+        "action"    : "logout"
     },
 
     // Profile
@@ -31,8 +28,7 @@
     {
         "pattern"   : "/account/profile",
         "controller": "account",
-        "action"    : "profile",
-        "reverse"   : "/account/profile"
+        "action"    : "profile"
     },
 
     // Projects
@@ -40,29 +36,25 @@
     {
         "pattern"   : "/projects",
         "controller": "project",
-        "action"    : "all",
-        "reverse"   : "/projects"
+        "action"    : "all"
     },
     "project.create":
     {
         "pattern"   : "/project/create",
         "controller": "project",
-        "action"    : "create",
-        "reverse"   : "/project/create"
+        "action"    : "create"
     },
     "project.edit":
     {
         "pattern"   : "/project/:id/edit",
         "controller": "project",
-        "action"    : "edit",
-        "reverse"   : "/project/%d/edit"
+        "action"    : "edit"
     },
     "project":
     {
         "pattern"   : "/project/:codeName",
         "controller": "project",
-        "action"    : "sheetByCodeName",
-        "reverse"   : "/project/%s"
+        "action"    : "sheetByCodeName"
     },
 
     // Milestones
@@ -70,8 +62,7 @@
     {
         "pattern"   : "/milestones",
         "controller": "milestone",
-        "action"    : "all",
-        "reverse"   : "/milestones"
+        "action"    : "all"
     },
 
     // Issues
@@ -79,29 +70,25 @@
     {
         "pattern"   : "/issues",
         "controller": "issue",
-        "action"    : "all",
-        "reverse"   : "/issues"
+        "action"    : "all"
     },
     "issue.create":
     {
         "pattern"   : "/issue/create",
         "controller": "issue",
-        "action"    : "create",
-        "reverse"   : "/issue/create"
+        "action"    : "create"
     },
     "issue.edit":
     {
         "pattern"   : "/issue/:id/edit",
         "controller": "issue",
-        "action"    : "edit",
-        "reverse"   : "/issue/%d/edit"
+        "action"    : "edit"
     },
     "issue":
     {
         "pattern"   : "/issue/:id",
         "controller": "issue",
-        "action"    : "sheet",
-        "reverse"   : "/issue/%d"
+        "action"    : "sheet"
     },
 
 

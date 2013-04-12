@@ -23,15 +23,22 @@
         <thead>
             <tr>
                 <th>id</th>
+                <th>name</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <td>id</td>
+                <td>name</td>
             </tr>
         </tfoot>
         <tbody>
-            
+        {{#issues}}
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="{{#link}}issue,id:{{id}}{{/link}}">{{name}}</a></td>
+            </tr>
+        {{/issues}}
         </tbody>
     </table>
 </article>

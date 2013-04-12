@@ -50,6 +50,10 @@ class Project
 
         // Add the project into the database
         try {
+            // Update the project
+            $project->creationDate      = time();
+            $project->modificationDate  = time();
+
             $this->_daoProject->add($project);
         } catch (\Exception $exception) {
             $message = $exception->getMessage();
@@ -122,6 +126,7 @@ class Project
 
         // Update the project in the database
         try {
+            $project->modificationDate = time();
             $this->_daoProject->update($project);
         } catch (\Exception $exception) {
             $message = $exception->getMessage();

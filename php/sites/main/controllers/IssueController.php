@@ -21,7 +21,12 @@ class IssueController extends AbstractController
             $this->forward('error', 'http401');
         }
 
+        // Get the issues
+        $boIssue = BoIssue::getInstance();
+        $issues = $boIssue->getList();
+
         // Render
+        $this->view->issues = $issues;
         $this->render('issues/all');
     }
 

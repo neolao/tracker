@@ -16,6 +16,20 @@ class User implements SerializableJson
     public $id;
 
     /**
+     * Date of the creation (timestamp)
+     *
+     * @var int
+     */
+    public $creationDate;
+
+    /**
+     * Date of the modification (timestamp)
+     *
+     * @var int
+     */
+    public $modificationDate;
+
+    /**
      * User email
      *
      * @var string
@@ -50,11 +64,12 @@ class User implements SerializableJson
      */
     public function serializeJson()
     {
-        $json           = new \stdClass();
-        $json->id       = $this->id;
-        $json->email    = $this->email;
-        $json->nickname = $this->nickname;
-
+        $json                   = new \stdClass();
+        $json->id               = $this->id;
+        $json->creationDate     = $this->creationDate;
+        $json->modificationDate = $this->modificationDate;
+        $json->email            = $this->email;
+        $json->nickname         = $this->nickname;
 
         return json_encode($json);
     }
@@ -71,6 +86,16 @@ class User implements SerializableJson
         // Id
         if (isset($json->id)) {
             $this->id = (int) $json->id;
+        }
+
+        // Creation date
+        if (isset($json->creationDate)) {
+            $this->creationDate = (int) $json->creationDate;
+        }
+
+        // Modification date
+        if (isset($json->modificationDate)) {
+            $this->modificationDate = (int) $json->modificationDate;
         }
 
         // Email

@@ -35,6 +35,11 @@ class Issue
      */
     public function add(VoIssue $issue)
     {
+        // Update the issue
+        $issue->creationDate        = time();
+        $issue->modificationDate    = time();
+
+        // Add the issue into the database
         $this->_daoIssue->add($issue);
     }
 
@@ -89,6 +94,7 @@ class Issue
 
         // Update the database
         try {
+            $issue->modificationDate = time();
             $this->_daoIssue->update($issue);
         } catch (\Exception $exception) {
             $message = $exception->getMessage();

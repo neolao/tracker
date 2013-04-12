@@ -2,6 +2,7 @@
 namespace Dao\User;
 
 use \Vo\User;
+use \Dao\Database\Sqlite;
 
 /**
  * Concrete DAO of users via file system
@@ -11,6 +12,44 @@ class FileSystem implements UserInterface
     use \Neolao\Mixin\Singleton;
 
     /**
+     * Database instance
+     *
+     * @var \Dao\Database\Sqlite
+     */
+    protected $_database;
+
+    /**
+     * Constructor
+     */
+    protected function __construct()
+    {
+        // Get the database instance
+        try {
+            $this->_database = Sqlite::getInstance();
+        } catch (\Exception $exception) {
+        }
+    }
+
+    /**
+     * Get user by id
+     *
+     * @param   int         $id         User id
+     * @return  \Vo\User                User instance
+     */
+    public function getById($id)
+    {
+        // Search in the directory
+        $directory = $this->_getDataDirectory();
+        $filePath = $directory . '/' . $id . '.json';
+        if (is_file($filePath)) {
+            $user = $this->_buildUserFromFile($filePath);
+            return $user;
+        }
+
+        return null;
+    }
+
+    /**
      * Get user by email
      *
      * @param   string      $email      User email
@@ -18,7 +57,27 @@ class FileSystem implements UserInterface
      */
     public function getByEmail($email)
     {
-        // Check the cache
+        // @todo Check the cache
+
+        // Search in the database
+        try {
+            $statement = $this->_database->prepare('SELECT id FROM users WHERE email = :email');
+            $statement->bindValue(':email', $email, SQLITE3_TEXT);
+            $result = $statement->execute();
+            $row = $result->fetchArray(SQLITE3_ASSOC);
+
+            if ($row) {
+                $userId = (int) $row['id'];
+                $user = $this->getById($userId);
+                return $user;
+            } else {
+                return null;
+            }
+        } catch (\Exception $exception) {
+        }
+
+        // The search in the database failed
+
 
         // Search in the directory
         $directory  = $this->_getDataDirectory();

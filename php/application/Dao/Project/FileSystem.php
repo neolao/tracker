@@ -40,18 +40,17 @@ class FileSystem implements ProjectInterface
      */
     public function add(Project $project)
     {
-        $directory      = $this->_getDataDirectory();
+        // Update the project instance
         $nextId         = $this->_getNextId();
-
-        // Update and serialize the project instance
         $project->id    = $nextId;
-        $serialized     = $project->serializeJson();
 
         // Create the file
+        $directory  = $this->_getDataDirectory();
+        $filePath   = $directory . '/' . $nextId . '.json';
+        $serialized = $project->serializeJson();
         if (!is_dir($directory)) {
             mkdir($directory, 0777 - umask(), true);
         }
-        $filePath = $directory . '/' . $nextId . '.json';
         file_put_contents($filePath, $serialized);
 
         // Add to the database
@@ -130,10 +129,6 @@ class FileSystem implements ProjectInterface
      */
     public function getList(FilterProject $filter = null, array $orderBy = null, $count = null, $offset = null)
     {
-        $directory  = $this->_getDataDirectory();
-        $sortedIds  = [];
-        $list       = [];
-
         // Initialize the parameter "filter"
         if (is_null($filter)) {
             $filter = new FilterProject();
@@ -175,11 +170,10 @@ class FileSystem implements ProjectInterface
                 $query .= ' OFFSET ' . $offset;
             }
 
-            $statement = $this->_database->prepare($query);
-
             // Get the result
-            $result = $statement->execute();
-            $list = [];
+            $statement  = $this->_database->prepare($query);
+            $result     = $statement->execute();
+            $list       = [];
             while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                 $projectId = (int) $row['id'];
                 $list[] = $this->getById($projectId);
@@ -189,7 +183,7 @@ class FileSystem implements ProjectInterface
         }
 
         // An error occurred with the database
-
+        // Try to get the projects from the file system
 
         // Get the sort parameters for the file system
         foreach ($orderBy as $propertyName => $propertyOrder) {
@@ -208,8 +202,11 @@ class FileSystem implements ProjectInterface
             break;
         }
 
-        // Get the projects from the file system
+        // Get the projects
+        $directory  = $this->_getDataDirectory();
         $filePaths  = glob($directory . '/*.json');
+        $sortedIds  = [];
+        $list       = [];
         foreach ($filePaths as $filePath) {
             // Build the project instance
             $project = $this->_buildProjectFromFile($filePath);
@@ -260,19 +257,20 @@ class FileSystem implements ProjectInterface
      */
     public function update(Project $project)
     {
-        $directory      = $this->_getDataDirectory();
-        $projectId      = $project->id;
-        $filePath       = $directory . '/' . $projectId . '.json';
-
-        // Serialize the project instance
-        $serialized = $project->serializeJson();
+        // Update the project
+        $project->modificationDate = time();
 
         // Update the file
+        $directory  = $this->_getDataDirectory();
+        $filePath   = $directory . '/' . $project->id . '.json';
+        $serialized = $project->serializeJson();
         if (!is_dir($directory)) {
             mkdir($directory, 0777 - umask(), true);
         }
         file_put_contents($filePath, $serialized);
 
+        // Update the database
+        $this->_databaseUpdate($project);
     }
 
     /**
@@ -282,10 +280,12 @@ class FileSystem implements ProjectInterface
      */
     public function delete($projectId)
     {
-        $directory = $this->_getDataDirectory();
-        $filePath = $directory . '/' . $projectId . '.json';
+        // Sanitize the parameter
+        $projectId = (int) $projectId;
 
         // Delete from the file system
+        $directory = $this->_getDataDirectory();
+        $filePath = $directory . '/' . $projectId . '.json';
         if (is_file($filePath)) {
             unlink($filePath);
         }
@@ -319,7 +319,7 @@ class FileSystem implements ProjectInterface
      *
      * @return   string          Directory path
      */
-    public function _getDataDirectory()
+    protected function _getDataDirectory()
     {
         return ROOT_PATH . '/data/projects';
     }
@@ -353,8 +353,8 @@ class FileSystem implements ProjectInterface
      */
     protected function _getNextId()
     {
-        $directory  = $this->_getDataDirectory();
-        $id         = 1;
+        // Default id
+        $id = 1;
 
         // Check the database
         try {
@@ -367,6 +367,7 @@ class FileSystem implements ProjectInterface
         }
 
         // Check the data directory for the next id
+        $directory  = $this->_getDataDirectory();
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
             $fileName = pathinfo($filePath, PATHINFO_FILENAME);
@@ -389,18 +390,50 @@ class FileSystem implements ProjectInterface
     {
         // Prepare the query
         $statement = $this->_database->prepare(
-            'INSERT INTO projects 
-                (id, creationDate, modificationDate, codeName, name, description) 
-             VALUES 
-                (:id, :creationDate, :modificationDate, :codeName, :name, :description)'
+            'INSERT INTO projects
+                (id, creationDate, modificationDate, enabled, codeName, name, description)
+             VALUES
+                (:id, :creationDate, :modificationDate, :enabled, :codeName, :name, :description)'
         );
-        $statement->bindValue(':id', $project->id, SQLITE3_INTEGER);
-        $statement->bindValue(':creationDate', $project->creationDate, SQLITE3_INTEGER);
-        $statement->bindValue(':modificationDate', $project->modificationDate, SQLITE3_INTEGER);
-        $statement->bindValue(':enabled', $project->codeName, SQLITE3_TEXT);
-        $statement->bindValue(':codeName', $project->codeName, SQLITE3_TEXT);
-        $statement->bindValue(':name', $project->name, SQLITE3_TEXT);
-        $statement->bindValue(':description', $project->description, SQLITE3_TEXT);
+        $statement->bindValue(':id',                $project->id,               SQLITE3_INTEGER);
+        $statement->bindValue(':creationDate',      $project->creationDate,     SQLITE3_INTEGER);
+        $statement->bindValue(':modificationDate',  $project->modificationDate, SQLITE3_INTEGER);
+        $statement->bindValue(':enabled',           $project->enabled,          SQLITE3_INTEGER);
+        $statement->bindValue(':codeName',          $project->codeName,         SQLITE3_TEXT);
+        $statement->bindValue(':name',              $project->name,             SQLITE3_TEXT);
+        $statement->bindValue(':description',       $project->description,      SQLITE3_TEXT);
+
+        // Execute the query
+        $statement->execute();
+    }
+
+    /**
+     * Update the database
+     *
+     * @param   \Vo\Project     $project        Project instance
+     */
+    public function _databaseUpdate(Project $project)
+    {
+        // Prepare the query
+        $statement = $this->_database->prepare(
+            'UPDATE projects
+             SET
+                creationDate        = :creationDate,
+                modificationDate    = :modificationDate,
+                enabled             = :enabled,
+                codeName            = :codeName,
+                name                = :name,
+                description         = :description
+             WHERE
+                id                  = :id'
+        );
+        $statement->bindValue(':id',                $project->id,               SQLITE3_INTEGER);
+        $statement->bindValue(':creationDate',      $project->creationDate,     SQLITE3_INTEGER);
+        $statement->bindValue(':modificationDate',  $project->modificationDate, SQLITE3_INTEGER);
+        $statement->bindValue(':enabled',           $project->enabled,          SQLITE3_INTEGER);
+        $statement->bindValue(':codeName',          $project->codeName,         SQLITE3_TEXT);
+        $statement->bindValue(':name',              $project->name,             SQLITE3_TEXT);
+        $statement->bindValue(':description',       $project->description,      SQLITE3_TEXT);
 
         // Execute the query
         $statement->execute();
