@@ -62,7 +62,7 @@
     // Buttons
     "button.login"              : "Se connecter",
     "button.register"           : "Créer un compte",
-    "button.recoverPassword"    : "Récupérer mon mot de passe",
+    "button.forgotPassword"     : "Mot de passe oublié ?",
     "button.validate"           : "Valider",
     "button.create"             : "Créer",
     "button.createIssue"        : "Créer un ticket",

@@ -63,7 +63,7 @@
     // Buttons
     "button.login"              : "Sign in",
     "button.register"           : "Create an account",
-    "button.recoverPassword"    : "Recover my password",
+    "button.forgotPassword"     : "Forgot password?",
     "button.validate"           : "Validate",
     "button.create"             : "Create",
     "button.createIssue"        : "Create an issue",
