@@ -122,7 +122,7 @@ class User implements SerializableJson
      */
     public function getAclRole()
     {
-        $role = 'member';
+        $role = 'admin';
 
         return $role;
     }

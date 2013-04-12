@@ -4,7 +4,9 @@
     <h1>{{#i18n}}issue.sheet.title,name:{{issue.name}}{{/i18n}}</h1>
     <p>{{issue.description}}</p>
 
-    <p><a href="{{linkEdit}}" class="button">{{#i18n}}button.edit{{/i18n}}</a></p>
+    {{#editEnabled}}
+        <p><a href="{{#link}}issue.edit,id:{{issue.id}}{{/link}}" class="button">{{#i18n}}button.edit{{/i18n}}</a></p>
+    {{/editEnabled}}
 </article>
 
 {{> _footer}}

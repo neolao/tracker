@@ -19,7 +19,7 @@ class ProjectController extends AbstractController
     public function allAction()
     {
         // Check ACL
-        if (!$this->isAllowed('main.projects')) {
+        if (!$this->isAllowed('main.projects', 'read')) {
             $this->forward('error', 'http401');
         }
 
@@ -39,6 +39,12 @@ class ProjectController extends AbstractController
      */
     public function sheetByCodeNameAction()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'read')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request    = $this->request;
         $parameters = $request->parameters;
         $codeName   = $parameters['codeName'];
@@ -51,8 +57,8 @@ class ProjectController extends AbstractController
         }
 
         // Render
-        $this->view->project    = $project;
-        $this->view->linkEdit   = $this->link('project.edit', ['id' => $project->id]);
+        $this->view->project        = $project;
+        $this->view->editEnabled    = $this->isAllowed('main.projects', 'update');
         $this->render('projects/sheet');
     }
 
@@ -61,6 +67,12 @@ class ProjectController extends AbstractController
      */
     public function editAction()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'update')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request    = $this->request;
         $parameters = $request->parameters;
         $method     = $request->method;
@@ -87,6 +99,7 @@ class ProjectController extends AbstractController
         $this->view->project    = $project;
         $this->view->projectName= $project->name;
         $this->view->linkEdit   = $this->link('project.edit', ['id' => $project->id]);
+        $this->view->displayDeleteForm = $this->isAllowed('main.projects', 'delete');
         $this->render('projects/edit');
     }
 
@@ -95,6 +108,12 @@ class ProjectController extends AbstractController
      */
     public function createAction()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'create')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request    = $this->request;
         $method     = $request->method;
 
@@ -112,6 +131,12 @@ class ProjectController extends AbstractController
      */
     private function _submitCreateForm()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'create')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request        = $this->request;
         $parameters     = $request->parameters;
         $errors         = [];
@@ -191,6 +216,12 @@ class ProjectController extends AbstractController
      */
     private function _submitEditForm(Project $project)
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'update')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request        = $this->request;
         $parameters     = $request->parameters;
         $errors         = [];
@@ -270,6 +301,12 @@ class ProjectController extends AbstractController
      */
     private function _submitDeleteForm($project)
     {
+        // Check ACL
+        if (!$this->isAllowed('main.projects', 'delete')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request        = $this->request;
         $parameters     = $request->parameters;
         $deleteErrors   = [];

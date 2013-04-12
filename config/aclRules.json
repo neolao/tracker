@@ -7,7 +7,12 @@
 
     // Rules of a member (registred user)
     {"type": "allow",   "role": "member",   "resource": "main.profile",     "privilege": "*"},
-    {"type": "allow",   "role": "member",   "resource": "main.projects",    "privilege": "*"},
+    {"type": "allow",   "role": "member",   "resource": "main.projects",    "privilege": "read"},
     {"type": "allow",   "role": "member",   "resource": "main.milestones",  "privilege": "*"},
-    {"type": "allow",   "role": "member",   "resource": "main.issues",      "privilege": "*"}
+    {"type": "allow",   "role": "member",   "resource": "main.issues",      "privilege": "*"},
+
+    // Rules of an administrator
+    {"type": "allow",   "role": "admin",   "resource": "main.projects",    "privilege": "create"},
+    {"type": "allow",   "role": "admin",   "resource": "main.projects",    "privilege": "update"},
+    {"type": "allow",   "role": "admin",   "resource": "main.projects",    "privilege": "delete"}
 ]

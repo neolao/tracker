@@ -5,6 +5,6 @@
     // A member is a registred user
     "member"    : "guest",
 
-    // An administrator
+    // An administrator is a member
     "admin"     : "member"
 }

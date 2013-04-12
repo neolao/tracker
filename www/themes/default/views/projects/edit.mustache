@@ -27,12 +27,13 @@
             <textarea id="form-input-description" name="description">{{project.description}}</textarea>
         </p>
         <p class="form-buttons">
-            <a href="{{#link}}project,codeName:{{codeName}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
+            <a href="{{#link}}project,codeName:{{project.codeName}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
             <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
         </p>
     </form>
 
 
+    {{#displayDeleteForm}}
     <section class="section-delete" id="delete">
         <h1>{{#i18n}}project.edit.section.delete.title{{/i18n}}</h1>
         <p>{{#i18n}}project.edit.section.delete.note{{/i18n}}</p>
@@ -56,6 +57,7 @@
             </p>
         </form>
     </section>
+    {{/displayDeleteForm}}
 </article>
 
 {{> _footer}}

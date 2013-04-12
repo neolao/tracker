@@ -21,7 +21,7 @@
             <textarea id="form-input-description" name="description">{{issue.description}}</textarea>
         </p>
         <p class="form-buttons">
-            <a href="{{#link}}project,codeName:{{codeName}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
+            <a href="{{#link}}issue,id:{{issue.id}}{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
             <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
         </p>
     </form>

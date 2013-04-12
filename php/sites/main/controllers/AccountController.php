@@ -12,7 +12,7 @@ class AccountController extends AbstractController
     public function profileAction()
     {
         // Check ACL
-        if (!$this->isAllowed('main.profile')) {
+        if (!$this->isAllowed('main.profile', 'read')) {
             $this->forward('error', 'http401');
         }
 

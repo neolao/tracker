@@ -12,7 +12,7 @@ class MilestoneController extends AbstractController
     public function allAction()
     {
         // Check ACL
-        if (!$this->isAllowed('main.milestones')) {
+        if (!$this->isAllowed('main.milestones', 'read')) {
             $this->forward('error', 'http401');
         }
 

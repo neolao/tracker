@@ -17,7 +17,7 @@ class IssueController extends AbstractController
     public function allAction()
     {
         // Check ACL
-        if (!$this->isAllowed('main.issues')) {
+        if (!$this->isAllowed('main.issues', 'read')) {
             $this->forward('error', 'http401');
         }
 
@@ -35,6 +35,12 @@ class IssueController extends AbstractController
      */
     public function sheetAction()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.issues', 'read')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request    = $this->request;
         $parameters = $request->parameters;
         $id         = $parameters['id'];
@@ -47,10 +53,8 @@ class IssueController extends AbstractController
         }
 
         // Render
-        $this->view->issue      = $issue;
-        $this->view->linkEdit   = $this->link('issue.edit', ['id' => $issue->id]);
-
-        // Render
+        $this->view->issue          = $issue;
+        $this->view->editEnabled    = $this->isAllowed('main.issues', 'update');
         $this->render('issues/sheet');
     }
 
@@ -60,7 +64,10 @@ class IssueController extends AbstractController
     public function createAction()
     {
         // Check ACL
-        // @todo
+        if (!$this->isAllowed('main.issues', 'create')) {
+            $this->forward('error', 'http401');
+        }
+
 
         // Variables
         $request    = $this->request;
@@ -80,6 +87,12 @@ class IssueController extends AbstractController
      */
     public function editAction()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.issues', 'update')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request    = $this->request;
         $parameters = $request->parameters;
         $method     = $request->method;
@@ -109,6 +122,12 @@ class IssueController extends AbstractController
      */
     private function _submitCreateForm()
     {
+        // Check ACL
+        if (!$this->isAllowed('main.issues', 'create')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request        = $this->request;
         $parameters     = $request->parameters;
         $errors         = [];
@@ -164,6 +183,12 @@ class IssueController extends AbstractController
      */
     private function _submitEditForm(Issue $issue)
     {
+        // Check ACL
+        if (!$this->isAllowed('main.issues', 'update')) {
+            $this->forward('error', 'http401');
+        }
+
+
         $request        = $this->request;
         $parameters     = $request->parameters;
         $errors         = [];
