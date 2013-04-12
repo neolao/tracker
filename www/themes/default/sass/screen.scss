@@ -49,6 +49,7 @@ $site-header-submenu-background:lighten($site-header-background, 5%);
 @import "_site.footer";
 @import "_page.common.form";
 @import "_page.login";
+@import "_page.recoverPassword";
 @import "_page.project.create";
 @import "_page.project.edit";
 @import "_page.issues";

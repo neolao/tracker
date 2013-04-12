@@ -14,6 +14,12 @@
         "controller": "auth",
         "action"    : "login"
     },
+    "recoverPassword":
+    {
+        "pattern"   : "/recoverPassword",
+        "controller": "auth",
+        "action"    : "recoverPassword"
+    },
 
     // Logout action
     "logout":

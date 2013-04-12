@@ -602,6 +602,17 @@ input[type=text], input[type=password], input[type=email], textarea {
     padding-right: 1ex; }
   .page-login input[type=email], .page-login input[type=password] {
     width: 65%; }
+  .page-login .recoverPassword {
+    display: inline-block;
+    margin-left: 35%; }
+  .page-login .form-buttons {
+    margin-top: 1.5em; }
+  .page-login .register {
+    background: #c98f3b;
+    color: #fff; }
+  .page-login .register:hover, .page-login .register:focus {
+    background: #a4722d;
+    color: #fff; }
   @media screen and (max-width: 30rem) {
   .page-login h1 {
     width: auto; }
@@ -609,9 +620,31 @@ input[type=text], input[type=password], input[type=email], textarea {
     width: auto; }
   .page-login label {
     display: block;
-    width: auto; }
+    width: auto;
+    text-align: left; }
   .page-login input[type=email], .page-login input[type=password] {
     display: block;
+    width: 100%; }
+  .page-login .recoverPassword {
+    margin-left: 0;
+    display: block; }
+  .page-login .form-buttons input {
+    display: block;
+    width: 100%;
+    margin-left: 0; }
+  .page-login .register {
+    margin-top: 0.5em; } }
+
+.page-recover-password #email {
+  width: 20em; }
+  .page-recover-password .form-buttons {
+    text-align: left; }
+  .page-recover-password .form-buttons input {
+    margin-left: 0; }
+  @media screen and (max-width: 30rem) {
+  .page-recover-password #email {
+    width: 100%; }
+  .page-recover-password .form-buttons input {
     width: 100%; } }
 
 .page-issues aside {

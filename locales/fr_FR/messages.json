@@ -14,6 +14,10 @@
     // Login
     "login.title"               : "Connexion",
 
+    // Password recovery
+    "recoverPassword.title"     : "Réinitialisation du mot de passe",
+    "recoverPassword.message"   : "Veuillez saisir votre adresse email afin de recevoir les instructions.",
+
     // Profile
     "profile.title"             : "Profil",
     "profile.email.label"       : "Email&nbsp;:",
@@ -56,6 +60,9 @@
     "form.error.name.invalid"   : "Vous devez renseigner un nom valide.",
 
     // Buttons
+    "button.login"              : "Se connecter",
+    "button.register"           : "Créer un compte",
+    "button.recoverPassword"    : "Récupérer mon mot de passe",
     "button.validate"           : "Valider",
     "button.create"             : "Créer",
     "button.createIssue"        : "Créer un ticket",

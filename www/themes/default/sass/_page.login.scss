@@ -30,6 +30,30 @@
         width: 65%;
     }
 
+    // Link to the recover the password
+    .recoverPassword {
+        display: inline-block;
+        margin-left: 35%;
+    }
+
+    // The buttons
+    .form-buttons {
+        margin-top: 1.5em;
+    }
+
+    // The register button
+    .register {
+        background: #c98f3b;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background: darken(#c98f3b, 10%);
+            color: #fff;
+        }
+
+    }
+
 
     // Responsive
     @media screen and (max-width: 30rem) {
@@ -42,12 +66,32 @@
         label {
             display: block;
             width: auto;
+            text-align: left;
         }
         input[type=email],
         input[type=password] {
             display: block;
             width: 100%;
         }
+
+        // Link to the recover the password
+        .recoverPassword {
+            margin-left: 0;
+            display: block;
+        }
+
+        // The buttons
+        .form-buttons input {
+            display: block;
+            width: 100%;
+            margin-left: 0;
+        }
+
+        // The register button
+        .register {
+            margin-top: .5em;
+        }
+
     }
 }
 

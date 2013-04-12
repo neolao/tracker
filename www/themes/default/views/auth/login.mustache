@@ -9,8 +9,12 @@
         <p>
             <label for="password">{{#i18n}}form.password.label{{/i18n}}</label><input id="password" type="password" name="password" required="required" placeholder=""/>
         </p>
+        <p>
+            <a class="recoverPassword" href="{{#link}}forgotPassword{{/link}}">{{#i18n}}button.forgotPassword{{/i18n}}</a>
+        </p>
         <p class="form-buttons">
-            <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
+            <input type="submit" name="signin" value="{{#i18n}}button.login{{/i18n}}"/>
+            <input type="submit" name="signup" value="{{#i18n}}button.register{{/i18n}}" class="register"/>
         </p>
     </form>
 </article>

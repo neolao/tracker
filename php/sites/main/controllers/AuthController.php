@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/AbstractController.php';
 
+use \Neolao\Site\Request;
 use \Vo\User;
 use \Bo\User as BoUser;
 
@@ -14,9 +15,13 @@ class AuthController extends AbstractController
      */
     public function loginAction()
     {
+        $request    = $this->request;
+        $parameters = $request->parameters;
+        $method     = $request->method;
+        $errors     = [];
+
         // Handle the form
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $parameters = $this->request->parameters;
+        if ($method == Request::METHOD_POST) {
             $email      = '';
             $password   = '';
             $boUser     = BoUser::getInstance();
@@ -50,7 +55,36 @@ class AuthController extends AbstractController
 
         // Render
         $this->view->formAction = $this->link('login');
+        $this->view->errors     = $errors;
+        $this->view->hasErrors  = !empty($errors);
         $this->render('auth/login');
+    }
+
+    /**
+     * Form of the password recovery
+     */
+    public function recoverPasswordAction()
+    {
+        $request    = $this->request;
+        $parameters = $request->parameters;
+        $method     = $request->method;
+        $errors     = [];
+
+        // Handle the form
+        if ($method == Request::METHOD_POST) {
+            $email      = '';
+            $boUser     = BoUser::getInstance();
+
+            if (isset($parameters['email'])) {
+                $email = $parameters['email'];
+            }
+        }
+
+        // Render
+        $this->view->formAction = $this->link('recoverPassword');
+        $this->view->errors     = $errors;
+        $this->view->hasErrors  = !empty($errors);
+        $this->render('auth/recoverPassword');
     }
 
     /**
