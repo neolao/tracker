@@ -57,6 +57,18 @@ class Sqlite
     }
 
     /**
+     * Executes a query and returns a single result
+     *
+     * @param   string      $query          The SQL query to execute
+     * @param   bool        $entireRow      Indicates that the entire row is returned
+     */
+    public function querySingle($query, $entireRow = false)
+    {
+        $database = $this->_getDatabase();
+        return $database->querySingle($query, $entireRow);
+    }
+
+    /**
      * Prepares an SQL statement for execution
      *
      * @param   string          $query      The SQL query to prepare

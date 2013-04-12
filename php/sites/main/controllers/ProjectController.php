@@ -27,7 +27,7 @@ class ProjectController extends AbstractController
         $boProject          = BoProject::getInstance();
         $filter             = new FilterProject();
         $filter->enabled    = true;
-        $projects           = $boProject->getList($filter, 'name');
+        $projects           = $boProject->getList($filter, ['name' => 'ASC']);
 
         // Render
         $this->view->projects = $projects;

@@ -53,6 +53,9 @@ class FileSystem implements ProjectInterface
         }
         $filePath = $directory . '/' . $nextId . '.json';
         file_put_contents($filePath, $serialized);
+
+        // Add to the database
+        $this->_databaseAdd($project);
     }
 
     /**
@@ -120,12 +123,12 @@ class FileSystem implements ProjectInterface
      * Get a project list
      *
      * @param   \Filter\Project     $filter         The filter
-     * @param   string              $orderBy        The property name to sort
+     * @param   array               $orderBy        The properties to sort
      * @param   int                 $count          The list length
      * @param   int                 $offset         The offset
      * @return  array                               Project list
      */
-    public function getList(FilterProject $filter = null, $orderBy = null, $count = null, $offset = null)
+    public function getList(FilterProject $filter = null, array $orderBy = null, $count = null, $offset = null)
     {
         $directory  = $this->_getDataDirectory();
         $sortedIds  = [];
@@ -137,20 +140,75 @@ class FileSystem implements ProjectInterface
         }
 
         // Sanitize the parameter "orderBy"
-        switch ($orderBy) {
-            default:
-            case 'id':
-                $orderBy = 'id';
-                $sortFlag = SORT_NUMERIC;
-                break;
-            case 'name':
-                $orderBy = 'name';
-                $sortFlag = SORT_STRING;
-                break;
+        if (is_null($orderBy)) {
+            $orderBy = ['id' => 'ASC'];
+        }
+        foreach ($orderBy as $propertyName => $propertyOrder) {
+            $propertyOrder = strtoupper($propertyOrder);
+            if ($propertyOrder !== 'ASC' && $propertyOrder !== 'DESC') {
+                $propertyOrder = 'ASC';
+            }
+            $orderBy[$propertyName] = $propertyOrder;
         }
 
+        // Get the projects from the database
+        try {
+            // Base of the query
+            $query = 'SELECT id FROM projects';
 
-        // Get the projects
+            // @todo Where
+
+            // Order by
+            $queryOrderBy = [];
+            foreach ($orderBy as $propertyName => $propertyOrder) {
+                $queryOrderBy[] = 'LOWER(' . $propertyName . ') ' . $propertyOrder;
+            }
+            $query .= ' ORDER BY ' . implode(', ', $queryOrderBy);
+
+            // Limit
+            if (!is_null($count)) {
+                $query .= ' LIMIT ' . $count;
+            }
+
+            // Offset
+            if (!is_null($offset)) {
+                $query .= ' OFFSET ' . $offset;
+            }
+
+            $statement = $this->_database->prepare($query);
+
+            // Get the result
+            $result = $statement->execute();
+            $list = [];
+            while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+                $projectId = (int) $row['id'];
+                $list[] = $this->getById($projectId);
+            }
+            return $list;
+        } catch (\Exception $exception) {
+        }
+
+        // An error occurred with the database
+
+
+        // Get the sort parameters for the file system
+        foreach ($orderBy as $propertyName => $propertyOrder) {
+            $sortOrder = $propertyOrder;
+            switch ($propertyName) {
+                default:
+                case 'id':
+                    $sortField = 'id';
+                    $sortFlag = SORT_NUMERIC;
+                    break;
+                case 'name':
+                    $sortField = 'name';
+                    $sortFlag = SORT_STRING;
+                    break;
+            }
+            break;
+        }
+
+        // Get the projects from the file system
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
             // Build the project instance
@@ -163,7 +221,7 @@ class FileSystem implements ProjectInterface
             }
 
             // Update the sorted list
-            $sortProperty = $project->$orderBy;
+            $sortProperty = $project->$sortField;
             $sortProperty = strtolower($sortProperty);
             $sortProperty = StringUtil::removeAccents($sortProperty);
             $sortedIds[$projectId] = $sortProperty;
@@ -173,7 +231,11 @@ class FileSystem implements ProjectInterface
         }
 
         // Sort the filtered projects
-        asort($sortedIds, $sortFlag);
+        if ($sortOrder === 'DESC') {
+            arsort($sortedIds, $sortFlag);
+        } else {
+            asort($sortedIds, $sortFlag);
+        }
         foreach ($list as $id => $project) {
             $sortedIds[$id] = $project;
         }
@@ -247,23 +309,8 @@ class FileSystem implements ProjectInterface
             // Get the project instance
             $project = $this->_buildProjectFromFile($filePath);
 
-            // Prepare the query
-            $statement = $this->_database->prepare(
-                'INSERT INTO projects 
-                    (id, creationDate, modificationDate, codeName, name, description) 
-                 VALUES 
-                    (:id, :creationDate, :modificationDate, :codeName, :name, :description)'
-            );
-            $statement->bindValue(':id', $project->id, SQLITE3_INTEGER);
-            $statement->bindValue(':creationDate', $project->creationDate, SQLITE3_INTEGER);
-            $statement->bindValue(':modificationDate', $project->modificationDate, SQLITE3_INTEGER);
-            $statement->bindValue(':enabled', $project->codeName, SQLITE3_TEXT);
-            $statement->bindValue(':codeName', $project->codeName, SQLITE3_TEXT);
-            $statement->bindValue(':name', $project->name, SQLITE3_TEXT);
-            $statement->bindValue(':description', $project->description, SQLITE3_TEXT);
-
-            // Execute the query
-            $statement->execute();
+            // Add to the database
+            $this->_databaseAdd($project);
         }
     }
 
@@ -309,6 +356,16 @@ class FileSystem implements ProjectInterface
         $directory  = $this->_getDataDirectory();
         $id         = 1;
 
+        // Check the database
+        try {
+            $lastId = $this->_database->querySingle('SELECT id FROM projects ORDER BY id DESC LIMIT 1');
+            if ($lastId) {
+                $id = $lastId + 1;
+            }
+            return $id;
+        } catch (\Exception $exception) {
+        }
+
         // Check the data directory for the next id
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
@@ -321,5 +378,31 @@ class FileSystem implements ProjectInterface
         }
 
         return $id;
+    }
+
+    /**
+     * Add to the database
+     *
+     * @param   \Vo\Project     $project        Project instance
+     */
+    public function _databaseAdd(Project $project)
+    {
+        // Prepare the query
+        $statement = $this->_database->prepare(
+            'INSERT INTO projects 
+                (id, creationDate, modificationDate, codeName, name, description) 
+             VALUES 
+                (:id, :creationDate, :modificationDate, :codeName, :name, :description)'
+        );
+        $statement->bindValue(':id', $project->id, SQLITE3_INTEGER);
+        $statement->bindValue(':creationDate', $project->creationDate, SQLITE3_INTEGER);
+        $statement->bindValue(':modificationDate', $project->modificationDate, SQLITE3_INTEGER);
+        $statement->bindValue(':enabled', $project->codeName, SQLITE3_TEXT);
+        $statement->bindValue(':codeName', $project->codeName, SQLITE3_TEXT);
+        $statement->bindValue(':name', $project->name, SQLITE3_TEXT);
+        $statement->bindValue(':description', $project->description, SQLITE3_TEXT);
+
+        // Execute the query
+        $statement->execute();
     }
 }

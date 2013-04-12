@@ -36,12 +36,12 @@ interface ProjectInterface extends \Neolao\Behavior\Singleton
      * Get a project list
      *
      * @param   \Filter\Project     $filter         The filter
-     * @param   string              $orderBy        The property name to sort
+     * @param   array               $orderBy        The properties to sort
      * @param   int                 $count          The list length
      * @param   int                 $offset         The offset
      * @return  array                               Project list
      */
-    function getList(FilterProject $filter = null, $orderBy = null, $count = null, $offset = null);
+    function getList(FilterProject $filter = null, array $orderBy = null, $count = null, $offset = null);
 
     /**
      * Update a project

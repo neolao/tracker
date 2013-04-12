@@ -9,6 +9,8 @@ use \Dao\Project\FileSystem as DaoProject;
 $sqlite = Sqlite::getInstance();
 $sqlite->initialize(ROOT_PATH . '/data/database.sqlite', ROOT_PATH . '/install/database/sqlite-schema.sql');
 
+// Populate
 $daoProject = DaoProject::getInstance();
 $daoProject->populateDatabase();
+
 
