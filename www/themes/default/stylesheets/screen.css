@@ -359,131 +359,131 @@ input[type=text], input[type=password], input[type=email], textarea {
   clear: both;
   margin: 2rem 0 0 0; }
 
-.form-basic p, .page-project-create form p, .page-project-edit form p, .page-issue-create form p, .page-issue-edit form p {
+.form-basic p, .page-change-password form p, .page-project-create form p, .page-project-edit form p, .page-issue-create form p, .page-issue-edit form p {
   margin: 0;
   padding: 0; }
-  .form-basic p:before, .page-project-create form p:before, .page-project-edit form p:before, .page-issue-create form p:before, .page-issue-edit form p:before, .form-basic p:after, .page-project-create form p:after, .page-project-edit form p:after, .page-issue-create form p:after, .page-issue-edit form p:after {
+  .form-basic p:before, .page-change-password form p:before, .page-project-create form p:before, .page-project-edit form p:before, .page-issue-create form p:before, .page-issue-edit form p:before, .form-basic p:after, .page-change-password form p:after, .page-project-create form p:after, .page-project-edit form p:after, .page-issue-create form p:after, .page-issue-edit form p:after {
     content: "";
     display: table; }
-  .form-basic p:after, .page-project-create form p:after, .page-project-edit form p:after, .page-issue-create form p:after, .page-issue-edit form p:after {
+  .form-basic p:after, .page-change-password form p:after, .page-project-create form p:after, .page-project-edit form p:after, .page-issue-create form p:after, .page-issue-edit form p:after {
     clear: both; }
-  .form-basic label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
+  .form-basic label, .page-change-password form label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
     clear: both;
     float: left;
     width: 15.83333%;
     margin: 0 0 0 1%; }
-  .form-basic label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
+  .form-basic label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
     margin-left: 0; }
-  .form-basic input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-project-edit form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-project-edit form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-change-password form textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%; }
-  .form-basic input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
+  .form-basic input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-project-edit form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-project-edit form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
     margin-left: 0; }
-  .form-basic textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
+  .form-basic textarea, .page-change-password form textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
     height: 6rem; }
-  .form-basic .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
+  .form-basic .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
     clear: both;
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%;
     margin-left: 16.83333%; }
-  .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+  .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
     margin-left: 0; }
-  .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+  .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
     margin-left: 16.83333%; }
-  .form-basic .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
+  .form-basic .form-buttons, .page-change-password form .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%;
     margin-left: 16.83333%; }
-  .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+  .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
     margin-left: 0; }
-  .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+  .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
     margin-left: 16.83333%; }
   @media screen and (max-width: 1024px) {
-  .form-basic label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
+  .form-basic label, .page-change-password form label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
     float: left;
     width: 24.25%;
     margin: 0 0 0 1%; }
-    .form-basic label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
+    .form-basic label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-project-edit form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-project-edit form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-change-password form textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%; }
-    .form-basic input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-project-edit form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-project-edit form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
-  .form-basic .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
+  .form-basic .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+    .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
       margin-left: 0; }
 
-    .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+    .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
       margin-left: 25.25%; }
-  .form-basic .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
+  .form-basic .form-buttons, .page-change-password form .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+    .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
       margin-left: 0; }
 
-    .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+    .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 768px) {
-  .form-basic label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
+  .form-basic label, .page-change-password form label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
     float: left;
     width: 24.25%;
     margin: 0 0 0 1%; }
-    .form-basic label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
+    .form-basic label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-project-edit form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-project-edit form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-change-password form textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%; }
-    .form-basic input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-project-edit form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-project-edit form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
-  .form-basic .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
+  .form-basic .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+    .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
       margin-left: 0; }
 
-    .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+    .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
       margin-left: 25.25%; }
-  .form-basic .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
+  .form-basic .form-buttons, .page-change-password form .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%;
     margin-left: 25.25%; }
-    .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+    .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
       margin-left: 0; }
 
-    .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+    .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
       margin-left: 25.25%; } }
   @media screen and (max-width: 400px) {
-  .form-basic label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
+  .form-basic label, .page-change-password form label, .page-project-create form label, .page-project-edit form label, .page-issue-create form label, .page-issue-edit form label {
     text-align: left;
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .form-basic label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
+    .form-basic label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-project-edit form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-project-edit form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-project-edit form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-project-edit form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-change-password form textarea, .page-project-create form textarea, .page-project-edit form textarea, .page-issue-create form textarea, .page-issue-edit form textarea {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .form-basic input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-project-edit form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-project-edit form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-project-edit form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-project-edit form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
-  .form-basic .form-field.with-separator:after, .page-project-create form .form-field.with-separator:after, .page-project-edit form .form-field.with-separator:after, .page-issue-create form .form-field.with-separator:after, .page-issue-edit form .form-field.with-separator:after {
+  .form-basic .form-field.with-separator:after, .page-change-password form .form-field.with-separator:after, .page-project-create form .form-field.with-separator:after, .page-project-edit form .form-field.with-separator:after, .page-issue-create form .form-field.with-separator:after, .page-issue-edit form .form-field.with-separator:after {
     display: block;
     clear: both;
     content: "";
@@ -496,21 +496,21 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0;
     margin-top: 1rem;
     margin-bottom: 1rem; }
-    .form-basic .form-field.with-separator:after:first-child, .page-project-create form .form-field.with-separator:after:first-child, .page-project-edit form .form-field.with-separator:after:first-child, .page-issue-create form .form-field.with-separator:after:first-child, .page-issue-edit form .form-field.with-separator:after:first-child {
+    .form-basic .form-field.with-separator:after:first-child, .page-change-password form .form-field.with-separator:after:first-child, .page-project-create form .form-field.with-separator:after:first-child, .page-project-edit form .form-field.with-separator:after:first-child, .page-issue-create form .form-field.with-separator:after:first-child, .page-issue-edit form .form-field.with-separator:after:first-child {
       margin-left: 0; }
-  .form-basic .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
+  .form-basic .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-project-edit form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .form-basic .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
+    .form-basic .form-field-note:first-child, .page-change-password form .form-field-note:first-child, .page-project-create form .form-field-note:first-child, .page-project-edit form .form-field-note:first-child, .page-issue-create form .form-field-note:first-child, .page-issue-edit form .form-field-note:first-child {
       margin-left: 0; }
-  .form-basic .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
+  .form-basic .form-buttons, .page-change-password form .form-buttons, .page-project-create form .form-buttons, .page-project-edit form .form-buttons, .page-issue-create form .form-buttons, .page-issue-edit form .form-buttons {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .form-basic .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
+    .form-basic .form-buttons:first-child, .page-change-password form .form-buttons:first-child, .page-project-create form .form-buttons:first-child, .page-project-edit form .form-buttons:first-child, .page-issue-create form .form-buttons:first-child, .page-issue-edit form .form-buttons:first-child {
       margin-left: 0; } }
 
 .form-field.basic-with-separator:after, .page-project-create .codename.form-field:after, .page-project-edit .codename.form-field:after, .page-project-create .name.form-field:after, .page-project-edit .name.form-field:after, .page-issue-create .name.form-field:after, .page-issue-edit .name.form-field:after {
@@ -646,6 +646,157 @@ input[type=text], input[type=password], input[type=email], textarea {
     width: 100%; }
   .page-recover-password .form-buttons input {
     width: 100%; } }
+
+.page-change-password p label {
+  float: left;
+  width: 24.25%;
+  margin: 0 0 0 1%; }
+  .page-change-password p label:first-child {
+    margin-left: 0; }
+  .page-change-password p input[type=password] {
+    float: left;
+    width: 24.25%;
+    margin: 0 0 0 1%; }
+  .page-change-password p input[type=password]:first-child {
+    margin-left: 0; }
+  .page-change-password p.form-buttons {
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%;
+    margin-left: 0; }
+  .page-change-password p.form-buttons:first-child {
+    margin-left: 0; }
+  .page-change-password .password:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eee;
+    height: 1px;
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+  .page-change-password .password:after:first-child {
+    margin-left: 0; }
+  @media screen and (max-width: 1024px) {
+  .page-change-password p label {
+    float: left;
+    width: 32.66667%;
+    margin: 0 0 0 1%; }
+    .page-change-password p label:first-child {
+      margin-left: 0; }
+
+    .page-change-password p input[type=password] {
+      float: left;
+      width: 32.66667%;
+      margin: 0 0 0 1%; }
+
+    .page-change-password p input[type=password]:first-child {
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons {
+      float: left;
+      width: 66.33333%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons:first-child {
+      margin-left: 0; }
+  .page-change-password .password:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eee;
+    height: 1px;
+    float: left;
+    width: 66.33333%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+    .page-change-password .password:after:first-child {
+      margin-left: 0; } }
+  @media screen and (max-width: 768px) {
+  .page-change-password p label {
+    float: left;
+    width: 49.5%;
+    margin: 0 0 0 1%; }
+    .page-change-password p label:first-child {
+      margin-left: 0; }
+
+    .page-change-password p input[type=password] {
+      float: left;
+      width: 49.5%;
+      margin: 0 0 0 1%; }
+
+    .page-change-password p input[type=password]:first-child {
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons {
+      float: left;
+      width: 100%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons:first-child {
+      margin-left: 0; }
+  .page-change-password .password:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eee;
+    height: 1px;
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+    .page-change-password .password:after:first-child {
+      margin-left: 0; } }
+  @media screen and (max-width: 400px) {
+  .page-change-password p label {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 1%;
+    margin-left: 0; }
+    .page-change-password p label:first-child {
+      margin-left: 0; }
+
+    .page-change-password p input[type=password] {
+      float: left;
+      width: 100%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+
+    .page-change-password p input[type=password]:first-child {
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons {
+      float: left;
+      width: 100%;
+      margin: 0 0 0 1%;
+      margin-left: 0; }
+
+    .page-change-password p.form-buttons:first-child {
+      margin-left: 0; }
+  .page-change-password .password:after {
+    display: block;
+    clear: both;
+    content: "";
+    background: #eee;
+    height: 1px;
+    float: left;
+    width: 201%;
+    margin: 0 0 0 1%;
+    margin-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+    .page-change-password .password:after:first-child {
+      margin-left: 0; } }
 
 .page-issues aside {
   float: left;

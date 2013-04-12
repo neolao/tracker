@@ -17,6 +17,8 @@
     // Password recovery
     "recoverPassword.title"     : "Reset the password",
     "recoverPassword.message"   : "Please submit your email in order to receive the instructions.",
+    "recoverPassword.confirm"   : "An email is sent to you with containing the instructions.",
+    "changePassword.title"      : "Change your passeword",
 
     // Profile
     "profile.title"             : "Profile",
@@ -46,12 +48,19 @@
     // Form
     "form.email.label"          : "Email:",
     "form.password.label"       : "Password:",
+    "form.password.note"        : "At least 6 characters.",
+    "form.passwordConfirm.label": "Confirm the password:",
     "form.codeName.label"       : "Identifier:",
     "form.codeName.project.note" : "Between 1 and 50 characters. Only lower case letters (a-z), numbers and dashes are allowed.",
     "form.name.label"           : "Name:",
     "form.name.project.note"    : "Between 1 and 50 characters.",
     "form.description.label"    : "Description:",
     "form.error.unknown"        : "Unknown error",
+    "form.error.email.empty"    : "You must provide an email.",
+    "form.error.email.notFound" : "This email does not exist.",
+    "form.error.password.empty" : "You must provide a password.",
+    "form.error.password.invalid" : "You must provide a valid password.",
+    "form.error.passwordConfirm.notMatch" : "The passwords do not match.",
     "form.error.codeName.empty" : "You must provide an identifier.",
     "form.error.codeName.invalid" : "You must provide a valid identifier.",
     "form.error.codeName.exists" : "This identifier already exists, please choose another one.",

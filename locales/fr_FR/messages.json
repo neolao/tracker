@@ -17,6 +17,8 @@
     // Password recovery
     "recoverPassword.title"     : "Réinitialisation du mot de passe",
     "recoverPassword.message"   : "Veuillez saisir votre adresse email afin de recevoir les instructions.",
+    "recoverPassword.confirm"   : "Un email vient de vous être envoyé contenant les instructions.",
+    "changePassword.title"      : "Changer votre mot de passe",
 
     // Profile
     "profile.title"             : "Profil",
@@ -46,12 +48,19 @@
     // Form
     "form.email.label"          : "Email&nbsp;:",
     "form.password.label"       : "Mot de passe&nbsp;:",
+    "form.password.note"        : "Au moins 6 caractères.",
+    "form.passwordConfirm.label": "Confirmer le mot de passe&nbsp;:",
     "form.codeName.label"       : "Identifiant&nbsp;:",
     "form.codeName.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis.",
     "form.name.label"           : "Nom&nbsp;:",
     "form.name.project.note"    : "Entre 1 et 50 caractères.",
     "form.description.label"    : "Description&nbsp;:",
     "form.error.unknown"        : "Erreur inconnue",
+    "form.error.email.empty"    : "Vous devez renseigner un email.",
+    "form.error.email.notFound" : "Cet email n'existe pas.",
+    "form.error.password.empty" : "Vous devez renseigner un mot de passe.",
+    "form.error.password.invalid" : "Vous devez renseigner un mot de passe valide.",
+    "form.error.passwordConfirm.notMatch" : "Les mots de passe ne correspondent pas.",
     "form.error.codeName.empty" : "Vous devez renseigner un identifiant.",
     "form.error.codeName.invalid" : "Vous devez renseigner un identifiant valide.",
     "form.error.codeName.exists" : "Cet identifiant existe déjà, veuillez en choisir un autre.",

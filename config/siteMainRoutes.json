@@ -20,6 +20,12 @@
         "controller": "auth",
         "action"    : "recoverPassword"
     },
+    "changePassword":
+    {
+        "pattern"   : "/changePassword/:id/:hash",
+        "controller": "auth",
+        "action"    : "changePassword"
+    },
 
     // Logout action
     "logout":

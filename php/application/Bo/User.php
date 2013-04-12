@@ -2,6 +2,7 @@
 namespace Bo;
 
 use \Dao\User as DaoUser;
+use \Vo\User as VoUser;
 
 /**
  * Business Object to work with users
@@ -49,5 +50,33 @@ class User
         $user = $this->_daoUser->getByEmail($email);
 
         return $user;
+    }
+
+    /**
+     * Get the recovery hash
+     *
+     * @param   \Vo\User    $user       User instance
+     * @return  string                  Hash
+     */
+    public function getRecoveryHash(VoUser $user)
+    {
+        $hash = $user->email . $user->creationDate . $user->modificationDate . $user->password;
+        $hash = sha1($hash);
+
+        return $hash;
+    }
+
+    /**
+     * Change the password
+     *
+     * @param   \Vo\User    $user           User instance
+     * @param   string      $newPassword    New password
+     */
+    public function changePassword(VoUser $user, $newPassword)
+    {
+        $user->password = $newPassword;
+        $user->modificationDate = time();
+
+        $this->_daoUser->update($user);
     }
 }

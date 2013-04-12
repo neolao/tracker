@@ -267,7 +267,6 @@ class FileSystem implements IssueInterface
         }
     }
 
-
     /**
      * Get the directory path of the projects datas
      *
