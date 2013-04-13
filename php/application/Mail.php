@@ -1,16 +1,19 @@
 <?php
 
+use \Mail\Provider\DefaultProvider;
+
+/**
+ * Mail manager
+ */
 class Mail
 {
-    use \Neolao\Mixin\Singleton;
-
     /**
      * Get a mail provider
      *
      * @return  \Mail\Provider\ProviderInterface    Provider instance
      */
-    public function providerFactory()
+    public static function providerFactory()
     {
-        
+        return new DefaultProvider();
     }
 }

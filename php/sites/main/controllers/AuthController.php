@@ -89,7 +89,6 @@ class AuthController extends AbstractController
                     $errors[] = $this->_('form.error.email.notFound');
                 } else {
                     // Send an email to the user to reset his password
-                    //$hash = $boUser->getRecoveryHash($user);
                     $mailProvider = Mail::providerFactory();
                     $message = new PasswordRecoveryMessage($user);
                     $mailProvider->send($message);

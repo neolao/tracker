@@ -145,7 +145,7 @@ class FileSystem implements UserInterface
         $filePaths  = glob($directory . '/*.json');
         foreach ($filePaths as $filePath) {
             // Get the user instance
-            $user = $this->_buildUserromFile($filePath);
+            $user = $this->_buildUserFromFile($filePath);
 
             // Add to the database
             $this->_databaseAdd($user);

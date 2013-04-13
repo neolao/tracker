@@ -7,6 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '\\CSSmin' => $vendorDir . '/neolao/neolao/lib/cssmin.php',
+    'Zend\\Stdlib\\' => $vendorDir . '/zendframework/zend-stdlib',
+    'Zend\\Mime\\' => $vendorDir . '/zendframework/zend-mime',
+    'Zend\\Mail\\' => $vendorDir . '/zendframework/zend-mail',
+    'Zend\\Loader\\' => $vendorDir . '/zendframework/zend-loader',
     'Mustache' => $vendorDir . '/mustache/mustache/src',
     'JShrink' => $vendorDir . '/tedivm/jshrink/src',
     '' => array($baseDir . '/lib', $baseDir . '/application', $vendorDir . '/neolao/neolao/classes', $vendorDir . '/neolao/neolao/lib'),

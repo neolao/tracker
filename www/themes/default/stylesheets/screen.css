@@ -659,6 +659,15 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin: 0 0 0 1%; }
   .page-change-password p input[type=password]:first-child {
     margin-left: 0; }
+  .page-change-password p .form-field-note {
+    float: left;
+    width: 24.25%;
+    margin: 0 0 0 1%;
+    margin-left: 25.25%; }
+  .page-change-password p .form-field-note:first-child {
+    margin-left: 0; }
+  .page-change-password p .form-field-note:first-child {
+    margin-left: 25.25%; }
   .page-change-password p.form-buttons {
     float: left;
     width: 49.5%;
@@ -695,6 +704,18 @@ input[type=text], input[type=password], input[type=email], textarea {
 
     .page-change-password p input[type=password]:first-child {
       margin-left: 0; }
+
+    .page-change-password p .form-field-note {
+      float: left;
+      width: 32.66667%;
+      margin: 0 0 0 1%;
+      margin-left: 33.66667%; }
+
+    .page-change-password p .form-field-note:first-child {
+      margin-left: 0; }
+
+    .page-change-password p .form-field-note:first-child {
+      margin-left: 33.66667%; }
 
     .page-change-password p.form-buttons {
       float: left;
@@ -733,6 +754,18 @@ input[type=text], input[type=password], input[type=email], textarea {
 
     .page-change-password p input[type=password]:first-child {
       margin-left: 0; }
+
+    .page-change-password p .form-field-note {
+      float: left;
+      width: 49.5%;
+      margin: 0 0 0 1%;
+      margin-left: 50.5%; }
+
+    .page-change-password p .form-field-note:first-child {
+      margin-left: 0; }
+
+    .page-change-password p .form-field-note:first-child {
+      margin-left: 50.5%; }
 
     .page-change-password p.form-buttons {
       float: left;
@@ -773,6 +806,14 @@ input[type=text], input[type=password], input[type=email], textarea {
       margin-left: 0; }
 
     .page-change-password p input[type=password]:first-child {
+      margin-left: 0; }
+
+    .page-change-password p .form-field-note {
+      float: left;
+      width: 49.5%;
+      margin: 0 0 0 1%; }
+
+    .page-change-password p .form-field-note:first-child {
       margin-left: 0; }
 
     .page-change-password p.form-buttons {

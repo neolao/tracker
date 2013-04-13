@@ -1,5 +1,9 @@
 {
-    "hash": "858afd6e083fc3c76a3cf2ccda412fc4",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "721d27c48d889d06e64f794fb7a13bf9",
     "packages": [
         {
             "name": "leafo/scssphp",
@@ -92,12 +96,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neolao/php.git",
-                "reference": "6caacfb66985e55978bc980f896851af73d8e7d2"
+                "reference": "a1689d411d8b808460432644962897a51273d210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neolao/php/zipball/6caacfb66985e55978bc980f896851af73d8e7d2",
-                "reference": "6caacfb66985e55978bc980f896851af73d8e7d2",
+                "url": "https://api.github.com/repos/neolao/php/zipball/a1689d411d8b808460432644962897a51273d210",
+                "reference": "a1689d411d8b808460432644962897a51273d210",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +136,7 @@
                 }
             ],
             "description": "Neolao library for PHP 5.4+",
-            "time": "2013-04-05 15:08:12"
+            "time": "2013-04-12 15:28:43"
         },
         {
             "name": "tedivm/jshrink",
@@ -174,6 +178,157 @@
                 "minifier"
             ],
             "time": "2012-11-26 04:48:55"
+        },
+        {
+            "name": "zendframework/zend-loader",
+            "version": "2.0.8",
+            "target-dir": "Zend/Loader",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendLoader.git",
+                "reference": "release-2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendLoader/zipball/release-2.0.8",
+                "reference": "release-2.0.8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "zendframework/zend-stdlib": "Zend\\Stdlib component"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Loader\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "loader",
+                "zf2"
+            ],
+            "time": "2013-01-22 20:50:52"
+        },
+        {
+            "name": "zendframework/zend-mail",
+            "version": "2.0.8",
+            "target-dir": "Zend/Mail",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendMail.git",
+                "reference": "release-2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendMail/zipball/release-2.0.8",
+                "reference": "release-2.0.8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-loader": "self.version",
+                "zendframework/zend-mime": "self.version",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "suggest": {
+                "zendframework/zend-servicemanager": "Zend\\ServiceManager component",
+                "zendframework/zend-validator": "Zend\\Validator component"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Mail\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides generalized functionality to compose and send both text and MIME-compliant multipart e-mail messages",
+            "keywords": [
+                "mail",
+                "zf2"
+            ],
+            "time": "2013-01-27 09:20:56"
+        },
+        {
+            "name": "zendframework/zend-mime",
+            "version": "2.0.8",
+            "target-dir": "Zend/Mime",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendMime.git",
+                "reference": "release-2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendMime/zipball/release-2.0.8",
+                "reference": "release-2.0.8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-stdlib": "self.version"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Mime\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "mime",
+                "zf2"
+            ],
+            "time": "2013-01-07 17:45:37"
+        },
+        {
+            "name": "zendframework/zend-stdlib",
+            "version": "2.0.8",
+            "target-dir": "Zend/Stdlib",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/Component_ZendStdlib.git",
+                "reference": "release-2.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/release-2.0.8",
+                "reference": "release-2.0.8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "pecl-weakref": "Implementation of weak references for Stdlib\\CallbackHandler"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend\\Stdlib\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "keywords": [
+                "stdlib",
+                "zf2"
+            ],
+            "time": "2013-01-22 20:50:52"
         }
     ],
     "packages-dev": [

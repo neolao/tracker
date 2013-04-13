@@ -10,7 +10,8 @@
     ],
 
     "require": {
-        "neolao/neolao"         : "dev-master"
+        "neolao/neolao"             : "dev-master",
+        "zendframework/zend-mail"   : "2.0.*"
     },
 
     "autoload": {

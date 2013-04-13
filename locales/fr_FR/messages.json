@@ -47,8 +47,10 @@
 
     // Form
     "form.email.label"          : "Email&nbsp;:",
+    "form.email.placeholder"    : "mon.nom@domaine.tld",
     "form.password.label"       : "Mot de passe&nbsp;:",
     "form.password.note"        : "Au moins 6 caractères.",
+    "form.password.placeholder" : "Au moins 6 caractères",
     "form.passwordConfirm.label": "Confirmer le mot de passe&nbsp;:",
     "form.codeName.label"       : "Identifiant&nbsp;:",
     "form.codeName.project.note" : "Entre 1 et 50 caractères. Seulement les lettres minuscules (a-z), chiffres et tirets sont permis.",

@@ -47,8 +47,10 @@
 
     // Form
     "form.email.label"          : "Email:",
+    "form.email.placeholder"    : "my.name@domain.tld",
     "form.password.label"       : "Password:",
     "form.password.note"        : "At least 6 characters.",
+    "form.password.placeholder" : "At least 6 characters",
     "form.passwordConfirm.label": "Confirm the password:",
     "form.codeName.label"       : "Identifier:",
     "form.codeName.project.note" : "Between 1 and 50 characters. Only lower case letters (a-z), numbers and dashes are allowed.",
