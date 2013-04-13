@@ -15,11 +15,16 @@ abstract class AbstractMessage extends \Zend\Mail\Message
 
     /**
      * Constructor
+     *
+     * @param   string      $language       Language
      */
-    public function __construct()
+    public function __construct($language = 'en')
     {
         // The default language is English
-        $this->language = 'en';
+        $this->language = $language;
+
+        // Set the encoding
+        $this->setEncoding('UTF-8');
 
         // @todo Custom email
         $this->addFrom('tracker@neolao.com');
