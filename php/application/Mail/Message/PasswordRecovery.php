@@ -3,6 +3,7 @@ namespace Mail\Message;
 
 use \Vo\User;
 use \Bo\User as BoUser;
+use \Site\Helper\Controller\LinkMainHelper;
 
 /**
  * This message contains the URL of the password recovery
@@ -20,8 +21,9 @@ class PasswordRecovery extends AbstractMessage
 
         // Get the url
         $boUser = BoUser::getInstance();
+        $helper = new LinkMainHelper();
         $hash   = $boUser->getRecoveryHash($user);
-        $url    = $hash;
+        $url    = $helper->reverse('changePassword', ['id' => $user->id, 'hash' => $hash]);
 
         // Set the email parameters
         // @todo complete

@@ -2,6 +2,7 @@
 
 use \Neolao\Site\Controller;
 use \Neolao\Site\Request;
+use \Neolao\Util\String as StringUtil;
 use \Auth;
 use \Vo\User;
 
@@ -11,6 +12,34 @@ use \Vo\User;
  */
 abstract class AbstractController extends Controller
 {
+    /**
+     * The current user instance
+     *
+     * @var \Vo\User
+     */
+    public $currentUser;
+
+    /**
+     * Indicates that the user is logged
+     *
+     * @var bool
+     */
+    public $isLogged = false;
+
+    /**
+     * The locale string
+     *
+     * @var string
+     */
+    public $localeString;
+
+    /**
+     * The language
+     *
+     * @var string
+     */
+    public $language;
+
     /**
      * Dispatch request
      *
@@ -26,6 +55,14 @@ abstract class AbstractController extends Controller
         $this->isLogged             = $isLogged;
         $this->view->currentUser    = $currentUser;
         $this->view->isLogged       = $isLogged;
+
+        // Get the locale
+        $localeString               = $this->site->localeString;
+        $language                   = StringUtil::getLanguage($localeString);
+        $this->localeString         = $localeString;
+        $this->language             = $language;
+        $this->view->localeString   = $localeString;
+        $this->view->language       = $language;
 
         // Some informations from the configuration
         $configGeneral                      = \ConfigGeneral::getInstance();
