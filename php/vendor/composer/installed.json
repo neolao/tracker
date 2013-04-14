@@ -138,12 +138,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/neolao/php.git",
-            "reference": "a1689d411d8b808460432644962897a51273d210"
+            "reference": "aefd775508f9d1e890fd5374f2225fcb75e66466"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/neolao/php/zipball/a1689d411d8b808460432644962897a51273d210",
-            "reference": "a1689d411d8b808460432644962897a51273d210",
+            "url": "https://api.github.com/repos/neolao/php/zipball/aefd775508f9d1e890fd5374f2225fcb75e66466",
+            "reference": "aefd775508f9d1e890fd5374f2225fcb75e66466",
             "shasum": ""
         },
         "require": {
@@ -156,7 +156,7 @@
             "apigen/apigen": "*",
             "atoum/atoum": "dev-master"
         },
-        "time": "2013-04-12 15:28:43",
+        "time": "2013-04-13 21:35:28",
         "type": "library",
         "installation-source": "source",
         "autoload": {

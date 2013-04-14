@@ -48,8 +48,14 @@ class PasswordRecovery extends AbstractMessage
             $html->type = "text/html";
         }
 
+        // Set the body
         $body = new MimeMessage();
-        $body->setParts([$text, $html]);
+        $body->setParts([$html, $text]);
         $this->setBody($body);
+
+        // Correct a bug in Zend Framework
+        // The content-type must be "multipart/alternative"
+        $header = $this->getHeaderByName('content-type', 'Zend\Mail\Header\ContentType');
+        $header->setType('multipart/alternative');
     }
 }

@@ -69,6 +69,7 @@ class User implements SerializableJson
         $json->creationDate     = $this->creationDate;
         $json->modificationDate = $this->modificationDate;
         $json->email            = $this->email;
+        $json->password         = $this->password;
         $json->nickname         = $this->nickname;
 
         return json_encode($json);
