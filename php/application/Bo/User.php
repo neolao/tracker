@@ -27,6 +27,16 @@ class User
     }
 
     /**
+     * Add a user
+     *
+     * @param   \Vo\User    $user       User instance
+     */
+    public function add(VoUser $user)
+    {
+        // @todo
+    }
+
+    /**
      * Get user by id
      *
      * @param   int         $id         User id

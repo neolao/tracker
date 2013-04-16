@@ -30,6 +30,14 @@
         width: 65%;
     }
 
+    // The form errors
+    .form-errors {
+        padding: .7rem 1rem;
+        margin-bottom: 1rem !important;
+        text-align: center;
+        font-weight: bold;
+    }
+
     // Link to the recover the password
     .recoverPassword {
         display: inline-block;

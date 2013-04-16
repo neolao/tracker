@@ -602,6 +602,11 @@ input[type=text], input[type=password], input[type=email], textarea {
     padding-right: 1ex; }
   .page-login input[type=email], .page-login input[type=password] {
     width: 65%; }
+  .page-login .form-errors {
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem !important;
+    text-align: center;
+    font-weight: bold; }
   .page-login .recoverPassword {
     display: inline-block;
     margin-left: 35%; }
