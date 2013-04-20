@@ -8,9 +8,9 @@ use \Zend\Mime\Message as MimeMessage;
 use \Zend\Mime\Part as MimePart;
 
 /**
- * This message contains the URL of the password recovery
+ * This message contains the URL to confirm a registration
  */
-class PasswordRecovery extends AbstractMessage
+class RegisterConfirmation extends AbstractMessage
 {
     /**
      * Constructor
@@ -25,27 +25,27 @@ class PasswordRecovery extends AbstractMessage
         // Get the url
         $boUser = BoUser::getInstance();
         $helper = new LinkMainHelper();
-        $hash   = $boUser->getRecoveryHash($user);
-        $url    = $helper->reverse('changePassword', ['id' => $user->id, 'hash' => $hash]);
+        $hash   = $boUser->getRegisterConfirmationHash($user);
+        $url    = $helper->reverse('registerConfirmation', ['id' => $user->id, 'hash' => $hash]);
 
         // Set the email parameters
         // @todo Internationalize it
         $this->addTo($user->email);
         if ($language === 'fr') {
-            $this->setSubject('Tracker - Réinitialiser votre mot de passe');
+            $this->setSubject('Tracker - Créer un compte');
 
-            $text = new MimePart('Cliquez sur ce lien pour réinitialiser votre mot de passe : ' . $url);
+            $text = new MimePart('Cliquez sur ce lien pour confirmer la création de votre compte : ' . $url);
             $text->type = "text/plain";
 
-            $html = new MimePart('<p>Cliquez sur ce lien pour réinitialiser votre mot de passe : <a href="' . $url . '">' . $url . '</a>.</p>');
+            $html = new MimePart('<p>Cliquez sur ce lien pour confirmer la création de votre compte : <a href="' . $url . '">' . $url . '</a>.</p>');
             $html->type = "text/html";
         } else {
-            $this->setSubject('Tracker - Reset your password');
+            $this->setSubject('Tracker - Create an account');
 
-            $text = new MimePart('Click on this link to reset your password: ' . $url);
+            $text = new MimePart('Click on this link to confirm the creation of your account: ' . $url);
             $text->type = "text/plain";
 
-            $html = new MimePart('<p>Click on this link to reset your password: <a href="' . $url . '">' . $url . '</a>.</p>');
+            $html = new MimePart('<p>Click on this link to confirm the creation of your account: <a href="' . $url . '">' . $url . '</a>.</p>');
             $html->type = "text/html";
         }
 

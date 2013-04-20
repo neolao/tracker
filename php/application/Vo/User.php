@@ -51,10 +51,19 @@ class User implements SerializableJson
     public $nickname;
 
     /**
+     * Indicates that the user is confirmed
+     * (his email is verified)
+     *
+     * @var bool
+     */
+    public $confirmed;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
+        $this->confirmed = false;
     }
 
     /**
@@ -71,6 +80,7 @@ class User implements SerializableJson
         $json->email            = $this->email;
         $json->password         = $this->password;
         $json->nickname         = $this->nickname;
+        $json->confirmed        = $this->confirmed;
 
         return json_encode($json);
     }
@@ -114,6 +124,10 @@ class User implements SerializableJson
             $this->nickname = (string) $json->nickname;
         }
 
+        // Confirmed
+        if (isset($json->confirmed)) {
+            $this->confirmed = ($json->confirmed);
+        }
     }
 
     /**

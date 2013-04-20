@@ -6,6 +6,7 @@ use \Vo\User;
 use \Bo\User as BoUser;
 use \Mail;
 use \Mail\Message\PasswordRecovery as PasswordRecoveryMessage;
+use \Mail\Message\RegisterConfirmation as RegisterConfirmationMessage;
 
 /**
  * Authentication actions
@@ -33,6 +34,43 @@ class AuthController extends AbstractController
         // Render
         $this->view->formAction = $this->link('login');
         $this->render('auth/login');
+    }
+
+    /**
+     * The user clicks on the confirmation link
+     */
+    public function registerConfirmationAction()
+    {
+        $request    = $this->request;
+        $parameters = $request->parameters;
+        $userId     = (int) $parameters['id'];
+        $hash       = $parameters['hash'];
+
+        // Get the user
+        $boUser = BoUser::getInstance();
+        $user   = $boUser->getById($userId);
+
+        if ($user instanceof User === false) {
+            // The user is not found
+            $this->render('auth/registerConfirmationError');
+        } else if ($hash !== $boUser->getRegisterConfirmationHash($user)) {
+            // The hashes do not match
+            $this->render('auth/registerConfirmationError');
+        } else if ($user->confirmed) {
+            // the link can be used once
+            $this->render('auth/registerConfirmationError');
+        }
+
+        // Update the user
+        $boUser->confirm($user);
+
+        // Connect the user
+        $auth = Auth::getInstance();
+        $auth->currentUser = $user;
+
+        // Render
+        $this->view->isLogged = true;
+        $this->render('auth/registerConfirmation');
     }
 
     /**
@@ -242,7 +280,7 @@ class AuthController extends AbstractController
         }
         if (empty($password)) {
             $error = $this->_('form.error.password.empty');
-        } else if (strlen($password) <= 6) {
+        } else if (strlen($password) < 6) {
             $error = $this->_('form.error.password.invalid');
         }
 
@@ -255,7 +293,9 @@ class AuthController extends AbstractController
             $boUser->add($user);
 
             // Send an email to the user for the confirmation
-            // @todo
+            $mailProvider   = Mail::providerFactory();
+            $message        = new RegisterConfirmationMessage($user, $this->language);
+            $mailProvider->send($message);
 
             // Render
             $this->render('auth/registerMessage');

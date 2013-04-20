@@ -20,6 +20,12 @@
     "recoverPassword.confirm"   : "Un email vient de vous être envoyé contenant les instructions.",
     "changePassword.title"      : "Changer votre mot de passe",
 
+    // Register
+    "register.title"            : "Créer un compte",
+    "register.message"          : "Un email vient de vous être envoyé contenant le lien de confirmation.",
+    "register.confirmation.message" : "Votre compte a bien été confirmé. Vous êtes connecté.",
+    "register.confirmation.error" : "Ce lien est invalide.",
+
     // Profile
     "profile.title"             : "Profil",
     "profile.email.label"       : "Email&nbsp;:",

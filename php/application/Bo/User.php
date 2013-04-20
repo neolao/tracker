@@ -33,7 +33,7 @@ class User
      */
     public function add(VoUser $user)
     {
-        // @todo
+        $this->_daoUser->add($user);
     }
 
     /**
@@ -60,6 +60,31 @@ class User
         $user = $this->_daoUser->getByEmail($email);
 
         return $user;
+    }
+
+    /**
+     * Confirm a user
+     *
+     * @param   \Vo\User    $user       User instance
+     */
+    public function confirm(VoUser $user)
+    {
+        $user->confirmed = true;
+        $this->_daoUser->update($user);
+    }
+
+    /**
+     * Get the register confirmation hash
+     *
+     * @param   \Vo\User    $user       User instance
+     * @return  string                  Hash
+     */
+    public function getRegisterConfirmationHash(VoUser $user)
+    {
+        $hash = $user->email . $user->creationDate . $user->password;
+        $hash = sha1($hash);
+
+        return $hash;
     }
 
     /**

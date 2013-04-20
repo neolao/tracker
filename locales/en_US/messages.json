@@ -20,6 +20,12 @@
     "recoverPassword.confirm"   : "An email is sent to you with containing the instructions.",
     "changePassword.title"      : "Change your passeword",
 
+    // Register
+    "register.title"            : "Create an account",
+    "register.message"          : "An email is sent to you containing the confirmation link.",
+    "register.confirmation.message" : "Your account is now confirmed. You are logged in.",
+    "register.confirmation.error" : "This link is invalid.",
+
     // Profile
     "profile.title"             : "Profile",
     "profile.email.label"       : "Email:",

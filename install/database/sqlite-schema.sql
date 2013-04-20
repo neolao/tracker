@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     creationDate        INTEGER,
     modificationDate    INTEGER,
     enabled             INTEGER,
+    confirmed           INTEGER,
     email               TEXT,
     nickname            TEXT
 );

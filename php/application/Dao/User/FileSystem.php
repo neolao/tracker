@@ -31,6 +31,31 @@ class FileSystem implements UserInterface
     }
 
     /**
+     * Add a user
+     *
+     * @param   \Vo\User    $user       User instance
+     * @throws  \Dao\User\Exception\CreateException
+     */
+    public function add(User $user)
+    {
+        // Update the user instance
+        $nextId     = $this->_getNextId();
+        $user->id   = $nextId;
+
+        // Create the file
+        $directory  = $this->_getDataDirectory();
+        $filePath   = $directory . '/' . $nextId . '.json';
+        $serialized = $user->serializeJson();
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777 - umask(), true);
+        }
+        file_put_contents($filePath, $serialized);
+
+        // Add to the database
+        $this->_databaseAdd($user);
+    }
+
+    /**
      * Get user by id
      *
      * @param   int         $id         User id
@@ -163,6 +188,41 @@ class FileSystem implements UserInterface
     }
 
     /**
+     * Get the next unique id
+     *
+     * @return  int     The next unique id
+     */
+    protected function _getNextId()
+    {
+        // Default id
+        $id = 1;
+
+        // Check the database
+        try {
+            $lastId = $this->_database->querySingle('SELECT id FROM users ORDER BY id DESC LIMIT 1');
+            if ($lastId) {
+                $id = $lastId + 1;
+            }
+            return $id;
+        } catch (\Exception $exception) {
+        }
+
+        // Check the data directory for the next id
+        $directory  = $this->_getDataDirectory();
+        $filePaths  = glob($directory . '/*.json');
+        foreach ($filePaths as $filePath) {
+            $fileName = pathinfo($filePath, PATHINFO_FILENAME);
+            $currentId = (int) $fileName;
+
+            if ($currentId >= $id) {
+                $id = $currentId + 1;
+            }
+        }
+
+        return $id;
+    }
+
+    /**
      * Build a user instance from a file
      *
      * @param   string      $filePath       File path
@@ -194,15 +254,16 @@ class FileSystem implements UserInterface
         // Prepare the query
         $statement = $this->_database->prepare(
             'INSERT INTO users
-                (id, creationDate, modificationDate, email, nickname)
+                (id, creationDate, modificationDate, email, nickname, confirmed)
              VALUES 
-                (:id, :creationDate, :modificationDate, :email, :nickname)'
+                (:id, :creationDate, :modificationDate, :email, :nickname, :confirmed)'
         );
         $statement->bindValue(':id',                $user->id,                  SQLITE3_INTEGER);
         $statement->bindValue(':creationDate',      $user->creationDate,        SQLITE3_INTEGER);
         $statement->bindValue(':modificationDate',  $user->modificationDate,    SQLITE3_INTEGER);
         $statement->bindValue(':email',             $user->email,               SQLITE3_TEXT);
         $statement->bindValue(':nickname',          $user->nickname,            SQLITE3_TEXT);
+        $statement->bindValue(':confirmed',         $user->confirmed,           SQLITE3_INTEGER);
 
         // Execute the query
         $statement->execute();
@@ -222,7 +283,8 @@ class FileSystem implements UserInterface
                 creationDate        = :creationDate,
                 modificationDate    = :modificationDate,
                 email               = :email,
-                nickname            = :nickname
+                nickname            = :nickname,
+                confirmed           = :confirmed
              WHERE
                 id                  = :id'
         );
@@ -231,6 +293,7 @@ class FileSystem implements UserInterface
         $statement->bindValue(':modificationDate',  $user->modificationDate,    SQLITE3_INTEGER);
         $statement->bindValue(':email',             $user->email,               SQLITE3_TEXT);
         $statement->bindValue(':nickname',          $user->nickname,            SQLITE3_TEXT);
+        $statement->bindValue(':confirmed',         $user->confirmed,           SQLITE3_INTEGER);
 
         // Execute the query
         $statement->execute();
