@@ -1,0 +1,31 @@
+{{> _header}}
+
+<article class="site-body page-profile">
+    <h1>{{#i18n}}profile.title{{/i18n}}</h1>
+
+    {{#hasErrors}}
+        <ul class="form-errors">
+        {{#errors}}
+            <li>{{.}}</li>
+        {{/errors}}
+        </ul>
+    {{/hasErrors}}
+
+    <form method="post" action="{{#link}}profile.edit{{/link}}">
+        <p class="form-field email">
+            <label for="form-input-email">{{#i18n}}profile.email.label{{/i18n}}</label>
+            <input id="form-input-email" name="email" type="email" value="{{user.email}}" disabled="disabled"/>
+        </p>
+        <p class="form-field nickname">
+            <label for="form-input-nickname">{{#i18n}}profile.nickname.label{{/i18n}}</label>
+            <input id="form-input-nickname" name="nickname" type="text" value="{{user.nickname}}"/>
+        </p>
+        <p class="form-buttons">
+            <a href="{{#link}}profile{{/link}}">{{#i18n}}button.cancel{{/i18n}}</a>
+            <input type="submit" value="{{#i18n}}button.validate{{/i18n}}"/>
+        </p>
+    </form>
+
+</article>
+
+{{> _footer}}

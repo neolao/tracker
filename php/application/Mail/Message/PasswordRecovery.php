@@ -26,7 +26,7 @@ class PasswordRecovery extends AbstractMessage
         $boUser = BoUser::getInstance();
         $helper = new LinkMainHelper();
         $hash   = $boUser->getRecoveryHash($user);
-        $url    = $helper->reverse('changePassword', ['id' => $user->id, 'hash' => $hash]);
+        $url    = $helper->reverse('password.change', ['id' => $user->id, 'hash' => $hash]);
 
         // Set the email parameters
         // @todo Internationalize it

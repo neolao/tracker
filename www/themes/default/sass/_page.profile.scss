@@ -1,0 +1,17 @@
+.page-profile {
+    .label {
+        display: inline-block;
+        font-weight: bold;
+        width: 5em;
+        text-align: right;
+    }
+
+    form {
+        @extend .form-basic;
+    }
+
+    .email {
+        @extend .basic-with-separator;
+    }
+
+}

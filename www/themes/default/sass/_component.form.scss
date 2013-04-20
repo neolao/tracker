@@ -66,6 +66,16 @@ textarea {
         @include box-shadow(0, 0, 5px, rgb(30, 30, 30), true);
     }
 
+    // Disabled field
+    &:disabled {
+        background: #f5f5f5;
+        color: #444;
+        opacity: 1;
+        border: solid 1px #ccc;
+
+        @include box-shadow(none);
+    }
+
     // Change the background if the field is invalid
     /*
     &:invalid {

@@ -4,11 +4,14 @@
     <h1>{{#i18n}}profile.title{{/i18n}}</h1>
 
     <p>
-        {{#i18n}}profile.email.label{{/i18n}} {{userEmail}}
+        <strong class="label">{{#i18n}}profile.email.label{{/i18n}}</strong> {{user.email}}
     </p>
     <p>
-        {{#i18n}}profile.nickname.label{{/i18n}} {{userNickname}}
+        <strong class="label">{{#i18n}}profile.nickname.label{{/i18n}}</strong> {{user.nickname}}
     </p>
+
+
+    <p><a href="{{#link}}profile.edit{{/link}}" class="button">{{#i18n}}button.edit{{/i18n}}</a></p>
 </article>
 
 {{> _footer}}

@@ -33,7 +33,23 @@ class User
      */
     public function add(VoUser $user)
     {
+        // Update the user
+        $user->creationDate     = time();
+        $user->modificationDate = time();
+
+        // Add the user into the database
         $this->_daoUser->add($user);
+    }
+
+    /**
+     * Update a user
+     *
+     * @param   \Vo\User    $user       User instance
+     */
+    public function update(VoUser $user)
+    {
+        $user->modificationDate = time();
+        $this->_daoUser->update($user);
     }
 
     /**
@@ -69,7 +85,11 @@ class User
      */
     public function confirm(VoUser $user)
     {
+        // Update the user
         $user->confirmed = true;
+        $user->modificationDate = time();
+
+        // Update the user in the database
         $this->_daoUser->update($user);
     }
 

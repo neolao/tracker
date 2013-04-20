@@ -9,6 +9,13 @@ use \Vo\User;
 interface UserInterface extends \Neolao\Behavior\Singleton
 {
     /**
+     * Add a user
+     *
+     * @param   \Vo\User    $user       User instance
+     */
+    function add(User $user);
+
+    /**
      * Get user by id
      *
      * @param   int         $id         User id

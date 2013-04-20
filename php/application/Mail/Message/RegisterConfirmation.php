@@ -26,7 +26,7 @@ class RegisterConfirmation extends AbstractMessage
         $boUser = BoUser::getInstance();
         $helper = new LinkMainHelper();
         $hash   = $boUser->getRegisterConfirmationHash($user);
-        $url    = $helper->reverse('registerConfirmation', ['id' => $user->id, 'hash' => $hash]);
+        $url    = $helper->reverse('register.confirmation', ['id' => $user->id, 'hash' => $hash]);
 
         // Set the email parameters
         // @todo Internationalize it

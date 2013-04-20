@@ -34,7 +34,6 @@ class FileSystem implements UserInterface
      * Add a user
      *
      * @param   \Vo\User    $user       User instance
-     * @throws  \Dao\User\Exception\CreateException
      */
     public function add(User $user)
     {

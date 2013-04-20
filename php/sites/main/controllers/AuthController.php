@@ -116,7 +116,7 @@ class AuthController extends AbstractController
         }
 
         // Render
-        $this->view->formAction = $this->link('recoverPassword');
+        $this->view->formAction = $this->link('password.recover');
         $this->view->errors     = $errors;
         $this->view->hasErrors  = !empty($errors);
         $this->render('auth/recoverPassword');
@@ -181,7 +181,7 @@ class AuthController extends AbstractController
         }
 
         // Render
-        $this->view->formAction = $this->link('changePassword', ['id' => $id, 'hash' => $hash]);
+        $this->view->formAction = $this->link('password.change', ['id' => $id, 'hash' => $hash]);
         $this->view->errors     = $errors;
         $this->view->hasErrors  = !empty($errors);
         $this->render('auth/changePassword');

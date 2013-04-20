@@ -14,21 +14,21 @@
         "controller": "auth",
         "action"    : "login"
     },
-    "registerConfirmation":
+    "register.confirmation":
     {
-        "pattern"   : "/registerConfirmation/:id/:hash",
+        "pattern"   : "/register/confirmation/:id/:hash",
         "controller": "auth",
         "action"    : "registerConfirmation"
     },
-    "recoverPassword":
+    "password.recover":
     {
-        "pattern"   : "/recoverPassword",
+        "pattern"   : "/password/recover",
         "controller": "auth",
         "action"    : "recoverPassword"
     },
-    "changePassword":
+    "password.change":
     {
-        "pattern"   : "/changePassword/:id/:hash",
+        "pattern"   : "/password/change/:id/:hash",
         "controller": "auth",
         "action"    : "changePassword"
     },
@@ -47,6 +47,12 @@
         "pattern"   : "/account/profile",
         "controller": "account",
         "action"    : "profile"
+    },
+    "profile.edit":
+    {
+        "pattern"   : "/account/profile/edit",
+        "controller": "account",
+        "action"    : "editProfile"
     },
 
     // Projects

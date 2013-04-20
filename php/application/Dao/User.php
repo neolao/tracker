@@ -2,6 +2,7 @@
 namespace Dao;
 
 use \Dao\User\FileSystem as DaoFileSystem;
+use \Dao\User\UserInterface;
 
 /**
  * DAO of users
@@ -15,7 +16,13 @@ class User
      */
     public static function factory()
     {
+        // Get the instance of the concrete DAO
         $dao = DaoFileSystem::getInstance();
+
+        // Check the interface of the concrete DAO
+        if ($dao instanceof UserInterface === false) {
+            throw new \Exception('The DAO must implements UserInterface');
+        }
 
         return $dao;
     }

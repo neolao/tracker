@@ -257,9 +257,6 @@ class FileSystem implements ProjectInterface
      */
     public function update(Project $project)
     {
-        // Update the project
-        $project->modificationDate = time();
-
         // Update the file
         $directory  = $this->_getDataDirectory();
         $filePath   = $directory . '/' . $project->id . '.json';
