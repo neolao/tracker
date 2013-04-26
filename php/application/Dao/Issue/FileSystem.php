@@ -50,7 +50,7 @@ class FileSystem implements IssueInterface
         if (!is_dir($directory)) {
             mkdir($directory, 0777 - umask(), true);
         }
-        file_put_contents($filePath, $serialized);
+        file_put_contents($filePath, $serialized, LOCK_EX);
 
         // Add to the database
         $this->_databaseAdd($issue);
@@ -220,7 +220,7 @@ class FileSystem implements IssueInterface
         if (!is_dir($directory)) {
             mkdir($directory, 0777 - umask(), true);
         }
-        file_put_contents($filePath, $serialized);
+        file_put_contents($filePath, $serialized, LOCK_EX);
 
         // Update the database
         $this->_databaseUpdate($issue);
