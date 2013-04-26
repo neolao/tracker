@@ -12,6 +12,11 @@
     {{/hasErrors}}
 
     <form method="post" action="{{linkEdit}}">
+        <p class="form-field project">
+            <label for="form-input-project">{{#i18n}}form.project.label{{/i18n}}</label>
+            <select id="form-input-project" name="projectId">
+            </select>
+        </p>
         <p class="form-field name">
             <label for="form-input-name">{{#i18n}}form.name.label{{/i18n}}</label>
             <input id="form-input-name" name="name" type="text" required="required" pattern="^.{1,}$" value="{{issue.name}}"/>

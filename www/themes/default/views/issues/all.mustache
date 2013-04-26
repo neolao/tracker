@@ -22,21 +22,30 @@
     <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
+                <th>{{#i18n}}issue.id.label{{/i18n}}</th>
+                <th>{{#i18n}}issue.name.label{{/i18n}}</th>
+                <th>{{#i18n}}issue.assignedTo.label{{/i18n}}</th>
+                <th>{{#i18n}}issue.progression.label{{/i18n}}</th>
+                <th>{{#i18n}}issue.status.label{{/i18n}}</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <td>id</td>
-                <td>name</td>
+                <td>{{#i18n}}issue.id.label{{/i18n}}</td>
+                <td>{{#i18n}}issue.name.label{{/i18n}}</td>
+                <td>{{#i18n}}issue.assignedTo.label{{/i18n}}</td>
+                <td>{{#i18n}}issue.progression.label{{/i18n}}</td>
+                <td>{{#i18n}}issue.status.label{{/i18n}}</td>
             </tr>
         </tfoot>
         <tbody>
         {{#issues}}
             <tr>
-                <td>{{id}}</td>
+                <td><a href="{{#link}}issue,id:{{id}}{{/link}}">#{{id}}</a></td>
                 <td><a href="{{#link}}issue,id:{{id}}{{/link}}">{{name}}</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         {{/issues}}
         </tbody>

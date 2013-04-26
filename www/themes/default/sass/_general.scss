@@ -19,7 +19,7 @@ p {
 
 // table
 thead {
-    border-bottom: solid 1px $globa-text-color;
+    border-bottom: double 3px $global-text-color;
 }
 th {
     font-weight: bold;
@@ -29,7 +29,12 @@ th {
 td {
     @extend th;
 
+    padding: .5em .5em;
     border-bottom: solid 1px #ccc;
+
+}
+tr:last-child td {
+    border-bottom: none;
 }
 tfoot {
     display: none;

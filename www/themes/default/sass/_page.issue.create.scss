@@ -4,6 +4,7 @@
         @extend .form-basic;
     }
 
+    .project,
     .name {
         @extend .basic-with-separator;
     }

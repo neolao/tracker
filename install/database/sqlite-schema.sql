@@ -46,5 +46,13 @@ CREATE TABLE IF NOT EXISTS issues (
     creationDate        INTEGER,
     modificationDate    INTEGER,
     name                TEXT,
+    status              INTEGER,
+    projectId           INTEGER,
+    milestoneId         INTEGER,
+    assignedUserId      INTEGER,
+    priority            INTEGER,
+    startDate           INTEGER,
+    dueDate             INTEGER,
+    progression         INTEGER,
     description         TEXT
 );

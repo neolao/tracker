@@ -47,6 +47,11 @@
     "issue.sheet.title"         : "Issue: {{name}}",
     "issue.create.title"        : "New issue",
     "issue.edit.title"          : "Edit the issue \"{{name}}\"",
+    "issue.id.label"            : "Id",
+    "issue.name.label"          : "Name",
+    "issue.assignedTo.label"    : "Assigned to",
+    "issue.progression.label"   : "Progression",
+    "issue.status.label"        : "Status",
 
     // Widget: create a project
     "widget.project.create.title" : "New project",
@@ -63,6 +68,7 @@
     "form.name.label"           : "Name:",
     "form.name.project.note"    : "Between 1 and 50 characters.",
     "form.description.label"    : "Description:",
+    "form.project.label"        : "Project:",
     "form.error.unknown"        : "Unknown error",
     "form.error.email.empty"    : "You must provide an email.",
     "form.error.email.notFound" : "This email does not exist.",

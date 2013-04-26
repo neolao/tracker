@@ -349,11 +349,7 @@ class FileSystem implements IssueInterface
              VALUES 
                 (:id, :creationDate, :modificationDate, :name, :description)'
         );
-        $statement->bindValue(':id',                $issue->id,                 SQLITE3_INTEGER);
-        $statement->bindValue(':creationDate',      $issue->creationDate,       SQLITE3_INTEGER);
-        $statement->bindValue(':modificationDate',  $issue->modificationDate,   SQLITE3_INTEGER);
-        $statement->bindValue(':name',              $issue->name,               SQLITE3_TEXT);
-        $statement->bindValue(':description',       $issue->description,        SQLITE3_TEXT);
+        $this->_databaseBindValues($statement, $issue);
 
         // Execute the query
         $statement->execute();
@@ -377,15 +373,33 @@ class FileSystem implements IssueInterface
              WHERE
                 id                  = :id'
         );
-        $statement->bindValue(':id',                $issue->id,                 SQLITE3_INTEGER);
-        $statement->bindValue(':creationDate',      $issue->creationDate,       SQLITE3_INTEGER);
-        $statement->bindValue(':modificationDate',  $issue->modificationDate,   SQLITE3_INTEGER);
-        $statement->bindValue(':name',              $issue->name,               SQLITE3_TEXT);
-        $statement->bindValue(':description',       $issue->description,        SQLITE3_TEXT);
+        $this->_databaseBindValues($statement, $issue);
 
         // Execute the query
         $statement->execute();
     }
 
+    /**
+     * Bind the values of the statement
+     *
+     * @param   \SQLite3Stmt        $statement      Statement of the query
+     * @param   \Vo\Issue           $issue          Issue instance
+     */
+    protected function _databaseBindValues(\SQLite3Stmt $statement, Issue $issue)
+    {
+        $statement->bindValue(':id',                $issue->id,                 SQLITE3_INTEGER);
+        $statement->bindValue(':creationDate',      $issue->creationDate,       SQLITE3_INTEGER);
+        $statement->bindValue(':modificationDate',  $issue->modificationDate,   SQLITE3_INTEGER);
+        $statement->bindValue(':name',              $issue->name,               SQLITE3_TEXT);
+        $statement->bindValue(':status',            $issue->status,             SQLITE3_INTEGER);
+        $statement->bindValue(':projectId',         $issue->projectId,          SQLITE3_INTEGER);
+        $statement->bindValue(':milestoneId',       $issue->milestoneId,        SQLITE3_INTEGER);
+        $statement->bindValue(':assignedUserId',    $issue->assignedUserId,     SQLITE3_INTEGER);
+        $statement->bindValue(':priority',          $issue->priority,           SQLITE3_INTEGER);
+        $statement->bindValue(':startDate',         $issue->startDate,          SQLITE3_INTEGER);
+        $statement->bindValue(':dueDate',           $issue->dueDate,            SQLITE3_INTEGER);
+        $statement->bindValue(':progression',       $issue->progression,        SQLITE3_INTEGER);
+        $statement->bindValue(':description',       $issue->description,        SQLITE3_TEXT);
+    }
 
 }
