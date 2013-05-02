@@ -5,6 +5,7 @@ use \Neolao\Site\Request;
 use \Vo\Issue;
 use \Bo\Issue as BoIssue;
 use \Bo\Issue\Exception\UpdateException;
+use \Bo\Project as BoProject;
 
 /**
  * Issue pages
@@ -110,10 +111,15 @@ class IssueController extends AbstractController
             $this->_submitEditForm($issue);
         }
 
+        // Get the project list
+        $boProject  = BoProject::getInstance();
+        $projects   = $boProject->getList();
+
         // Render
         $this->view->issue      = $issue;
         $this->view->issueName  = $issue->name;
-        $this->view->linkEdit   = $this->link('issue.edit', ['id' => $issue->id]);
+        $this->view->projects   = $projects;
+        $this->view->linkEdit   = $this->helpers->link('issue.edit', ['id' => $issue->id]);
         $this->render('issues/edit');
     }
 

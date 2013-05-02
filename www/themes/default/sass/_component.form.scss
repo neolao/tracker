@@ -85,6 +85,52 @@ textarea {
     */
 }
 
+// Select
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    display: inline-block;
+    vertical-align: top;
+    padding: .45rem;
+    margin: 0;
+
+    font-size: 1rem;
+    color: $global-text-color;
+
+    outline: none;
+    border: solid 1px $component-border-color;
+    @include border-radius($component-border-radius);
+
+    @include box-shadow(none);
+
+    //@include background-gradient-vertical(#f9f9f9, #eee);
+    background: 
+        url(../images/form/select-arrow.svg) no-repeat right center,
+        -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #eee));
+    background: 
+        url(../images/form/select-arrow.svg) no-repeat right center,
+        -webkit-linear-gradient(top, #f9f9f9 0%, #eee 100%);
+    background: 
+        url(../images/form/select-arrow.svg) no-repeat right center,
+        linear-gradient(to bottom, #f9f9f9 0%, #eee 100%);
+
+
+    // Change the border color on focus
+    &:focus {
+    }
+
+    // Disabled field
+    &:disabled {
+        color: #444;
+        opacity: 1;
+        border: solid 1px #ccc;
+    }
+
+
+}
+
 // Submit button
 input[type=submit] {
     @extend .button;

@@ -32,7 +32,7 @@ class AuthController extends AbstractController
         }
 
         // Render
-        $this->view->formAction = $this->link('login');
+        $this->view->formAction = $this->helpers->link('login');
         $this->render('auth/login');
     }
 

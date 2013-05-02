@@ -85,7 +85,7 @@ abstract class AbstractController extends Controller
     {
 
         // Get the ACL instance from the helper
-        $acl = $this->getAcl();
+        $acl = $this->helpers->getAcl();
 
         // Get the role of the current user
         $auth           = Auth::getInstance();

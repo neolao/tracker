@@ -15,6 +15,9 @@
         <p class="form-field project">
             <label for="form-input-project">{{#i18n}}form.project.label{{/i18n}}</label>
             <select id="form-input-project" name="projectId">
+            {{#projects}}
+                <option value="{{id}}">{{name}}</option>
+            {{/projects}}
             </select>
         </p>
         <p class="form-field name">

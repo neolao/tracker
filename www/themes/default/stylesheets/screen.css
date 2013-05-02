@@ -193,12 +193,24 @@ input[type=text], input[type=password], input[type=email], textarea {
   -webkit-appearance: none;
   -moz-box-shadow: 0 0 5px #a0a0a0 inset;
   -webkit-box-shadow: 0 0 5px #a0a0a0 inset;
-  box-shadow: 0 0 5px #a0a0a0 inset; }
+  box-shadow: 0 0 5px #a0a0a0 inset;
+  /**
+ * Create a vertical gradient for the background
+ *
+ * @param   color   $color1     The color of the top
+ * @param   color   $color2     The color of the bottom
+ */ }
   input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus {
     -webkit-appearance: none;
     -moz-box-shadow: 0 0 5px #1e1e1e inset;
     -webkit-box-shadow: 0 0 5px #1e1e1e inset;
-    box-shadow: 0 0 5px #1e1e1e inset; }
+    box-shadow: 0 0 5px #1e1e1e inset;
+    /**
+ * Create a vertical gradient for the background
+ *
+ * @param   color   $color1     The color of the top
+ * @param   color   $color2     The color of the bottom
+ */ }
   input[type=text]:disabled, input[type=password]:disabled, input[type=email]:disabled, textarea:disabled {
     background: #f5f5f5;
     color: #444;
@@ -208,12 +220,60 @@ input[type=text], input[type=password], input[type=email], textarea {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    /**
+ * Create a vertical gradient for the background
+ *
+ * @param   color   $color1     The color of the top
+ * @param   color   $color2     The color of the bottom
+ */
     /*
     &:invalid {
         @include box-shadow(0, 0, 5px, rgb(255, 0, 0), true);
         background: rgba(255, 0, 0, .1);
     }
     */ }
+
+select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.45rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #323232;
+  outline: none;
+  border: solid 1px #c0c0c0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  /**
+ * Box shadow
+ *
+ * @param   unit    $x          X coordinate
+ * @param   unit    $y          Y coordinate
+ * @param   unit    $blur       Blur strength
+ * @param   color   $color      Blur color
+ * @param   boolean $inset      Indicates that the blur is inside the box
+ */
+  -webkit-appearance: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /**
+ * Create a vertical gradient for the background
+ *
+ * @param   color   $color1     The color of the top
+ * @param   color   $color2     The color of the bottom
+ */
+  background: url(../images/form/select-arrow.svg) no-repeat right center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #eee));
+  background: url(../images/form/select-arrow.svg) no-repeat right center, -webkit-linear-gradient(top, #f9f9f9 0%, #eee 100%);
+  background: url(../images/form/select-arrow.svg) no-repeat right center, linear-gradient(to bottom, #f9f9f9 0%, #eee 100%); }
+  select:disabled {
+    color: #444;
+    opacity: 1;
+    border: solid 1px #ccc; }
 
 .form-field-note {
   display: inline-block;
@@ -387,11 +447,11 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin: 0 0 0 1%; }
   .form-basic label:first-child, .page-profile form label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child, .page-issue-edit form label:first-child {
     margin-left: 0; }
-  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic select, .page-profile form select, .page-change-password form select, .page-project-create form select, .page-issue-create form select, .page-issue-edit form select, .page-issue-edit form select, .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
     float: left;
     width: 41.08333%;
     margin: 0 0 0 1%; }
-  .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
+  .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic select:first-child, .page-profile form select:first-child, .page-change-password form select:first-child, .page-project-create form select:first-child, .page-issue-create form select:first-child, .page-issue-edit form select:first-child, .page-issue-edit form select:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
     margin-left: 0; }
   .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
     height: 6rem; }
@@ -421,11 +481,11 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin: 0 0 0 1%; }
     .form-basic label:first-child, .page-profile form label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic select, .page-profile form select, .page-change-password form select, .page-project-create form select, .page-issue-create form select, .page-issue-edit form select, .page-issue-edit form select, .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
     float: left;
     width: 49.5%;
     margin: 0 0 0 1%; }
-    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic select:first-child, .page-profile form select:first-child, .page-change-password form select:first-child, .page-project-create form select:first-child, .page-issue-create form select:first-child, .page-issue-edit form select:first-child, .page-issue-edit form select:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
   .form-basic .form-field-note, .page-profile form .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note, .page-issue-edit form .form-field-note {
     float: left;
@@ -454,11 +514,11 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin: 0 0 0 1%; }
     .form-basic label:first-child, .page-profile form label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic select, .page-profile form select, .page-change-password form select, .page-project-create form select, .page-issue-create form select, .page-issue-edit form select, .page-issue-edit form select, .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
     float: left;
     width: 74.75%;
     margin: 0 0 0 1%; }
-    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic select:first-child, .page-profile form select:first-child, .page-change-password form select:first-child, .page-project-create form select:first-child, .page-issue-create form select:first-child, .page-issue-edit form select:first-child, .page-issue-edit form select:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
   .form-basic .form-field-note, .page-profile form .form-field-note, .page-change-password form .form-field-note, .page-project-create form .form-field-note, .page-issue-create form .form-field-note, .page-issue-edit form .form-field-note, .page-issue-edit form .form-field-note {
     float: left;
@@ -489,12 +549,12 @@ input[type=text], input[type=password], input[type=email], textarea {
     margin-left: 0; }
     .form-basic label:first-child, .page-profile form label:first-child, .page-change-password form label:first-child, .page-project-create form label:first-child, .page-issue-create form label:first-child, .page-issue-edit form label:first-child, .page-issue-edit form label:first-child {
       margin-left: 0; }
-  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
+  .form-basic input[type=text], .page-profile form input[type=text], .page-change-password form input[type=text], .page-project-create form input[type=text], .page-issue-create form input[type=text], .page-issue-edit form input[type=text], .page-issue-edit form input[type=text], .form-basic input[type=email], .page-profile form input[type=email], .page-change-password form input[type=email], .page-project-create form input[type=email], .page-issue-create form input[type=email], .page-issue-edit form input[type=email], .page-issue-edit form input[type=email], .form-basic input[type=password], .page-profile form input[type=password], .page-change-password form input[type=password], .page-project-create form input[type=password], .page-issue-create form input[type=password], .page-issue-edit form input[type=password], .page-issue-edit form input[type=password], .form-basic select, .page-profile form select, .page-change-password form select, .page-project-create form select, .page-issue-create form select, .page-issue-edit form select, .page-issue-edit form select, .form-basic textarea, .page-profile form textarea, .page-change-password form textarea, .page-project-create form textarea, .page-issue-create form textarea, .page-issue-edit form textarea, .page-issue-edit form textarea {
     float: left;
     width: 100%;
     margin: 0 0 0 1%;
     margin-left: 0; }
-    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
+    .form-basic input[type=text]:first-child, .page-profile form input[type=text]:first-child, .page-change-password form input[type=text]:first-child, .page-project-create form input[type=text]:first-child, .page-issue-create form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .page-issue-edit form input[type=text]:first-child, .form-basic input[type=email]:first-child, .page-profile form input[type=email]:first-child, .page-change-password form input[type=email]:first-child, .page-project-create form input[type=email]:first-child, .page-issue-create form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .page-issue-edit form input[type=email]:first-child, .form-basic input[type=password]:first-child, .page-profile form input[type=password]:first-child, .page-change-password form input[type=password]:first-child, .page-project-create form input[type=password]:first-child, .page-issue-create form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .page-issue-edit form input[type=password]:first-child, .form-basic select:first-child, .page-profile form select:first-child, .page-change-password form select:first-child, .page-project-create form select:first-child, .page-issue-create form select:first-child, .page-issue-edit form select:first-child, .page-issue-edit form select:first-child, .form-basic textarea:first-child, .page-profile form textarea:first-child, .page-change-password form textarea:first-child, .page-project-create form textarea:first-child, .page-issue-create form textarea:first-child, .page-issue-edit form textarea:first-child, .page-issue-edit form textarea:first-child {
       margin-left: 0; }
   .form-basic .form-field.with-separator:after, .page-profile form .form-field.with-separator:after, .page-change-password form .form-field.with-separator:after, .page-project-create form .form-field.with-separator:after, .page-issue-create form .form-field.with-separator:after, .page-issue-edit form .form-field.with-separator:after, .page-issue-edit form .form-field.with-separator:after {
     display: block;
